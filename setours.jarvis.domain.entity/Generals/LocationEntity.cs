@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace setours.jarvis.domain.entity.General
+namespace setours.jarvis.domain.entity.Generals
 {
     public class LocationEntity : IEntity
     {

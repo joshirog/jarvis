@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using setours.jarvis.domain.entity.Generals;
 
 namespace setours.jarvis.domain.entity.Providers
 {
@@ -7,9 +7,29 @@ namespace setours.jarvis.domain.entity.Providers
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public int? ProviderChainId { get; set; }
 
-        public string Status { get; set; }
+        public int ProviderStatusId { get; set; }
+
+        public int DocumentId { get; set; }
+
+        public int CountryId { get; set; }
+
+        public int CityId { get; set; }
+
+        public string TradingName { get; set; }
+
+        public string LeganName { get; set; }
+
+        public string RegistrationNumber { get; set; }
+
+        public string Address { get; set; }
+
+        public string ZipCode { get; set; }
+
+        public string Phone { get; set; }
+
+        public string Website { get; set; }
 
         public string CodeSetra { get; set; }
 
@@ -22,6 +42,14 @@ namespace setours.jarvis.domain.entity.Providers
         public DateTime? UpdatedAt { get; set; }
 
 
-        public List<ProviderEntity> Providers { get; set; }
+        public ProviderChainEntity ProviderChain { get; set; }
+
+        public ProviderStatusEntity Status { get; set; }
+
+        public LocationEntity Country { get; set; }
+
+        public LocationEntity City { get; set; }
+
+        public DocumentEntity Document { get; set; }
     }
 }
