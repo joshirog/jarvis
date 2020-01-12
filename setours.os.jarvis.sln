@@ -1,0 +1,124 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Services", "1. Services", "{DDA26B38-5F88-441E-96AD-6F3637F8F5AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Application", "2. Application", "{E78D7C43-E27B-4161-8648-AFEC784661CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Domain", "3. Domain", "{42EB8E59-7089-459D-AEA6-0585357784C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Infrastructure", "4. Infrastructure", "{29F56220-FA19-46AB-BEC4-CF440DD49AB7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Transversal", "5. Transversal", "{BA2CF13A-3AD5-4066-B3CE-142CDF002690}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.services.api", "setours.jarvis.services.api\setours.jarvis.services.api.csproj", "{E6A6D12F-C5A5-4AAE-A4D5-52616DA45B4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.application.interfaces", "setours.jarvis.application.interfaces\setours.jarvis.application.interfaces.csproj", "{7BA3CB64-EB8D-4B77-9F84-315F074C5753}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.application.main", "setours.jarvis.application.main\setours.jarvis.application.main.csproj", "{7E535644-789A-4133-9CD9-2FBD0F05AD18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.application.dto", "setours.jarvis.application.dto\setours.jarvis.application.dto.csproj", "{299F29A4-C936-440F-9EC8-7C934A7EE517}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.domain.entity", "setours.jarvis.domain.entity\setours.jarvis.domain.entity.csproj", "{AC5645EF-1334-494D-94F7-CE7FDB319288}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.domain.core", "setours.jarvis.domain.core\setours.jarvis.domain.core.csproj", "{6A0EE58C-305C-4FAD-B299-FA911EC97CC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.domain.interfaces", "setours.jarvis.domain.interfaces\setours.jarvis.domain.interfaces.csproj", "{4BE0F281-461D-466E-B8B9-497D55D1B53F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.infrastructure.persistence", "setours.jarvis.infrastructure.persistence\setours.jarvis.infrastructure.persistence.csproj", "{5FB73E6F-F173-440F-A92B-6A3941B032D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.infrastructure.repository", "setours.jarvis.infrastructure.repository\setours.jarvis.infrastructure.repository.csproj", "{C9DABFEA-5579-4CB7-AC84-32255AF24B38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.infrastructure.interfaces", "setours.jarvis.infrastructure.interfaces\setours.jarvis.infrastructure.interfaces.csproj", "{8190CBD8-6DF4-4C70-9469-478FFD1FD379}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.transversal.common", "setours.jarvis.transversal.common\setours.jarvis.transversal.common.csproj", "{571BFE22-3472-4DF1-B4CD-1D4A56533F0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.transversal.mapper", "setours.jarvis.transversal.mapper\setours.jarvis.transversal.mapper.csproj", "{0208A0FB-B598-4C33-922B-CC04CABA5EB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.application.validation", "setours.jarvis.application.validation\setours.jarvis.application.validation.csproj", "{27F8CD3C-E144-4AD9-AD2B-9E25419F94A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Testing", "6. Testing", "{2D323609-5344-42B9-8F7A-FB5D3212A67B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6A6D12F-C5A5-4AAE-A4D5-52616DA45B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6A6D12F-C5A5-4AAE-A4D5-52616DA45B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6A6D12F-C5A5-4AAE-A4D5-52616DA45B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6A6D12F-C5A5-4AAE-A4D5-52616DA45B4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BA3CB64-EB8D-4B77-9F84-315F074C5753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BA3CB64-EB8D-4B77-9F84-315F074C5753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BA3CB64-EB8D-4B77-9F84-315F074C5753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BA3CB64-EB8D-4B77-9F84-315F074C5753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E535644-789A-4133-9CD9-2FBD0F05AD18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E535644-789A-4133-9CD9-2FBD0F05AD18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E535644-789A-4133-9CD9-2FBD0F05AD18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E535644-789A-4133-9CD9-2FBD0F05AD18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{299F29A4-C936-440F-9EC8-7C934A7EE517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{299F29A4-C936-440F-9EC8-7C934A7EE517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{299F29A4-C936-440F-9EC8-7C934A7EE517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{299F29A4-C936-440F-9EC8-7C934A7EE517}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC5645EF-1334-494D-94F7-CE7FDB319288}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC5645EF-1334-494D-94F7-CE7FDB319288}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC5645EF-1334-494D-94F7-CE7FDB319288}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC5645EF-1334-494D-94F7-CE7FDB319288}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A0EE58C-305C-4FAD-B299-FA911EC97CC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A0EE58C-305C-4FAD-B299-FA911EC97CC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A0EE58C-305C-4FAD-B299-FA911EC97CC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A0EE58C-305C-4FAD-B299-FA911EC97CC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BE0F281-461D-466E-B8B9-497D55D1B53F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE0F281-461D-466E-B8B9-497D55D1B53F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE0F281-461D-466E-B8B9-497D55D1B53F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE0F281-461D-466E-B8B9-497D55D1B53F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FB73E6F-F173-440F-A92B-6A3941B032D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FB73E6F-F173-440F-A92B-6A3941B032D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FB73E6F-F173-440F-A92B-6A3941B032D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FB73E6F-F173-440F-A92B-6A3941B032D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9DABFEA-5579-4CB7-AC84-32255AF24B38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9DABFEA-5579-4CB7-AC84-32255AF24B38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9DABFEA-5579-4CB7-AC84-32255AF24B38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9DABFEA-5579-4CB7-AC84-32255AF24B38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8190CBD8-6DF4-4C70-9469-478FFD1FD379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8190CBD8-6DF4-4C70-9469-478FFD1FD379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8190CBD8-6DF4-4C70-9469-478FFD1FD379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8190CBD8-6DF4-4C70-9469-478FFD1FD379}.Release|Any CPU.Build.0 = Release|Any CPU
+		{571BFE22-3472-4DF1-B4CD-1D4A56533F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{571BFE22-3472-4DF1-B4CD-1D4A56533F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{571BFE22-3472-4DF1-B4CD-1D4A56533F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{571BFE22-3472-4DF1-B4CD-1D4A56533F0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0208A0FB-B598-4C33-922B-CC04CABA5EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0208A0FB-B598-4C33-922B-CC04CABA5EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0208A0FB-B598-4C33-922B-CC04CABA5EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0208A0FB-B598-4C33-922B-CC04CABA5EB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27F8CD3C-E144-4AD9-AD2B-9E25419F94A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27F8CD3C-E144-4AD9-AD2B-9E25419F94A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27F8CD3C-E144-4AD9-AD2B-9E25419F94A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27F8CD3C-E144-4AD9-AD2B-9E25419F94A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E6A6D12F-C5A5-4AAE-A4D5-52616DA45B4F} = {DDA26B38-5F88-441E-96AD-6F3637F8F5AD}
+		{7BA3CB64-EB8D-4B77-9F84-315F074C5753} = {E78D7C43-E27B-4161-8648-AFEC784661CB}
+		{7E535644-789A-4133-9CD9-2FBD0F05AD18} = {E78D7C43-E27B-4161-8648-AFEC784661CB}
+		{299F29A4-C936-440F-9EC8-7C934A7EE517} = {E78D7C43-E27B-4161-8648-AFEC784661CB}
+		{AC5645EF-1334-494D-94F7-CE7FDB319288} = {42EB8E59-7089-459D-AEA6-0585357784C5}
+		{6A0EE58C-305C-4FAD-B299-FA911EC97CC3} = {42EB8E59-7089-459D-AEA6-0585357784C5}
+		{4BE0F281-461D-466E-B8B9-497D55D1B53F} = {42EB8E59-7089-459D-AEA6-0585357784C5}
+		{5FB73E6F-F173-440F-A92B-6A3941B032D5} = {29F56220-FA19-46AB-BEC4-CF440DD49AB7}
+		{C9DABFEA-5579-4CB7-AC84-32255AF24B38} = {29F56220-FA19-46AB-BEC4-CF440DD49AB7}
+		{8190CBD8-6DF4-4C70-9469-478FFD1FD379} = {29F56220-FA19-46AB-BEC4-CF440DD49AB7}
+		{571BFE22-3472-4DF1-B4CD-1D4A56533F0A} = {BA2CF13A-3AD5-4066-B3CE-142CDF002690}
+		{0208A0FB-B598-4C33-922B-CC04CABA5EB2} = {BA2CF13A-3AD5-4066-B3CE-142CDF002690}
+		{27F8CD3C-E144-4AD9-AD2B-9E25419F94A0} = {E78D7C43-E27B-4161-8648-AFEC784661CB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF43F2B5-A00D-4625-8265-0CC13E2F562A}
+	EndGlobalSection
+EndGlobal
