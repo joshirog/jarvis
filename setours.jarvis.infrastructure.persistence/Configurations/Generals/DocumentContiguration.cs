@@ -70,11 +70,12 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
                 .IsRequired(false)
                 .HasComment("ultima fecha de actualizacion el registro");
 
-
+            /*
             builder.HasData(
                 new DocumentEntity() { Id = 1, Abbreviation = "RUC", Name = "Unique Registry of Taxpayers", CreatedBy = "System" },
                 new DocumentEntity() { Id = 2, Abbreviation = "DNI", Name = "National identity document", CreatedBy = "System" }
             );
+            */
         }
     }
 }

@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.0" />
@@ -17,6 +18,11 @@
     <ProjectReference Include="..\setours.jarvis.application.main\setours.jarvis.application.main.csproj" />
     <ProjectReference Include="..\setours.jarvis.domain.core\setours.jarvis.domain.core.csproj" />
     <ProjectReference Include="..\setours.jarvis.infrastructure.persistence\setours.jarvis.infrastructure.persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\Rates\" />
+    <Folder Include="Controllers\Services\" />
   </ItemGroup>
 
 

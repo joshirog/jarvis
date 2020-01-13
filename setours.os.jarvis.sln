@@ -37,9 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "setours.jarvis.transversal.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "setours.jarvis.application.validation", "setours.jarvis.application.validation\setours.jarvis.application.validation.csproj", "{27F8CD3C-E144-4AD9-AD2B-9E25419F94A0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Testing", "6. Testing", "{2D323609-5344-42B9-8F7A-FB5D3212A67B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.services.api", "setours.jarvis.services.api\setours.jarvis.services.api.csproj", "{B2448731-B765-4859-BF58-79BF88826449}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "setours.jarvis.services.api", "setours.jarvis.services.api\setours.jarvis.services.api.csproj", "{B2448731-B765-4859-BF58-79BF88826449}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

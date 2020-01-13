@@ -54,12 +54,13 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Providers
                 .IsRequired(false)
                 .HasComment("Ultima fecha de actualizacion el registro");
 
-
+            /*
             builder.HasData(
                 new ProviderStatusEntity() { Id = 1, Name = "Active", Description = "Status active provider", CreatedBy = "System" },
                 new ProviderStatusEntity() { Id = 2, Name = "Inactive", Description = "Status inactive provider", CreatedBy = "System" },
                 new ProviderStatusEntity() { Id = 3, Name = "Remove", Description = "Status removed provider", CreatedBy = "System" }
             );
+            */
         }
     }
 }

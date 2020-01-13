@@ -9,6 +9,8 @@
     <ProjectReference Include="..\setours.jarvis.infrastructure.persistence\setours.jarvis.infrastructure.persistence.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Rates\" />
+    <Folder Include="Services\" />
     <Folder Include="Providers\" />
     <Folder Include="Generals\" />
   </ItemGroup>

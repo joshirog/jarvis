@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using setours.jarvis.domain.entity;
@@ -27,12 +29,20 @@ namespace setours.jarvis.infrastructure.repository
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await _dbset.AsNoTracking().ToListAsync();
+            return await _dbset
+                .AsNoTracking()
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<TEntity>> GetSearch(BaseSearchQuery search)
         {
+            search.Includes = new List<BaseIncludeQuery>()
+            {
+                new BaseIncludeQuery { Table = "ProviderChain" }
+            };
+
             var query = _dbset
+                .IncludeJoins(search.Includes)
                 .Filter(search.Filters)
                 .Sort(search.Sort)
                 .Paginate(search.Page, search.Size);

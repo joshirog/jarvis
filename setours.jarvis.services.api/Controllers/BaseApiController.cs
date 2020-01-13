@@ -31,7 +31,7 @@ namespace setours.jarvis.services.api.Controllers
         }
 
         [HttpGet("Search")]
-        public async Task<IActionResult> GetSearch(BaseSearchQuery search)
+        public async Task<IActionResult> GetSearch([FromQuery] BaseSearchQuery search)
         {
             return Ok(await _application.GetSearch(search));
         }

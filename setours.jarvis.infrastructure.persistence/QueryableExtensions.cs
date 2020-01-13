@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using setours.jarvis.transversal.common.Bases.Querys;
@@ -16,6 +18,12 @@ namespace setours.jarvis.infrastructure.persistence
             var parameter = Expression.Parameter(typeof(T));
             BinaryExpression binaryExpression = null;
             binaryExpression = CombineFilterBinaryExpression(parameter, filters, binaryExpression);
+
+            if (binaryExpression == null) 
+            {
+                return queryable;
+            }
+
             var expression = (Expression<Func<T, bool>>)Expression.Lambda<Func<T, bool>>(binaryExpression, parameter);
             return queryable.Where(expression);
         }
@@ -24,14 +32,17 @@ namespace setours.jarvis.infrastructure.persistence
         {
             var elementType = typeof(T);
 
-            foreach (var item in sort)
+            if (sort != null)
             {
-                var order = item.Ascending ? "OrderBy" : "OrderByDescending";
-                var parameter = Expression.Parameter(elementType);
-                var property = Expression.PropertyOrField(parameter, item.Field);
-                var selector = Expression.Lambda(property, parameter);
-                var orderByExpression = Expression.Call(typeof(Queryable), order, new[] { elementType, property.Type }, queryable.Expression, selector);
-                queryable = queryable.Provider.CreateQuery<T>(orderByExpression);
+                foreach (var item in sort)
+                {
+                    var order = item.Ascending ? "OrderBy" : "OrderByDescending";
+                    var parameter = Expression.Parameter(elementType);
+                    var property = Expression.PropertyOrField(parameter, item.Field);
+                    var selector = Expression.Lambda(property, parameter);
+                    var orderByExpression = Expression.Call(typeof(Queryable), order, new[] { elementType, property.Type }, queryable.Expression, selector);
+                    queryable = queryable.Provider.CreateQuery<T>(orderByExpression);
+                }
             }
 
             return queryable;
@@ -40,6 +51,23 @@ namespace setours.jarvis.infrastructure.persistence
         public static IQueryable<T> Paginate<T>(this IQueryable<T> queryable, int page = 1, int size = 100)
         {
             return queryable.Skip((page - 1) * size).Take(size);
+        }
+
+        public static IQueryable<T> IncludeJoins<T>(this DbSet<T> dbSet, IEnumerable<BaseIncludeQuery> includes) where T : class
+        {
+            IQueryable<T> query = null;
+
+            foreach (var include in includes)
+            {
+                var param = Expression.Parameter(typeof(T), "x");
+                var member = Expression.Property(param, include.Table);
+                
+                var expression = Expression.Lambda<Func<T, object>>(member, param);
+
+                query = dbSet.Include(expression);
+            }
+            
+            return query == null ? dbSet : query;
         }
 
         public static string ToSql<TEntity>(this IQueryable<TEntity> query) where TEntity : class
@@ -62,52 +90,55 @@ namespace setours.jarvis.infrastructure.persistence
 
         private static BinaryExpression CombineFilterBinaryExpression(ParameterExpression parameter, IEnumerable<BaseFilterQuery> filters, BinaryExpression binaryExpression)
         {
-            foreach (var filter in filters)
+            if (filters != null)
             {
-                if (filter.Filters != null)
-                    binaryExpression = CombineFilterBinaryExpression(parameter, filter.Filters, binaryExpression);
-
-                var prop = Expression.Property(parameter, filter.Field);
-                var val = Expression.Constant(filter.Value);
-
-                ExpressionType operador = ExpressionType.Equal;
-
-                if (!String.IsNullOrEmpty(filter.Operator))
+                foreach (var filter in filters)
                 {
-                    switch (filter.Operator)
+                    if (filter.Filters != null)
+                        binaryExpression = CombineFilterBinaryExpression(parameter, filter.Filters, binaryExpression);
+
+                    var prop = Expression.Property(parameter, filter.Field);
+                    var val = Expression.Constant(filter.Value);
+
+                    ExpressionType operador = ExpressionType.Equal;
+
+                    if (!String.IsNullOrEmpty(filter.Operator))
                     {
-                        case "=":
-                            operador = ExpressionType.Equal;
-                            break;
-                        case "!=":
-                            operador = ExpressionType.NotEqual;
-                            break;
-                        default:
-                            operador = ExpressionType.Equal;
-                            break;
+                        switch (filter.Operator)
+                        {
+                            case "=":
+                                operador = ExpressionType.Equal;
+                                break;
+                            case "!=":
+                                operador = ExpressionType.NotEqual;
+                                break;
+                            default:
+                                operador = ExpressionType.Equal;
+                                break;
+                        }
                     }
-                }
 
-                ExpressionType condicion = ExpressionType.AndAlso;
+                    ExpressionType condicion = ExpressionType.AndAlso;
 
-                if (!String.IsNullOrEmpty(filter.Condition))
-                {
-                    switch (filter.Condition.ToUpper())
+                    if (!String.IsNullOrEmpty(filter.Condition))
                     {
-                        case "AND":
-                            condicion = ExpressionType.AndAlso;
-                            break;
-                        case "OR":
-                            condicion = ExpressionType.OrElse;
-                            break;
-                        default:
-                            condicion = ExpressionType.AndAlso;
-                            break;
+                        switch (filter.Condition.ToUpper())
+                        {
+                            case "AND":
+                                condicion = ExpressionType.AndAlso;
+                                break;
+                            case "OR":
+                                condicion = ExpressionType.OrElse;
+                                break;
+                            default:
+                                condicion = ExpressionType.AndAlso;
+                                break;
+                        }
                     }
-                }
 
-                var binary = Expression.MakeBinary(operador, prop, val);
-                binaryExpression = binaryExpression == null ? binary : Expression.MakeBinary(condicion, binaryExpression, binary);
+                    var binary = Expression.MakeBinary(operador, prop, val);
+                    binaryExpression = binaryExpression == null ? binary : Expression.MakeBinary(condicion, binaryExpression, binary);
+                }
             }
 
             return binaryExpression;

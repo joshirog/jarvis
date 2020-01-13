@@ -7,13 +7,22 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using setours.jarvis.application.interfaces.Generals;
 using setours.jarvis.application.interfaces.Providers;
+using setours.jarvis.application.main.Generals;
 using setours.jarvis.application.main.Providers;
+using setours.jarvis.application.validation.Generals;
 using setours.jarvis.application.validation.Providers;
+using setours.jarvis.domain.core.Generals;
 using setours.jarvis.domain.core.Providers;
+using setours.jarvis.domain.interfaces.Generals;
 using setours.jarvis.domain.interfaces.Providers;
+using setours.jarvis.infrastructure.interfaces.Generals;
 using setours.jarvis.infrastructure.interfaces.Providers;
 using setours.jarvis.infrastructure.persistence;
+using setours.jarvis.infrastructure.repository.Generals;
 using setours.jarvis.infrastructure.repository.Providers;
 using setours.jarvis.transversal.mapper;
 
@@ -40,6 +49,21 @@ namespace setours.jarvis.services.api
                 x.AddProfile(new MappingsProfile());
             }).CreateMapper());
 
+            services.AddRouting(options => options.LowercaseUrls = true);
+
+            services.AddControllers().AddNewtonsoftJson(
+                options =>
+                {
+                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                    options.SerializerSettings.ContractResolver = new DefaultContractResolver() { NamingStrategy = new SnakeCaseNamingStrategy() };
+                }
+            );
+
+            services.AddScoped<ILocationApplication, LocationApplication>();
+            services.AddScoped<LocationValidation>();
+            services.AddScoped<ILocationDomain, LocationDomain>();
+            services.AddScoped<ILocationRepository, LocationRepository>();
+
             services.AddScoped<IProviderStatusApplication, ProviderStatusApplication>();
             services.AddScoped<ProviderStatusValidation>();
             services.AddScoped<IProviderStatusDomain, ProviderStatusDomain>();
@@ -50,7 +74,6 @@ namespace setours.jarvis.services.api
             services.AddScoped<IProviderDomain, ProviderDomain>();
             services.AddScoped<IProviderRepository, ProviderRepository>();
 
-            services.AddRouting(options => options.LowercaseUrls = true);
             /*
             services.AddCors();
 

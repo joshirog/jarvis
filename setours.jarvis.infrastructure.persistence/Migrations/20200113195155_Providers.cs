@@ -19,7 +19,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     status = table.Column<string>(fixedLength: true, maxLength: 1, nullable: false, defaultValue: "A", comment: "Estado A: Activo, I: Inactivo, X: Eliminado"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 12, 4, 54, 42, 967, DateTimeKind.Local).AddTicks(7300), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 14, 51, 54, 890, DateTimeKind.Local).AddTicks(2447), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -40,7 +40,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     status = table.Column<string>(fixedLength: true, maxLength: 1, nullable: false, defaultValue: "A", comment: "Estado A: Activo, I: Inactivo, X: Eliminado"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 12, 4, 54, 42, 987, DateTimeKind.Local).AddTicks(6660), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 14, 51, 54, 898, DateTimeKind.Local).AddTicks(1656), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -65,7 +65,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     status = table.Column<string>(fixedLength: true, maxLength: 1, nullable: false, defaultValue: "A", comment: "Estado del proveedor A: Activo, I: Inactivo, X: Eliminado"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 12, 4, 54, 43, 10, DateTimeKind.Local).AddTicks(7980), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 14, 51, 54, 928, DateTimeKind.Local).AddTicks(5347), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -83,7 +83,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre del estado del proveedor"),
                     description = table.Column<string>(nullable: true, comment: "Descripcion detallada del estado del proveedor"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 12, 4, 54, 43, 13, DateTimeKind.Local).AddTicks(7360), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 14, 51, 54, 930, DateTimeKind.Local).AddTicks(9050), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "Ultima fecha de actualizacion el registro")
                 },
@@ -106,13 +106,13 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     trading_name = table.Column<string>(maxLength: 120, nullable: false, comment: "Razon comercial del proveedor"),
                     legal_name = table.Column<string>(maxLength: 120, nullable: false, comment: "Razon social del proveedor"),
                     registration_number = table.Column<string>(maxLength: 30, nullable: false, comment: "Documento fiscal del proveedor"),
-                    address = table.Column<string>(nullable: true, comment: "Direccion fiscal del proveedor"),
-                    zio_code = table.Column<string>(maxLength: 30, nullable: true, comment: "Direccion fiscal del proveedor"),
-                    phone = table.Column<string>(maxLength: 25, nullable: true, comment: "Numero de telefono fiscal del proveedor"),
+                    address = table.Column<string>(nullable: true, comment: "Dirección fiscal del proveedor"),
+                    zip_code = table.Column<string>(maxLength: 30, nullable: true, comment: "Código postal del proveedor"),
+                    phone = table.Column<string>(maxLength: 25, nullable: true, comment: "Número de telefono fiscal del proveedor"),
                     website = table.Column<string>(fixedLength: true, maxLength: 100, nullable: true, comment: "Sitio web oficial del proveedor"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 12, 4, 54, 42, 999, DateTimeKind.Local).AddTicks(3970), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 14, 51, 54, 914, DateTimeKind.Local).AddTicks(8016), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -149,25 +149,6 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         principalTable: "pr_status",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.InsertData(
-                table: "ge_documents",
-                columns: new[] { "id", "abbreviation", "code_setra", "created_by", "name", "updated_at", "updated_by" },
-                values: new object[,]
-                {
-                    { 1, "RUC", null, "System", "Unique Registry of Taxpayers", null, null },
-                    { 2, "DNI", null, "System", "National identity document", null, null }
-                });
-
-            migrationBuilder.InsertData(
-                table: "pr_status",
-                columns: new[] { "id", "created_by", "description", "name", "updated_at", "updated_by" },
-                values: new object[,]
-                {
-                    { 1, "System", "Status active provider", "Active", null, null },
-                    { 2, "System", "Status inactive provider", "Inactive", null, null },
-                    { 3, "System", "Status removed provider", "Remove", null, null }
                 });
 
             migrationBuilder.CreateIndex(

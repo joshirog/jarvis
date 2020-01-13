@@ -64,19 +64,19 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Providers
 
             builder.Property(x => x.Address)
                 .HasColumnName("address")
-                .HasComment("Direccion fiscal del proveedor");
+                .HasComment("Dirección fiscal del proveedor");
 
             builder.Property(x => x.ZipCode)
-                .HasColumnName("zio_code")
+                .HasColumnName("zip_code")
                 .IsRequired(false)
                 .HasMaxLength(30)
-                .HasComment("Direccion fiscal del proveedor");
+                .HasComment("Código postal del proveedor");
 
             builder.Property(x => x.Phone)
                 .HasColumnName("phone")
                 .IsRequired(false)
                 .HasMaxLength(25)
-                .HasComment("Numero de telefono fiscal del proveedor");
+                .HasComment("Número de telefono fiscal del proveedor");
 
             builder.Property(x => x.Website)
                 .HasColumnName("website")

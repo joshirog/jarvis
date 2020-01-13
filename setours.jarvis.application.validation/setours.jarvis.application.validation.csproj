@@ -12,6 +12,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Generals\" />
+    <Folder Include="Rates\" />
+    <Folder Include="Services\" />
     <Folder Include="Providers\" />
   </ItemGroup>
 </Project>

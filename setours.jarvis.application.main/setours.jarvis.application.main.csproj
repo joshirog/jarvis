@@ -14,6 +14,8 @@
     <ProjectReference Include="..\setours.jarvis.application.validation\setours.jarvis.application.validation.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Rates\" />
+    <Folder Include="Services\" />
     <Folder Include="Providers\" />
     <Folder Include="Generals\" />
   </ItemGroup>
