@@ -1,20 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using setours.jarvis.application.interfaces.Providers;
 using setours.jarvis.application.main.Providers;
 using setours.jarvis.application.validation.Providers;
@@ -23,10 +15,9 @@ using setours.jarvis.domain.interfaces.Providers;
 using setours.jarvis.infrastructure.interfaces.Providers;
 using setours.jarvis.infrastructure.persistence;
 using setours.jarvis.infrastructure.repository.Providers;
-using setours.jarvis.services.v1.api.Configurations.Settings;
 using setours.jarvis.transversal.mapper;
 
-namespace setours.jarvis.services.v1.api
+namespace setours.jarvis.services.api
 {
     public class Startup
     {
@@ -45,26 +36,32 @@ namespace setours.jarvis.services.v1.api
                 options => options.UseNpgsql(Configuration.GetConnectionString("DbConnection"))
             );
 
-            services.AddRouting(options => options.LowercaseUrls = true);
-
-            services.AddControllers().AddNewtonsoftJson(
-                options =>
-                {
-                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                    options.SerializerSettings.ContractResolver = new DefaultContractResolver() { NamingStrategy = new SnakeCaseNamingStrategy() };
-                }
-            );
-
             services.AddSingleton(new MapperConfiguration(x => {
                 x.AddProfile(new MappingsProfile());
             }).CreateMapper());
-
-
 
             services.AddScoped<IProviderStatusApplication, ProviderStatusApplication>();
             services.AddScoped<ProviderStatusValidation>();
             services.AddScoped<IProviderStatusDomain, ProviderStatusDomain>();
             services.AddScoped<IProviderStatusRepository, ProviderStatusRepository>();
+
+            services.AddScoped<IProviderApplication, ProviderApplication>();
+            services.AddScoped<ProviderValidation>();
+            services.AddScoped<IProviderDomain, ProviderDomain>();
+            services.AddScoped<IProviderRepository, ProviderRepository>();
+
+            services.AddRouting(options => options.LowercaseUrls = true);
+            /*
+            services.AddCors();
+
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                c.AddPolicy("AllowMethod", options => options.AllowAnyMethod());
+                c.AddPolicy("AllowCredentials", options => options.AllowCredentials());
+                c.AddPolicy("AllowHeader", options => options.AllowAnyHeader());
+            });
+            */
 
             services.AddSwaggerGen(x => {
                 x.SwaggerDoc("v1", new OpenApiInfo()
@@ -85,34 +82,9 @@ namespace setours.jarvis.services.v1.api
                         Url = new Uri("https://opensource.org/licenses/MIT")
                     }
                 });
-
-                /*
-                var security = new Dictionary<string, IEnumerable<string>>
-                {
-                    { "Bearer", new string[0] }
-                };
-
-                x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
-                {
-                    Description = "JWT Authorization header suing bearer scheme",
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey
-                });
-                x.AddSecurityRequirement(new OpenApiSecurityRequirement()
-                {
-                    { new OpenApiSecurityScheme() {
-                        Reference = new OpenApiReference(){
-                            Id = "Bearer",
-                            Type = ReferenceType.SecurityScheme
-                        }
-                    }, new List<string>() }
-                });
-                */
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment() || env.IsEnvironment("Local"))
@@ -120,28 +92,33 @@ namespace setours.jarvis.services.v1.api
                 app.UseDeveloperExceptionPage();
             }
 
+            /*
+            app.UseCors(
+                builder => builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials()
+            );
+            */
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
 
-            var swagger = new SwaggerSettings();
-            Configuration.GetSection(nameof(SwaggerSettings)).Bind(swagger);
-
-            app.UseSwagger(option =>
-            {
-                option.RouteTemplate = swagger.JsonRoute;
-            });
-
-            app.UseSwaggerUI(option =>
-            {
-                option.SwaggerEndpoint(swagger.UiEndpoint, swagger.Decription);
-            });
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(option =>
+            {
+                option.SwaggerEndpoint("/swagger/v1/swagger.json", "Jarvis API");
+                option.RoutePrefix = string.Empty;
             });
         }
     }

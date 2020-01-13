@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace setours.jarvis.services.v1.api
+namespace setours.jarvis.services.api
 {
     public class Program
     {
