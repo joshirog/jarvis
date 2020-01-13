@@ -4,4 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\setours.jarvis.domain.entity\setours.jarvis.domain.entity.csproj" />
+    <ProjectReference Include="..\setours.jarvis.transversal.common\setours.jarvis.transversal.common.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Providers\" />
+    <Folder Include="Generals\" />
+  </ItemGroup>
 </Project>

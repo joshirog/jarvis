@@ -1,6 +1,6 @@
 ﻿namespace setours.jarvis.domain.entity
 {
-    interface IEntity
+    public interface IEntity
     {
         int Id { get; set; }
     }

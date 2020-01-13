@@ -4,4 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="8.6.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\setours.jarvis.application.dto\setours.jarvis.application.dto.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Generals\" />
+    <Folder Include="Providers\" />
+  </ItemGroup>
 </Project>

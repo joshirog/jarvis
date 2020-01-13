@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Infrastructure", "4. Inf
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Transversal", "5. Transversal", "{BA2CF13A-3AD5-4066-B3CE-142CDF002690}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.services.api", "setours.jarvis.services.api\setours.jarvis.services.api.csproj", "{E6A6D12F-C5A5-4AAE-A4D5-52616DA45B4F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.application.interfaces", "setours.jarvis.application.interfaces\setours.jarvis.application.interfaces.csproj", "{7BA3CB64-EB8D-4B77-9F84-315F074C5753}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.application.main", "setours.jarvis.application.main\setours.jarvis.application.main.csproj", "{7E535644-789A-4133-9CD9-2FBD0F05AD18}"
@@ -41,16 +39,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.application.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Testing", "6. Testing", "{2D323609-5344-42B9-8F7A-FB5D3212A67B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.services.v1.api", "setours.jarvis.services.v1.api\setours.jarvis.services.v1.api.csproj", "{5B28A10E-0C29-4061-A3F2-F863B53AB314}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E6A6D12F-C5A5-4AAE-A4D5-52616DA45B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6A6D12F-C5A5-4AAE-A4D5-52616DA45B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6A6D12F-C5A5-4AAE-A4D5-52616DA45B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6A6D12F-C5A5-4AAE-A4D5-52616DA45B4F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7BA3CB64-EB8D-4B77-9F84-315F074C5753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7BA3CB64-EB8D-4B77-9F84-315F074C5753}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BA3CB64-EB8D-4B77-9F84-315F074C5753}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -99,12 +95,15 @@ Global
 		{27F8CD3C-E144-4AD9-AD2B-9E25419F94A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27F8CD3C-E144-4AD9-AD2B-9E25419F94A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27F8CD3C-E144-4AD9-AD2B-9E25419F94A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B28A10E-0C29-4061-A3F2-F863B53AB314}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B28A10E-0C29-4061-A3F2-F863B53AB314}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B28A10E-0C29-4061-A3F2-F863B53AB314}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B28A10E-0C29-4061-A3F2-F863B53AB314}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{E6A6D12F-C5A5-4AAE-A4D5-52616DA45B4F} = {DDA26B38-5F88-441E-96AD-6F3637F8F5AD}
 		{7BA3CB64-EB8D-4B77-9F84-315F074C5753} = {E78D7C43-E27B-4161-8648-AFEC784661CB}
 		{7E535644-789A-4133-9CD9-2FBD0F05AD18} = {E78D7C43-E27B-4161-8648-AFEC784661CB}
 		{299F29A4-C936-440F-9EC8-7C934A7EE517} = {E78D7C43-E27B-4161-8648-AFEC784661CB}
@@ -117,6 +116,7 @@ Global
 		{571BFE22-3472-4DF1-B4CD-1D4A56533F0A} = {BA2CF13A-3AD5-4066-B3CE-142CDF002690}
 		{0208A0FB-B598-4C33-922B-CC04CABA5EB2} = {BA2CF13A-3AD5-4066-B3CE-142CDF002690}
 		{27F8CD3C-E144-4AD9-AD2B-9E25419F94A0} = {E78D7C43-E27B-4161-8648-AFEC784661CB}
+		{5B28A10E-0C29-4061-A3F2-F863B53AB314} = {DDA26B38-5F88-441E-96AD-6F3637F8F5AD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BF43F2B5-A00D-4625-8265-0CC13E2F562A}

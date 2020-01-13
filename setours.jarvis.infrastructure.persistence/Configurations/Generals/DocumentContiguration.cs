@@ -16,7 +16,8 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
             builder.Property(x => x.Id)
                 .IsRequired()
                 .HasColumnName("id")
-                .HasAnnotation("Npgsql:ValueGenerationStrategy", Npgsql.EntityFrameworkCore.PostgreSQL.Metadata.NpgsqlValueGenerationStrategy.SerialColumn)
+                .HasAnnotation("Npgsql:ValueGenerationStrategy",
+                    Npgsql.EntityFrameworkCore.PostgreSQL.Metadata.NpgsqlValueGenerationStrategy.SerialColumn)
                 .ValueGeneratedOnAdd()
                 .HasComment("Llave primaria de la tabla");
 

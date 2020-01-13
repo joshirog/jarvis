@@ -4,4 +4,16 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\setours.jarvis.application.dto\setours.jarvis.application.dto.csproj" />
+    <ProjectReference Include="..\setours.jarvis.transversal.common\setours.jarvis.transversal.common.csproj" />
+    <ProjectReference Include="..\setours.jarvis.domain.interfaces\setours.jarvis.domain.interfaces.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Generals\" />
+    <Folder Include="Providers\" />
+  </ItemGroup>
 </Project>

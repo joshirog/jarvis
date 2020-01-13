@@ -4,4 +4,17 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\setours.jarvis.application.interfaces\setours.jarvis.application.interfaces.csproj" />
+    <ProjectReference Include="..\setours.jarvis.application.dto\setours.jarvis.application.dto.csproj" />
+    <ProjectReference Include="..\setours.jarvis.domain.interfaces\setours.jarvis.domain.interfaces.csproj" />
+    <ProjectReference Include="..\setours.jarvis.domain.entity\setours.jarvis.domain.entity.csproj" />
+    <ProjectReference Include="..\setours.jarvis.transversal.common\setours.jarvis.transversal.common.csproj" />
+    <ProjectReference Include="..\setours.jarvis.transversal.mapper\setours.jarvis.transversal.mapper.csproj" />
+    <ProjectReference Include="..\setours.jarvis.application.validation\setours.jarvis.application.validation.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Providers\" />
+    <Folder Include="Generals\" />
+  </ItemGroup>
 </Project>

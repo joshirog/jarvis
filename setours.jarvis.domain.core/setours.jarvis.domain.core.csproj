@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Generals\" />
+    <Folder Include="Providers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\setours.jarvis.domain.interfaces\setours.jarvis.domain.interfaces.csproj" />
+    <ProjectReference Include="..\setours.jarvis.domain.entity\setours.jarvis.domain.entity.csproj" />
+    <ProjectReference Include="..\setours.jarvis.infrastructure.repository\setours.jarvis.infrastructure.repository.csproj" />
+  </ItemGroup>
 </Project>

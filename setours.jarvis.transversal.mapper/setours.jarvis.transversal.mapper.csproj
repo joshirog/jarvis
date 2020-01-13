@@ -8,4 +8,8 @@
     <PackageReference Include="AutoMapper" Version="9.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\setours.jarvis.application.dto\setours.jarvis.application.dto.csproj" />
+    <ProjectReference Include="..\setours.jarvis.domain.entity\setours.jarvis.domain.entity.csproj" />
+  </ItemGroup>
 </Project>
