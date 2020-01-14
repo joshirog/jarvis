@@ -10,6 +10,8 @@ namespace setours.jarvis.domain.entity.Generals
 
         public int? ReferenceId { get; set; }
 
+        public string Type { get; set; }
+
         public string Code { get; set; }
 
         public string Name { get; set; }

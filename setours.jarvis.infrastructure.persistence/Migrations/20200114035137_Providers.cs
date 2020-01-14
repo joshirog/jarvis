@@ -19,7 +19,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     status = table.Column<string>(fixedLength: true, maxLength: 1, nullable: false, defaultValue: "A", comment: "Estado A: Activo, I: Inactivo, X: Eliminado"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 14, 51, 54, 890, DateTimeKind.Local).AddTicks(2447), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 22, 51, 37, 453, DateTimeKind.Local).AddTicks(1040), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -35,12 +35,13 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     ge_location_id = table.Column<int>(nullable: true, comment: "Llave foranea con ge_locations, recursividad - opcional"),
+                    Type = table.Column<string>(nullable: true),
                     code = table.Column<string>(maxLength: 5, nullable: false, comment: "Codigo de la ubicacion"),
                     name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre de la ubicacion"),
                     status = table.Column<string>(fixedLength: true, maxLength: 1, nullable: false, defaultValue: "A", comment: "Estado A: Activo, I: Inactivo, X: Eliminado"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 14, 51, 54, 898, DateTimeKind.Local).AddTicks(1656), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 22, 51, 37, 478, DateTimeKind.Local).AddTicks(3860), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -65,7 +66,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     status = table.Column<string>(fixedLength: true, maxLength: 1, nullable: false, defaultValue: "A", comment: "Estado del proveedor A: Activo, I: Inactivo, X: Eliminado"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 14, 51, 54, 928, DateTimeKind.Local).AddTicks(5347), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 22, 51, 37, 502, DateTimeKind.Local).AddTicks(590), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -83,7 +84,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre del estado del proveedor"),
                     description = table.Column<string>(nullable: true, comment: "Descripcion detallada del estado del proveedor"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 14, 51, 54, 930, DateTimeKind.Local).AddTicks(9050), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 22, 51, 37, 505, DateTimeKind.Local).AddTicks(8280), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "Ultima fecha de actualizacion el registro")
                 },
@@ -112,7 +113,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     website = table.Column<string>(fixedLength: true, maxLength: 100, nullable: true, comment: "Sitio web oficial del proveedor"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 14, 51, 54, 914, DateTimeKind.Local).AddTicks(8016), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 13, 22, 51, 37, 491, DateTimeKind.Local).AddTicks(1590), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },

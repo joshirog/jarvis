@@ -19,7 +19,7 @@ namespace setours.jarvis.domain.entity.Providers
 
         public string TradingName { get; set; }
 
-        public string LeganName { get; set; }
+        public string LegalName { get; set; }
 
         public string RegistrationNumber { get; set; }
 

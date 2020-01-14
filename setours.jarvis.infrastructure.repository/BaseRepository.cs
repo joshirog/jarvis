@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using setours.jarvis.domain.entity;
@@ -43,9 +41,9 @@ namespace setours.jarvis.infrastructure.repository
 
             var query = _dbset
                 .IncludeJoins(search.Includes)
-                .Filter(search.Filters)
+                /*.Filter(search.Filters)
                 .Sort(search.Sort)
-                .Paginate(search.Page, search.Size);
+                .Paginate(search.Page, search.Size)*/;
 
             _ = query.ToSql();
 

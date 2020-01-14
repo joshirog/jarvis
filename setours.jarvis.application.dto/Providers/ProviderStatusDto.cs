@@ -1,22 +1,22 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace setours.jarvis.application.dto.Providers
 {
     public class ProviderStatusDto : IDataTransferObject
     {
-        [JsonPropertyName("id")]
+        [JsonProperty(PropertyName = "id")]
         public int Id { get; set; }
 
-        [JsonPropertyName("name")]
+        [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
-        [JsonPropertyName("description")]
+        [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 
-        [JsonPropertyName("created_by")]
+        [JsonProperty(PropertyName = "created_by")]
         public string CreatedBy { get; set; }
 
-        [JsonPropertyName("updated_by")]
+        [JsonProperty(PropertyName = "updated_by")]
         public string UpdatedBy { get; set; }
     }
 }

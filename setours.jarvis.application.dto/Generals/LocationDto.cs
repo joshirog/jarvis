@@ -10,6 +10,9 @@ namespace setours.jarvis.application.dto.Generals
         [JsonPropertyName("reference_id")]
         public int? ReferenceId { get; set; }
 
+        [JsonPropertyName("type")]
+        public string Type { get; set; }
+
         [JsonPropertyName("code")]
         public string Code { get; set; }
 

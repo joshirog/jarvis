@@ -44,7 +44,7 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Providers
                 .HasColumnName("ge_city_id")
                 .HasComment("Llave foranea con ge_locations");
 
-            builder.Property(x => x.LeganName)
+            builder.Property(x => x.LegalName)
                 .HasColumnName("legal_name")
                 .IsRequired()
                 .HasMaxLength(120)

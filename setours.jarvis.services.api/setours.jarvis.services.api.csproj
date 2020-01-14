@@ -4,6 +4,35 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Production' ">
+    <StartAction>Project</StartAction>
+    <EnvironmentVariables>
+      <Variable name="ASPNETCORE_ENVIRONMENT" value="Production" />
+    </EnvironmentVariables>
+    <LaunchUrl>swagger/index.html</LaunchUrl>
+    <ApplicationURL>http://localhost:5015</ApplicationURL>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Local' ">
+    <StartAction>Project</StartAction>
+    <EnvironmentVariables>
+      <Variable name="ASPNETCORE_ENVIRONMENT" value="Local" />
+    </EnvironmentVariables>
+    <LaunchUrl>swagger/index.html</LaunchUrl>
+    <ApplicationURL>http://localhost:5015</ApplicationURL>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Quality' ">
+    <StartAction>Project</StartAction>
+    <EnvironmentVariables>
+      <Variable name="ASPNETCORE_ENVIRONMENT" value="Quality" />
+    </EnvironmentVariables>
+    <LaunchUrl>swagger/index.html</LaunchUrl>
+    <ApplicationURL>http://localhost:5015</ApplicationURL>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Development' ">
+    <StartAction>Project</StartAction>
+    <LaunchUrl>swagger/index.html</LaunchUrl>
+    <ApplicationURL>http://localhost:5015</ApplicationURL>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />

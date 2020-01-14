@@ -59,6 +59,11 @@ namespace setours.jarvis.services.api
                 }
             );
 
+            services.AddScoped<IDocumentApplication, DocumentApplication>();
+            services.AddScoped<DocumentValidation>();
+            services.AddScoped<IDocumentDomain, DocumentDomain>();
+            services.AddScoped<IDocumentRepository, DocumentRepository>();
+
             services.AddScoped<ILocationApplication, LocationApplication>();
             services.AddScoped<LocationValidation>();
             services.AddScoped<ILocationDomain, LocationDomain>();
@@ -68,6 +73,11 @@ namespace setours.jarvis.services.api
             services.AddScoped<ProviderStatusValidation>();
             services.AddScoped<IProviderStatusDomain, ProviderStatusDomain>();
             services.AddScoped<IProviderStatusRepository, ProviderStatusRepository>();
+
+            services.AddScoped<IProviderChainApplication, ProviderChainApplication>();
+            services.AddScoped<ProviderChainValidation>();
+            services.AddScoped<IProviderChainDomain, ProviderChainDomain>();
+            services.AddScoped<IProviderChainRepository, ProviderChainRepository>();
 
             services.AddScoped<IProviderApplication, ProviderApplication>();
             services.AddScoped<ProviderValidation>();
@@ -141,7 +151,6 @@ namespace setours.jarvis.services.api
             app.UseSwaggerUI(option =>
             {
                 option.SwaggerEndpoint("/swagger/v1/swagger.json", "Jarvis API");
-                option.RoutePrefix = string.Empty;
             });
         }
     }
