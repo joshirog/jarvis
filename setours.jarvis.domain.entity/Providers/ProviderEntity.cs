@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using setours.jarvis.domain.entity.Generals;
+using setours.jarvis.domain.entity.Services;
 
 namespace setours.jarvis.domain.entity.Providers
 {
@@ -51,5 +53,7 @@ namespace setours.jarvis.domain.entity.Providers
         public LocationEntity City { get; set; }
 
         public DocumentEntity Document { get; set; }
+
+        public List<ServiceEntity> Services { get; set; }
     }
 }

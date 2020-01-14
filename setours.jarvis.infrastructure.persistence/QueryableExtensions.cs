@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -99,6 +98,11 @@ namespace setours.jarvis.infrastructure.persistence
 
                     var prop = Expression.Property(parameter, filter.Field);
                     var val = Expression.Constant(filter.Value);
+
+                    if (prop.Type.Name == "Int32")
+                    {
+                        val = Expression.Constant(Int32.Parse(filter.Value.ToString()));
+                    }
 
                     ExpressionType operador = ExpressionType.Equal;
 

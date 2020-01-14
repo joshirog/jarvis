@@ -1,15 +1,15 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using setours.jarvis.domain.entity.Providers;
+using setours.jarvis.domain.entity.Generals;
+using System;
 
-namespace setours.jarvis.infrastructure.persistence.Configurations.Providers
+namespace setours.jarvis.infrastructure.persistence.Generals
 {
-    public class ProviderStatusConfiguration : IEntityTypeConfiguration<ProviderStatusEntity>
+    public class CurrencyConfiguration : IEntityTypeConfiguration<CurrencyEntity>
     {
-        public void Configure(EntityTypeBuilder<ProviderStatusEntity> builder)
+        public void Configure(EntityTypeBuilder<CurrencyEntity> builder)
         {
-            builder.ToTable("pr_status");
+            builder.ToTable("ge_currency");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
@@ -20,16 +20,37 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Providers
                 .ValueGeneratedOnAdd()
                 .HasComment("Llave primaria de la tabla");
 
+            builder.Property(x => x.Code)
+                .HasColumnName("code")
+                .IsRequired()
+                .HasMaxLength(8)
+                .HasComment("Codigo del la moneda");
+
+            builder.Property(x => x.Abbreviation)
+                .HasColumnName("abbreviation")
+                .IsRequired()
+                .HasMaxLength(8)
+                .HasComment("Nombre corto de la moneda");
+
             builder.Property(x => x.Name)
                 .HasColumnName("name")
                 .IsRequired()
                 .HasMaxLength(150)
-                .HasComment("Nombre del estado del proveedor");
+                .HasComment("Nombre de la moneda");
 
-            builder.Property(x => x.Description)
-                .HasColumnName("description")
+            builder.Property(x => x.Status)
+                .HasColumnName("status")
+                .IsRequired()
+                .HasMaxLength(1)
+                .IsFixedLength()
+                .HasDefaultValue("A")
+                .HasComment("Estado A: Activo, I: Inactivo, X: Eliminado");
+
+            builder.Property(x => x.CodeSetra)
+                .HasColumnName("code_setra")
                 .IsRequired(false)
-                .HasComment("Descripcion detallada del estado del proveedor");
+                .HasMaxLength(20)
+                .HasComment("Llave primaria del sistema version 1");
 
             builder.Property(x => x.CreatedBy)
                 .HasColumnName("created_by")
@@ -52,7 +73,7 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Providers
             builder.Property(x => x.UpdatedAt)
                 .HasColumnName("updated_at")
                 .IsRequired(false)
-                .HasComment("Ultima fecha de actualizacion el registro");
+                .HasComment("ultima fecha de actualizacion el registro");
         }
     }
 }

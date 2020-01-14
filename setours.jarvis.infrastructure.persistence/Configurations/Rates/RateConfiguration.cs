@@ -1,29 +1,41 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using setours.jarvis.domain.entity.Providers;
+using setours.jarvis.domain.entity.Rates;
+using System;
 
-namespace setours.jarvis.infrastructure.persistence.Configurations.Providers
+namespace setours.jarvis.infrastructure.persistence.Rates
 {
-    public class ProviderChainConfiguration : IEntityTypeConfiguration<ProviderChainEntity>
+    public class RateConfiguration : IEntityTypeConfiguration<RateEntity>
     {
-        public void Configure(EntityTypeBuilder<ProviderChainEntity> builder)
+        public void Configure(EntityTypeBuilder<RateEntity> builder)
         {
-            builder.ToTable("pr_chains");
+            builder.ToTable("ra_rates");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
                 .IsRequired()
                 .HasColumnName("id")
-                .HasAnnotation("Npgsql:ValueGenerationStrategy", Npgsql.EntityFrameworkCore.PostgreSQL.Metadata.NpgsqlValueGenerationStrategy.SerialColumn)
+                .HasAnnotation("Npgsql:ValueGenerationStrategy",
+                    Npgsql.EntityFrameworkCore.PostgreSQL.Metadata.NpgsqlValueGenerationStrategy.SerialColumn)
                 .ValueGeneratedOnAdd()
                 .HasComment("Llave primaria de la tabla");
+
+            builder.Property(x => x.ServiceDetailId)
+                .HasColumnName("se_detail_id")
+                .IsRequired()
+                .HasComment("Llave foranea con se_details");
+
+            builder.Property(x => x.Code)
+                .HasColumnName("code")
+                .IsRequired()
+                .HasMaxLength(120)
+                .HasComment("Codigo auto generado por el sistema");
 
             builder.Property(x => x.Name)
                 .HasColumnName("name")
                 .IsRequired()
-                .HasMaxLength(150)
-                .HasComment("Nombre de la candena del proveedor");
+                .HasMaxLength(120)
+                .HasComment("Nombre del servicio");
 
             builder.Property(x => x.Status)
                 .HasColumnName("status")
@@ -31,7 +43,13 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Providers
                 .HasMaxLength(1)
                 .IsFixedLength()
                 .HasDefaultValue("A")
-                .HasComment("Estado del proveedor A: Activo, I: Inactivo, X: Eliminado");
+                .HasComment("Estado A: Activo, I: Inactivo, X: Eliminado");
+
+            builder.Property(x => x.Description)
+                .IsRequired()
+                .HasColumnName("description")
+                .HasMaxLength(30)
+                .HasComment("Descripcion detallada del servicio");
 
             builder.Property(x => x.CodeSetra)
                 .HasColumnName("code_setra")
@@ -61,6 +79,11 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Providers
                 .HasColumnName("updated_at")
                 .IsRequired(false)
                 .HasComment("ultima fecha de actualizacion el registro");
+
+
+            builder.HasOne(x => x.ServiceDetail)
+                .WithMany(x => x.Rates)
+                .HasForeignKey(x => x.ServiceDetailId);
         }
     }
 }

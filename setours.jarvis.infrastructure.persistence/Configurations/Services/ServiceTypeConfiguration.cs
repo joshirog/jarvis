@@ -1,15 +1,15 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using setours.jarvis.domain.entity.Providers;
+using setours.jarvis.domain.entity.Services;
+using System;
 
-namespace setours.jarvis.infrastructure.persistence.Configurations.Providers
+namespace setours.jarvis.infrastructure.persistence.Services
 {
-    public class ProviderStatusConfiguration : IEntityTypeConfiguration<ProviderStatusEntity>
+    public class ServiceTypeConfiguration : IEntityTypeConfiguration<ServiceTypeEntity>
     {
-        public void Configure(EntityTypeBuilder<ProviderStatusEntity> builder)
+        public void Configure(EntityTypeBuilder<ServiceTypeEntity> builder)
         {
-            builder.ToTable("pr_status");
+            builder.ToTable("se_types");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
@@ -30,6 +30,12 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Providers
                 .HasColumnName("description")
                 .IsRequired(false)
                 .HasComment("Descripcion detallada del estado del proveedor");
+
+            builder.Property(x => x.Description)
+                .HasColumnName("is_internal")
+                .IsRequired()
+                .HasDefaultValue(false)
+                .HasComment("Flag para verificar si el tipo de servicio es de uso interno");
 
             builder.Property(x => x.CreatedBy)
                 .HasColumnName("created_by")

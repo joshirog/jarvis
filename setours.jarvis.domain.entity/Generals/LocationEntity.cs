@@ -1,4 +1,5 @@
 ﻿using setours.jarvis.domain.entity.Providers;
+using setours.jarvis.domain.entity.Services;
 using System;
 using System.Collections.Generic;
 
@@ -36,5 +37,9 @@ namespace setours.jarvis.domain.entity.Generals
         public List<ProviderEntity> CountryProviders { get; set; }
 
         public List<ProviderEntity> CityProviders { get; set; }
+
+        public List<ServiceEntity> CountryServices { get; set; }
+
+        public List<ServiceEntity> CityServices { get; set; }
     }
 }

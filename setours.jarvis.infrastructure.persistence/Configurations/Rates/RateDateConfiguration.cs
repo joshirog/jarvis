@@ -1,16 +1,15 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using setours.jarvis.domain.entity.Generals;
+using setours.jarvis.domain.entity.Rates;
+using System;
 
-namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
+namespace setours.jarvis.infrastructure.persistence.Rates
 {
-
-    public class DocumentContiguration : IEntityTypeConfiguration<DocumentEntity>
+    public class RateDateConfiguration : IEntityTypeConfiguration<RateDateEntity>
     {
-        public void Configure(EntityTypeBuilder<DocumentEntity> builder)
+        public void Configure(EntityTypeBuilder<RateDateEntity> builder)
         {
-            builder.ToTable("ge_documents");
+            builder.ToTable("ra_dates");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
@@ -21,17 +20,30 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
                 .ValueGeneratedOnAdd()
                 .HasComment("Llave primaria de la tabla");
 
-            builder.Property(x => x.Abbreviation)
-                .HasColumnName("abbreviation")
+            builder.Property(x => x.RateId)
+                .HasColumnName("ra_rate_id")
                 .IsRequired()
-                .HasMaxLength(8)
-                .HasComment("Abreviatura del tipo de documento");
+                .HasComment("Llave foranea con se_details");
 
-            builder.Property(x => x.Name)
-                .HasColumnName("name")
+            builder.Property(x => x.TravelDateStart)
+                .HasColumnName("travel_date_start")
                 .IsRequired()
-                .HasMaxLength(150)
-                .HasComment("Nombre del tipo de documento");
+                .HasComment("Fecha de inicio de la vigencia");
+
+            builder.Property(x => x.TravelDateEnd)
+                .HasColumnName("travel_date_end")
+                .IsRequired()
+                .HasComment("Fecha final de la vigencia");
+
+            builder.Property(x => x.BookingDateStart)
+                .HasColumnName("booking_date_start")
+                .IsRequired()
+                .HasComment("Fecha de inicio para la compra");
+
+            builder.Property(x => x.BookingDateStart)
+                .HasColumnName("booking_date_end")
+                .IsRequired()
+                .HasComment("Fecha final para la compra");
 
             builder.Property(x => x.Status)
                 .HasColumnName("status")
@@ -40,12 +52,6 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
                 .IsFixedLength()
                 .HasDefaultValue("A")
                 .HasComment("Estado A: Activo, I: Inactivo, X: Eliminado");
-
-            builder.Property(x => x.CodeSetra)
-                .HasColumnName("code_setra")
-                .IsRequired(false)
-                .HasMaxLength(20)
-                .HasComment("Llave primaria del sistema version 1");
 
             builder.Property(x => x.CreatedBy)
                 .HasColumnName("created_by")
@@ -70,6 +76,10 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
                 .IsRequired(false)
                 .HasComment("ultima fecha de actualizacion el registro");
 
+
+            builder.HasOne(x => x.Rate)
+                .WithMany(x => x.RateDates)
+                .HasForeignKey(x => x.RateId);
         }
     }
 }

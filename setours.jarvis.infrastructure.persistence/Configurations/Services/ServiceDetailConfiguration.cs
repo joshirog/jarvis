@@ -1,16 +1,15 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using setours.jarvis.domain.entity.Generals;
+using setours.jarvis.domain.entity.Services;
+using System;
 
-namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
+namespace setours.jarvis.infrastructure.persistence.Services
 {
-
-    public class DocumentContiguration : IEntityTypeConfiguration<DocumentEntity>
+    public class ServiceDetailConfiguration : IEntityTypeConfiguration<ServiceDetailEntity>
     {
-        public void Configure(EntityTypeBuilder<DocumentEntity> builder)
+        public void Configure(EntityTypeBuilder<ServiceDetailEntity> builder)
         {
-            builder.ToTable("ge_documents");
+            builder.ToTable("se_service_details");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
@@ -21,25 +20,39 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
                 .ValueGeneratedOnAdd()
                 .HasComment("Llave primaria de la tabla");
 
-            builder.Property(x => x.Abbreviation)
-                .HasColumnName("abbreviation")
-                .IsRequired()
-                .HasMaxLength(8)
-                .HasComment("Abreviatura del tipo de documento");
+            builder.Property(x => x.ServiceId)
+                .HasColumnName("se_service_id")
+                .IsRequired(true)
+                .HasComment("Llave foranea con se_service_id");
 
             builder.Property(x => x.Name)
                 .HasColumnName("name")
                 .IsRequired()
-                .HasMaxLength(150)
-                .HasComment("Nombre del tipo de documento");
+                .HasMaxLength(120)
+                .HasComment("Nombre del servicio");
 
-            builder.Property(x => x.Status)
-                .HasColumnName("status")
+            builder.Property(x => x.Description)
                 .IsRequired()
-                .HasMaxLength(1)
-                .IsFixedLength()
-                .HasDefaultValue("A")
-                .HasComment("Estado A: Activo, I: Inactivo, X: Eliminado");
+                .HasColumnName("description")
+                .HasMaxLength(30)
+                .HasComment("Descripcion detallada del servicio");
+
+            builder.Property(x => x.Note)
+                .IsRequired()
+                .HasColumnName("note")
+                .HasComment("Notas adicionales del servicio");
+
+            builder.Property(x => x.CapacityMax)
+                .HasColumnName("capacity_max")
+                .HasComment("Capacidad maxima de personas en el servicio");
+
+            builder.Property(x => x.CapacityMaxAdult)
+                .HasColumnName("capacity_max_adult")
+                .HasComment("Capacidad maxima de adultos en el servicio");
+
+            builder.Property(x => x.CapacityMaxChild)
+                .HasColumnName("capacity_max_child")
+                .HasComment("Capacidad maxima de niños en el servicio");
 
             builder.Property(x => x.CodeSetra)
                 .HasColumnName("code_setra")
@@ -70,6 +83,10 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
                 .IsRequired(false)
                 .HasComment("ultima fecha de actualizacion el registro");
 
+
+            builder.HasOne(x => x.Service)
+                .WithMany(x => x.ServiceDetails)
+                .HasForeignKey(x => x.ServiceId);
         }
     }
 }

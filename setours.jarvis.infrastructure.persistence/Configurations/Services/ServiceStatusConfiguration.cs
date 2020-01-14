@@ -1,15 +1,15 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using setours.jarvis.domain.entity.Providers;
+using setours.jarvis.domain.entity.Services;
+using System;
 
-namespace setours.jarvis.infrastructure.persistence.Configurations.Providers
+namespace setours.jarvis.infrastructure.persistence.Services
 {
-    public class ProviderStatusConfiguration : IEntityTypeConfiguration<ProviderStatusEntity>
+    public class ServiceStatusConfiguration : IEntityTypeConfiguration<ServiceStatusEntity>
     {
-        public void Configure(EntityTypeBuilder<ProviderStatusEntity> builder)
+        public void Configure(EntityTypeBuilder<ServiceStatusEntity> builder)
         {
-            builder.ToTable("pr_status");
+            builder.ToTable("se_status");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)

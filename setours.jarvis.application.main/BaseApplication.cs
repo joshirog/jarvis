@@ -21,9 +21,9 @@ namespace setours.jarvis.application.main
         where TValidation : BaseValidation<TDataTransferObject>
     {
 
-        private readonly TDomain _domain;
-        private readonly IMapper _mapper;
-        private readonly TValidation _validation;
+        protected readonly TDomain _domain;
+        protected readonly IMapper _mapper;
+        protected readonly TValidation _validation;
 
         public BaseApplication(TDomain domain, IMapper mapper, TValidation validation)
         {

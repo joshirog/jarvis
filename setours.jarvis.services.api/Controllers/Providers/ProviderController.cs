@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using setours.jarvis.application.dto.Providers;
 using setours.jarvis.application.interfaces.Providers;
+using setours.jarvis.transversal.common.Bases.Querys;
+using System.Threading.Tasks;
 
 namespace setours.jarvis.services.api.Controllers.Providers
 {
@@ -11,6 +13,12 @@ namespace setours.jarvis.services.api.Controllers.Providers
         public ProviderController(IProviderApplication application) : base(application)
         {
 
+        }
+
+        [HttpPost("Search2")]
+        public async Task<IActionResult> GetSearch2([FromBody] BaseSearchQuery search)
+        {
+            return Ok(await _application.GetSearch2(search));
         }
     }
 }

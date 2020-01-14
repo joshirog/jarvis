@@ -5,9 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Configurations\Generals\" />
-    <Folder Include="Configurations\Rates\" />
-    <Folder Include="Configurations\Services\" />
     <Folder Include="Configurations\Providers\" />
   </ItemGroup>
   <ItemGroup>
