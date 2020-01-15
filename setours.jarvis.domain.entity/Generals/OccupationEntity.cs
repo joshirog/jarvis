@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace setours.jarvis.domain.entity.Generals
 {
-    public class OccupationEntity
+    public class OccupationEntity : IEntity
     {
         public int Id { get; set; }
 

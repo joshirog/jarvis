@@ -4,9 +4,9 @@ using setours.jarvis.infrastructure.persistence;
 
 namespace setours.jarvis.infrastructure.repository.Generals
 {
-    public class DocumentRepository : BaseRepository<DocumentEntity>, IDocumentRepository
+    public class CurrencyRepository : BaseRepository<CurrencyEntity>, ICurrencyRepository
     {
-        public DocumentRepository(ApplicationDbContext context) : base(context)
+        public CurrencyRepository(ApplicationDbContext context) : base(context)
         {
 
         }

@@ -4,5 +4,6 @@ namespace setours.jarvis.domain.interfaces.Generals
 {
     public interface IDocumentDomain : IBaseDomain<DocumentEntity>
     {
+
     }
 }

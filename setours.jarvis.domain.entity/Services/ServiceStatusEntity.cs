@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace setours.jarvis.domain.entity.Services
 {
-    public class ServiceStatusEntity
+    public class ServiceStatusEntity : IEntity
     {
         public int Id { get; set; }
 

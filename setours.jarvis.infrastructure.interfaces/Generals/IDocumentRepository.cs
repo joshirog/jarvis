@@ -4,5 +4,6 @@ namespace setours.jarvis.infrastructure.interfaces.Generals
 {
     public interface IDocumentRepository : IBaseRepository<DocumentEntity>
     {
+
     }
 }

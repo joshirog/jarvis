@@ -2,7 +2,7 @@
 
 namespace setours.jarvis.infrastructure.interfaces.Generals
 {
-    public interface ILocationRepository : IBaseRepository<LocationEntity>
+    public interface ICurrencyRepository : IBaseRepository<CurrencyEntity>
     {
 
     }

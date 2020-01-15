@@ -4,9 +4,9 @@ using setours.jarvis.infrastructure.persistence;
 
 namespace setours.jarvis.infrastructure.repository.Generals
 {
-    public class DocumentRepository : BaseRepository<DocumentEntity>, IDocumentRepository
+    public class OccupationRepository : BaseRepository<OccupationEntity>, IOccupationRepository
     {
-        public DocumentRepository(ApplicationDbContext context) : base(context)
+        public OccupationRepository(ApplicationDbContext context) : base(context)
         {
 
         }
