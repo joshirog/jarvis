@@ -61,8 +61,6 @@ namespace setours.jarvis.domain.entity.Services
 
         public LocationEntity City { get; set; }
 
-        public DocumentEntity Document { get; set; }
-
         public List<ServiceDetailEntity> ServiceDetails { get; set; }
     }
 }

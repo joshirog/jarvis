@@ -25,6 +25,11 @@ namespace setours.jarvis.infrastructure.persistence.Rates
                 .IsRequired()
                 .HasComment("Llave foranea con se_details");
 
+            builder.Property(x => x.RateStatusId)
+                .HasColumnName("ra_status_id")
+                .IsRequired()
+                .HasComment("Llave foranea con ra_status");
+
             builder.Property(x => x.Code)
                 .HasColumnName("code")
                 .IsRequired()
@@ -37,19 +42,16 @@ namespace setours.jarvis.infrastructure.persistence.Rates
                 .HasMaxLength(120)
                 .HasComment("Nombre del servicio");
 
-            builder.Property(x => x.Status)
-                .HasColumnName("status")
-                .IsRequired()
-                .HasMaxLength(1)
-                .IsFixedLength()
-                .HasDefaultValue("A")
-                .HasComment("Estado A: Activo, I: Inactivo, X: Eliminado");
-
             builder.Property(x => x.Description)
                 .IsRequired()
                 .HasColumnName("description")
                 .HasMaxLength(30)
                 .HasComment("Descripcion detallada del servicio");
+
+            builder.Property(x => x.Link)
+                .IsRequired(false)
+                .HasColumnName("link")
+                .HasComment("Link de enlace al documento de tarifa del proveedor");
 
             builder.Property(x => x.CodeSetra)
                 .HasColumnName("code_setra")
@@ -84,6 +86,10 @@ namespace setours.jarvis.infrastructure.persistence.Rates
             builder.HasOne(x => x.ServiceDetail)
                 .WithMany(x => x.Rates)
                 .HasForeignKey(x => x.ServiceDetailId);
+
+            builder.HasOne(x => x.RateStatus)
+               .WithMany(x => x.Rates)
+               .HasForeignKey(x => x.RateStatusId);
         }
     }
 }

@@ -53,7 +53,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 215, DateTimeKind.Local).AddTicks(3397));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 51, DateTimeKind.Local).AddTicks(9390));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -122,7 +122,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 220, DateTimeKind.Local).AddTicks(1812));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 89, DateTimeKind.Local).AddTicks(2540));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -191,7 +191,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 227, DateTimeKind.Local).AddTicks(2987));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 96, DateTimeKind.Local).AddTicks(5990));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -223,7 +223,12 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasDefaultValue("A");
 
                     b.Property<string>("Type")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasColumnName("type")
+                        .HasColumnType("character(1)")
+                        .IsFixedLength(true)
+                        .HasComment("Tipo de ubigeo P: Pais, C: Ciudad")
+                        .HasMaxLength(1);
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnName("updated_at")
@@ -270,7 +275,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 223, DateTimeKind.Local).AddTicks(253));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 92, DateTimeKind.Local).AddTicks(4130));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -339,7 +344,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 266, DateTimeKind.Local).AddTicks(2010));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 129, DateTimeKind.Local).AddTicks(6480));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -416,7 +421,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 242, DateTimeKind.Local).AddTicks(6437));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 113, DateTimeKind.Local).AddTicks(2590));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -523,7 +528,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 270, DateTimeKind.Local).AddTicks(3519));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 135, DateTimeKind.Local).AddTicks(7160));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -570,20 +575,23 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
 
                     b.Property<DateTime?>("BookingDateEnd")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<DateTime?>("BookingDateStart")
                         .IsRequired()
                         .HasColumnName("booking_date_end")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha final para la compra");
+
+                    b.Property<DateTime?>("BookingDateStart")
+                        .IsRequired()
+                        .HasColumnName("booking_date_start")
+                        .HasColumnType("timestamp without time zone")
+                        .HasComment("Fecha de inicio para la compra");
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 305, DateTimeKind.Local).AddTicks(6775));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 183, DateTimeKind.Local).AddTicks(4450));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -654,7 +662,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 300, DateTimeKind.Local).AddTicks(8739));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 177, DateTimeKind.Local).AddTicks(800));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -747,7 +755,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 309, DateTimeKind.Local).AddTicks(3717));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 190, DateTimeKind.Local).AddTicks(2200));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -764,7 +772,9 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasMaxLength(30);
 
                     b.Property<string>("Link")
-                        .HasColumnType("text");
+                        .HasColumnName("link")
+                        .HasColumnType("text")
+                        .HasComment("Link de enlace al documento de tarifa del proveedor");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -773,20 +783,15 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasComment("Nombre del servicio")
                         .HasMaxLength(120);
 
+                    b.Property<int>("RateStatusId")
+                        .HasColumnName("ra_status_id")
+                        .HasColumnType("integer")
+                        .HasComment("Llave foranea con ra_status");
+
                     b.Property<int>("ServiceDetailId")
                         .HasColumnName("se_detail_id")
                         .HasColumnType("integer")
                         .HasComment("Llave foranea con se_details");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("status")
-                        .HasColumnType("character(1)")
-                        .IsFixedLength(true)
-                        .HasComment("Estado A: Activo, I: Inactivo, X: Eliminado")
-                        .HasMaxLength(1)
-                        .HasDefaultValue("A");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnName("updated_at")
@@ -800,6 +805,8 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasMaxLength(50);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RateStatusId");
 
                     b.HasIndex("ServiceDetailId");
 
@@ -820,7 +827,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 295, DateTimeKind.Local).AddTicks(6404));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 172, DateTimeKind.Local).AddTicks(5850));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -892,7 +899,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 279, DateTimeKind.Local).AddTicks(7279));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 145, DateTimeKind.Local).AddTicks(9890));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -941,7 +948,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
                     b.HasIndex("ServiceId");
 
-                    b.ToTable("se_service_details");
+                    b.ToTable("se_details");
                 });
 
             modelBuilder.Entity("setours.jarvis.domain.entity.Services.ServiceEntity", b =>
@@ -986,7 +993,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 287, DateTimeKind.Local).AddTicks(3929));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 157, DateTimeKind.Local).AddTicks(3340));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1001,9 +1008,6 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnType("character varying(30)")
                         .HasComment("Descripcion detallada del servicio")
                         .HasMaxLength(30);
-
-                    b.Property<int?>("DocumentId")
-                        .HasColumnType("integer");
 
                     b.Property<bool>("IsOnlineRate")
                         .ValueGeneratedOnAdd()
@@ -1085,8 +1089,6 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.HasIndex("DocumentId");
-
                     b.HasIndex("ProviderId");
 
                     b.HasIndex("ServiceStatusId");
@@ -1110,7 +1112,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 273, DateTimeKind.Local).AddTicks(3102));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 138, DateTimeKind.Local).AddTicks(3910));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1157,14 +1159,17 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
 
                     b.Property<string>("CodeSetra")
-                        .HasColumnType("text");
+                        .HasColumnName("code_setra")
+                        .HasColumnType("character varying(20)")
+                        .HasComment("Llave primaria del sistema version 1")
+                        .HasMaxLength(20);
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 14, 17, 15, 17, 276, DateTimeKind.Local).AddTicks(1438));
+                        .HasDefaultValue(new DateTime(2020, 1, 14, 21, 47, 15, 142, DateTimeKind.Local).AddTicks(610));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1174,15 +1179,16 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasMaxLength(50);
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("is_internal")
+                        .HasColumnName("description")
                         .HasColumnType("text")
-                        .HasComment("Flag para verificar si el tipo de servicio es de uso interno")
-                        .HasDefaultValue("False");
+                        .HasComment("Descripcion detallada del estado del proveedor");
 
                     b.Property<bool>("IsInternal")
-                        .HasColumnType("boolean");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("is_internal")
+                        .HasColumnType("boolean")
+                        .HasComment("Flag para verificar si el tipo de servicio es de uso interno")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -1277,6 +1283,12 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
             modelBuilder.Entity("setours.jarvis.domain.entity.Rates.RateEntity", b =>
                 {
+                    b.HasOne("setours.jarvis.domain.entity.Rates.RateStatusEntity", "RateStatus")
+                        .WithMany("Rates")
+                        .HasForeignKey("RateStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("setours.jarvis.domain.entity.Services.ServiceDetailEntity", "ServiceDetail")
                         .WithMany("Rates")
                         .HasForeignKey("ServiceDetailId")
@@ -1306,10 +1318,6 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("setours.jarvis.domain.entity.Generals.DocumentEntity", "Document")
-                        .WithMany()
-                        .HasForeignKey("DocumentId");
 
                     b.HasOne("setours.jarvis.domain.entity.Providers.ProviderEntity", "Provider")
                         .WithMany("Services")

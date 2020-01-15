@@ -31,11 +31,17 @@ namespace setours.jarvis.infrastructure.persistence.Services
                 .IsRequired(false)
                 .HasComment("Descripcion detallada del estado del proveedor");
 
-            builder.Property(x => x.Description)
+            builder.Property(x => x.IsInternal)
                 .HasColumnName("is_internal")
                 .IsRequired()
                 .HasDefaultValue(false)
                 .HasComment("Flag para verificar si el tipo de servicio es de uso interno");
+
+            builder.Property(x => x.CodeSetra)
+                .HasColumnName("code_setra")
+                .IsRequired(false)
+                .HasMaxLength(20)
+                .HasComment("Llave primaria del sistema version 1");
 
             builder.Property(x => x.CreatedBy)
                 .HasColumnName("created_by")

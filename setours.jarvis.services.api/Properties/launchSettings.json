@@ -1,13 +1,39 @@
 {
   "profiles": {
+    "Production": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger/index.html",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5002"
+    },
     "Local": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger/index.html",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Local"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:5015"
+      "applicationUrl": "http://localhost:5000"
+    },
+    "Quality": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger/index.html",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5002"
+    },
+    "setours.jarvis.services.api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5000"
     },
     "Development": {
       "commandName": "Project",
@@ -16,25 +42,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:5015"
-    },
-    "Quality": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "swagger/index.html",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Quality"
-      },
-      "applicationUrl": "http://localhost:5015"
-    },
-    "Production": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "swagger/index.html",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Production"
-      },
-      "applicationUrl": "http://localhost:5015"
+      "applicationUrl": "http://localhost:5004"
     }
   }
 }

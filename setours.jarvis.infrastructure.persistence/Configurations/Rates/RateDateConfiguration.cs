@@ -40,7 +40,7 @@ namespace setours.jarvis.infrastructure.persistence.Rates
                 .IsRequired()
                 .HasComment("Fecha de inicio para la compra");
 
-            builder.Property(x => x.BookingDateStart)
+            builder.Property(x => x.BookingDateEnd)
                 .HasColumnName("booking_date_end")
                 .IsRequired()
                 .HasComment("Fecha final para la compra");

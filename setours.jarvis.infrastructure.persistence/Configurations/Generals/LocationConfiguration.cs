@@ -37,6 +37,13 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
                 .HasMaxLength(150)
                 .HasComment("Nombre de la ubicacion");
 
+            builder.Property(x => x.Type)
+                .HasColumnName("type")
+                .IsRequired()
+                .HasMaxLength(1)
+                .IsFixedLength()
+                .HasComment("Tipo de ubigeo P: Pais, C: Ciudad");
+
             builder.Property(x => x.Status)
                 .HasColumnName("status")
                 .IsRequired()

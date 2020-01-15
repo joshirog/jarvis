@@ -9,7 +9,7 @@ namespace setours.jarvis.infrastructure.persistence.Services
     {
         public void Configure(EntityTypeBuilder<ServiceDetailEntity> builder)
         {
-            builder.ToTable("se_service_details");
+            builder.ToTable("se_details");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)

@@ -10,11 +10,11 @@ namespace setours.jarvis.domain.entity.Rates
 
         public int ServiceDetailId { get; set; }
 
+        public int RateStatusId { get; set; }
+
         public string Code { get; set; }
 
         public string Name { get; set; }
-
-        public string Status { get; set; }
 
         public string Description { get; set; }
 
@@ -30,7 +30,10 @@ namespace setours.jarvis.domain.entity.Rates
 
         public DateTime? UpdatedAt { get; set; }
 
+
         public ServiceDetailEntity ServiceDetail { get; set; }
+
+        public RateStatusEntity RateStatus { get; set; }
 
         public List<RateDateEntity> RateDates { get; set; }
     }
