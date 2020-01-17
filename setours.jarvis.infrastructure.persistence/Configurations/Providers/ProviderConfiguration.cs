@@ -131,7 +131,7 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Providers
                 .WithMany(x => x.CityProviders)
                 .HasForeignKey(x => x.CityId);
 
-            builder.HasOne(x => x.Document)
+            builder.HasOne(x => x.DocumentType)
                 .WithMany(x => x.Providers)
                 .HasForeignKey(x => x.DocumentId);
 

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using setours.jarvis.domain.entity.Services;
 
-namespace setours.jarvis.domain.entity.Services
+namespace setours.jarvis.domain.entity.Generals
 {
     public class ServiceTypeEntity : IEntity
     {

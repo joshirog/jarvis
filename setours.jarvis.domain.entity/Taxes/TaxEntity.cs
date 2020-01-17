@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using setours.jarvis.domain.entity.Rates;
 
 namespace setours.jarvis.domain.entity.Taxes
 {
@@ -23,5 +24,7 @@ namespace setours.jarvis.domain.entity.Taxes
 
 
         public List<TaxDetailEntity> TaxDetails { get; set; }
+
+        public List<RateTaxEntity> RateTaxes { get; set; }
     }
 }

@@ -1,16 +1,20 @@
-﻿using setours.jarvis.domain.entity.Contacts;
+﻿using setours.jarvis.domain.entity.Providers;
 using System;
 using System.Collections.Generic;
 
 namespace setours.jarvis.domain.entity.Generals
 {
-    public class SegmentationEntity : IEntity
+    public class DocumentTypeEntity : IEntity
     {
         public int Id { get; set; }
 
+        public string Abbreviation { get; set; }
+
         public string Name { get; set; }
 
-        public string Description { get; set; }
+        public string Status { get; set; }
+
+        public string CodeSetra { get; set; }
 
         public string CreatedBy { get; set; }
 
@@ -21,6 +25,6 @@ namespace setours.jarvis.domain.entity.Generals
         public DateTime? UpdatedAt { get; set; }
 
 
-        public List<ContactDetailEntity> ContactDetail { get; set; }
+        public List<ProviderEntity> Providers { get; set; }
     }
 }

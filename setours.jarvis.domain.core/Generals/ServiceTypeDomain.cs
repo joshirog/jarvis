@@ -1,8 +1,8 @@
-﻿using setours.jarvis.domain.entity.Services;
-using setours.jarvis.domain.interfaces.Services;
-using setours.jarvis.infrastructure.interfaces.Services;
+﻿using setours.jarvis.domain.entity.Generals;
+using setours.jarvis.domain.interfaces.Generals;
+using setours.jarvis.infrastructure.interfaces.Generals;
 
-namespace setours.jarvis.domain.core.Services
+namespace setours.jarvis.domain.core.Generals
 {
     public class ServiceTypeDomain : BaseDomain<IServiceTypeRepository, ServiceTypeEntity>, IServiceTypeDomain
     {

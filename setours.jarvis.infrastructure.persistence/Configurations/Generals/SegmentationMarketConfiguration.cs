@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using setours.jarvis.domain.entity.Clients;
+using setours.jarvis.domain.entity.Generals;
 using System;
 
-namespace setours.jarvis.infrastructure.persistence.Configurations.Clients
+namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
 {
-    public class ClientTypeConfiguration : IEntityTypeConfiguration<ClientTypeEntity>
+    public class SegmentationConfiguration : IEntityTypeConfiguration<SegmentationMarketEntity>
     {
-        public void Configure(EntityTypeBuilder<ClientTypeEntity> builder)
+        public void Configure(EntityTypeBuilder<SegmentationMarketEntity> builder)
         {
-            builder.ToTable("cl_types");
+            builder.ToTable("ge_segmentations");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
@@ -24,13 +24,13 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Clients
                 .HasColumnName("name")
                 .IsRequired()
                 .HasMaxLength(150)
-                .HasComment("Nombre del tipo de cliente");
+                .HasComment("Nombre de la segmentacion de mercado");
 
-            builder.Property(x => x.CodeSetra)
-                .HasColumnName("code_setra")
+            builder.Property(x => x.Description)
+                .HasColumnName("description")
                 .IsRequired(false)
-                .HasMaxLength(20)
-                .HasComment("Llave primaria del sistema version 1");
+                .HasMaxLength(150)
+                .HasComment("Descripcion detallada de la segmentacion de mercado");
 
             builder.Property(x => x.CreatedBy)
                 .HasColumnName("created_by")

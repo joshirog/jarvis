@@ -10,7 +10,7 @@ namespace setours.jarvis.transversal.mapper
     {
         public MappingsProfile()
         {
-            CreateMap<DocumentEntity, DocumentDto>().ReverseMap();
+            CreateMap<DocumentTypeEntity, DocumentTypeDto>().ReverseMap();
             CreateMap<LocationEntity, LocationDto>().ReverseMap();
             CreateMap<ProviderStatusEntity, ProviderStatusDto>().ReverseMap();
             CreateMap<ProviderChainEntity, ProviderChainDto>().ReverseMap();

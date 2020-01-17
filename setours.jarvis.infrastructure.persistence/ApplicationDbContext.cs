@@ -1,12 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using setours.jarvis.domain.entity.Clients;
 using setours.jarvis.domain.entity.Contacts;
 using setours.jarvis.domain.entity.Generals;
 using setours.jarvis.domain.entity.Providers;
 using setours.jarvis.domain.entity.Rates;
 using setours.jarvis.domain.entity.Services;
 using setours.jarvis.domain.entity.Taxes;
-using setours.jarvis.infrastructure.persistence.Configurations.Clients;
 using setours.jarvis.infrastructure.persistence.Configurations.Contacts;
 using setours.jarvis.infrastructure.persistence.Configurations.Generals;
 using setours.jarvis.infrastructure.persistence.Configurations.Providers;
@@ -27,8 +25,8 @@ namespace setours.jarvis.infrastructure.persistence
         
         }
 
-        public DbSet<SegmentationEntity> Segmentations { get; set; }
-        public DbSet<DocumentEntity> Documents { get; set; }
+        public DbSet<SegmentationMarketEntity> SegmentationMarkets { get; set; }
+        public DbSet<DocumentTypeEntity> Documents { get; set; }
         public DbSet<LocationEntity> Locations { get; set; }
         public DbSet<AccommodationEntity> Occupations { get; set; }
         public DbSet<CurrencyEntity> Currency { get; set; }
@@ -43,8 +41,6 @@ namespace setours.jarvis.infrastructure.persistence
         public DbSet<ProviderEntity> Providers { get; set; }
         public DbSet<ProviderChainEntity> ProviderChains { get; set; }
         public DbSet<ProviderContactEntity> ProviderContacts { get; set; }
-
-        public DbSet<ClientTypeEntity> ClientTypes { get; set; }
 
         public DbSet<ContactTypeEntity> ContactTypes { get; set; }
         public DbSet<ContactMediaEntity> ContactMedias { get; set; }
@@ -73,7 +69,7 @@ namespace setours.jarvis.infrastructure.persistence
 
             builder.ApplyConfiguration(new SegmentationConfiguration());
             builder.ApplyConfiguration(new CurrencyConfiguration());
-            builder.ApplyConfiguration(new DocumentContiguration());
+            builder.ApplyConfiguration(new DocumentTypeContiguration());
             builder.ApplyConfiguration(new AccommodationConfiguration());
             builder.ApplyConfiguration(new LocationConfiguration());
             builder.ApplyConfiguration(new AdditionalConfiguration());
@@ -87,8 +83,6 @@ namespace setours.jarvis.infrastructure.persistence
             builder.ApplyConfiguration(new ProviderChainConfiguration());
             builder.ApplyConfiguration(new ProviderStatusConfiguration());
             builder.ApplyConfiguration(new ProviderContactConfiguration());
-
-            builder.ApplyConfiguration(new ClientTypeConfiguration());
 
             builder.ApplyConfiguration(new ContactTypeConfiguration());
             builder.ApplyConfiguration(new ContactMediaConfiguration());

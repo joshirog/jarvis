@@ -6,9 +6,9 @@ namespace setours.jarvis.services.api.Controllers.Generals
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DocumentController : BaseApiController<IDocumentApplication, DocumentDto>
+    public class DocumentTypeController : BaseApiController<IDocumentTypeApplication, DocumentTypeDto>
     {
-        public DocumentController(IDocumentApplication application) : base(application)
+        public DocumentTypeController(IDocumentTypeApplication application) : base(application)
         {
 
         }

@@ -52,7 +52,7 @@ namespace setours.jarvis.domain.entity.Providers
 
         public LocationEntity City { get; set; }
 
-        public DocumentEntity Document { get; set; }
+        public DocumentTypeEntity DocumentType { get; set; }
 
         public List<ServiceEntity> Services { get; set; }
 

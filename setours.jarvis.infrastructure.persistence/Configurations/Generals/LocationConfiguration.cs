@@ -31,12 +31,6 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
                 .HasMaxLength(5)
                 .HasComment("Codigo de la ubicacion");
 
-            builder.Property(x => x.Name)
-                .HasColumnName("name")
-                .IsRequired()
-                .HasMaxLength(150)
-                .HasComment("Nombre de la ubicacion");
-
             builder.Property(x => x.Type)
                 .HasColumnName("type")
                 .IsRequired()
@@ -51,6 +45,18 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
                 .IsFixedLength()
                 .HasDefaultValue("A")
                 .HasComment("Estado A: Activo, I: Inactivo, X: Eliminado");
+
+            builder.Property(x => x.Name)
+                .HasColumnName("name")
+                .IsRequired()
+                .HasMaxLength(150)
+                .HasComment("Nombre de la ubicacion");
+
+            builder.Property(x => x.IsDestination)
+                .HasColumnName("is_destination")
+                .IsRequired()
+                .HasDefaultValue(false)
+                .HasComment("Indicador para verificar si es un destino de servicio");
 
             builder.Property(x => x.CodeSetra)
                 .HasColumnName("code_setra")

@@ -20,7 +20,7 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Rates
                 .ValueGeneratedOnAdd()
                 .HasComment("Llave primaria de la tabla");
 
-            builder.Property(x => x.RateId)
+            builder.Property(x => x.RateDateId)
                 .HasColumnName("ra_rate_id")
                 .IsRequired()
                 .HasComment("Llave foranea con ra_rates");
@@ -52,6 +52,11 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Rates
                 .HasColumnName("updated_at")
                 .IsRequired(false)
                 .HasComment("ultima fecha de actualizacion el registro");
+
+
+            builder.HasOne(x => x.RateDate)
+                .WithMany(x => x.RateDateDays)
+                .HasForeignKey(x => x.RateDateId);
         }
     }
 }

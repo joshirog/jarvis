@@ -2,7 +2,8 @@
 
 namespace setours.jarvis.application.interfaces.Generals
 {
-    public interface IDocumentApplication : IBaseApplication<DocumentDto>
+    public interface IDocumentTypeApplication : IBaseApplication<DocumentTypeDto>
     {
+
     }
 }

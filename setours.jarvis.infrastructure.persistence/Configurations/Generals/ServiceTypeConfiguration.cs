@@ -1,16 +1,15 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using setours.jarvis.domain.entity.Generals;
+using System;
 
-namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
+namespace setours.jarvis.infrastructure.persistence.Generals
 {
-
-    public class DocumentContiguration : IEntityTypeConfiguration<DocumentEntity>
+    public class ServiceTypeConfiguration : IEntityTypeConfiguration<ServiceTypeEntity>
     {
-        public void Configure(EntityTypeBuilder<DocumentEntity> builder)
+        public void Configure(EntityTypeBuilder<ServiceTypeEntity> builder)
         {
-            builder.ToTable("ge_documents");
+            builder.ToTable("se_types");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
@@ -21,25 +20,22 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
                 .ValueGeneratedOnAdd()
                 .HasComment("Llave primaria de la tabla");
 
-            builder.Property(x => x.Abbreviation)
-                .HasColumnName("abbreviation")
-                .IsRequired()
-                .HasMaxLength(8)
-                .HasComment("Abreviatura del tipo de documento");
-
             builder.Property(x => x.Name)
                 .HasColumnName("name")
                 .IsRequired()
                 .HasMaxLength(150)
-                .HasComment("Nombre del tipo de documento");
+                .HasComment("Nombre del estado del proveedor");
 
-            builder.Property(x => x.Status)
-                .HasColumnName("status")
+            builder.Property(x => x.Description)
+                .HasColumnName("description")
+                .IsRequired(false)
+                .HasComment("Descripcion detallada del estado del proveedor");
+
+            builder.Property(x => x.IsInternal)
+                .HasColumnName("is_internal")
                 .IsRequired()
-                .HasMaxLength(1)
-                .IsFixedLength()
-                .HasDefaultValue("A")
-                .HasComment("Estado A: Activo, I: Inactivo, X: Eliminado");
+                .HasDefaultValue(false)
+                .HasComment("Flag para verificar si el tipo de servicio es de uso interno");
 
             builder.Property(x => x.CodeSetra)
                 .HasColumnName("code_setra")
@@ -68,8 +64,7 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
             builder.Property(x => x.UpdatedAt)
                 .HasColumnName("updated_at")
                 .IsRequired(false)
-                .HasComment("ultima fecha de actualizacion el registro");
-
+                .HasComment("Ultima fecha de actualizacion el registro");
         }
     }
 }

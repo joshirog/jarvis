@@ -7,10 +7,10 @@ using setours.jarvis.domain.interfaces.Generals;
 
 namespace setours.jarvis.application.main.Generals
 {
-    public class DocumentApplication :
-        BaseApplication<IDocumentDomain, DocumentDto, DocumentEntity, DocumentValidation>, IDocumentApplication
+    public class DocumentTypeApplication :
+        BaseApplication<IDocumentTypeDomain, DocumentTypeDto, DocumentTypeEntity, DocumentTypeValidation>, IDocumentTypeApplication
     {
-        public DocumentApplication(IDocumentDomain domain, IMapper mapper, DocumentValidation validation)
+        public DocumentTypeApplication(IDocumentTypeDomain domain, IMapper mapper, DocumentTypeValidation validation)
             : base(domain, mapper, validation)
         {
 

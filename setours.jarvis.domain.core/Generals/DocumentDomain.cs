@@ -4,9 +4,9 @@ using setours.jarvis.infrastructure.interfaces.Generals;
 
 namespace setours.jarvis.domain.core.Generals
 {
-    public class DocumentDomain : BaseDomain<IDocumentRepository, DocumentEntity>, IDocumentDomain
+    public class DocumentDomain : BaseDomain<IDocumentTypeRepository, DocumentTypeEntity>, IDocumentTypeDomain
     {
-        public DocumentDomain(IDocumentRepository repository) : base(repository)
+        public DocumentDomain(IDocumentTypeRepository repository) : base(repository)
         {
 
         }

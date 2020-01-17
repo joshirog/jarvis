@@ -2,7 +2,7 @@
 
 namespace setours.jarvis.domain.interfaces.Generals
 {
-    public interface IDocumentTypeDomain : IBaseDomain<DocumentTypeEntity>
+    public interface IServiceTypeDomain : IBaseDomain<ServiceTypeEntity>
     {
 
     }

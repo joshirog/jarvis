@@ -1,5 +1,5 @@
-﻿using setours.jarvis.domain.entity.Generals;
-using System;
+﻿using System;
+using setours.jarvis.domain.entity.Generals;
 
 namespace setours.jarvis.domain.entity.Contacts
 {
@@ -22,6 +22,6 @@ namespace setours.jarvis.domain.entity.Contacts
 
         public ContactEntity Contact { get; set; }
 
-        public SegmentationEntity Segmentation { get; set; }
+        public SegmentationMarketEntity SegmentationMarket { get; set; }
     }
 }

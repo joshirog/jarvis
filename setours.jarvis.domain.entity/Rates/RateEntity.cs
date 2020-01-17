@@ -1,4 +1,5 @@
-﻿using setours.jarvis.domain.entity.Services;
+﻿using setours.jarvis.domain.entity.Generals;
+using setours.jarvis.domain.entity.Services;
 using System;
 using System.Collections.Generic;
 
@@ -16,7 +17,11 @@ namespace setours.jarvis.domain.entity.Rates
 
         public string Name { get; set; }
 
+        public int CurrencyId { get; set; }
+
         public string Description { get; set; }
+
+        public decimal Estimated { get; set; }
 
         public string Link { get; set; }
 
@@ -31,10 +36,16 @@ namespace setours.jarvis.domain.entity.Rates
         public DateTime? UpdatedAt { get; set; }
 
 
+        public CurrencyEntity Currency { get; set; }
+
         public ServiceDetailEntity ServiceDetail { get; set; }
 
         public RateStatusEntity RateStatus { get; set; }
 
         public List<RateDateEntity> RateDates { get; set; }
+
+        public List<RateInclusionEntity> RateInclusions { get; set; }
+
+        public List<RateTaxEntity> RateTaxes { get; set; }
     }
 }

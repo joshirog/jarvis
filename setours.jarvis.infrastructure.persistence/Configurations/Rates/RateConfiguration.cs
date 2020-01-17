@@ -42,11 +42,21 @@ namespace setours.jarvis.infrastructure.persistence.Rates
                 .HasMaxLength(120)
                 .HasComment("Nombre del servicio");
 
+            builder.Property(x => x.CurrencyId)
+                .HasColumnName("ge_currency_id")
+                .IsRequired()
+                .HasComment("Llave foranea con ge_currency");
+
             builder.Property(x => x.Description)
                 .IsRequired()
                 .HasColumnName("description")
                 .HasMaxLength(30)
                 .HasComment("Descripcion detallada del servicio");
+
+            builder.Property(x => x.Estimated)
+                .HasColumnName("estimated")
+                .IsRequired()
+                .HasComment("Margen de estimacion o preyeccion");
 
             builder.Property(x => x.Link)
                 .IsRequired(false)
@@ -90,6 +100,10 @@ namespace setours.jarvis.infrastructure.persistence.Rates
             builder.HasOne(x => x.RateStatus)
                .WithMany(x => x.Rates)
                .HasForeignKey(x => x.RateStatusId);
+
+            builder.HasOne(x => x.Currency)
+               .WithMany(x => x.Rates)
+               .HasForeignKey(x => x.CurrencyId);
         }
     }
 }

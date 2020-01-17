@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace setours.jarvis.domain.entity.Rates
 {
@@ -31,6 +30,10 @@ namespace setours.jarvis.domain.entity.Rates
 
         public RateEntity Rate { get; set; }
 
+        public List<RateDateDayEntity> RateDateDays { get; set; }
+
         public List<RateDateDetailEntity> RateDetails { get; set; }
+
+        public List<RateDateBlackoutEntity> RateDateBlackouts { get; set; }
     }
 }

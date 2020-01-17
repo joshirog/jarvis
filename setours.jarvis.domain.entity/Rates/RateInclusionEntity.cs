@@ -1,4 +1,5 @@
 ﻿using System;
+using setours.jarvis.domain.entity.Generals;
 
 namespace setours.jarvis.domain.entity.Rates
 {
@@ -17,5 +18,10 @@ namespace setours.jarvis.domain.entity.Rates
         public string UpdatedBy { get; set; }
 
         public DateTime? UpdatedAt { get; set; }
+
+
+        public RateEntity Rate { get; set; }
+
+        public InclusionEntity Inclusion { get; set; }
     }
 }

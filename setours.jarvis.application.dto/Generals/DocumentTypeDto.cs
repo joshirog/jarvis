@@ -2,7 +2,7 @@
 
 namespace setours.jarvis.application.dto.Generals
 {
-    public class DocumentDto : IDataTransferObject
+    public class DocumentTypeDto : IDataTransferObject
     {
         [JsonProperty(PropertyName = "id")]
         public int Id { get; set; }

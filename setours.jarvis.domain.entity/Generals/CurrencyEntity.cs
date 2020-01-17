@@ -28,5 +28,7 @@ namespace setours.jarvis.domain.entity.Generals
 
 
         public List<RateDateDetailEntity> RateDetails { get; set; }
+
+        public List<RateEntity> Rates { get; set; }
     }
 }

@@ -59,10 +59,10 @@ namespace setours.jarvis.services.api
                 }
             );
 
-            services.AddScoped<IDocumentApplication, DocumentApplication>();
-            services.AddScoped<DocumentValidation>();
-            services.AddScoped<IDocumentDomain, DocumentDomain>();
-            services.AddScoped<IDocumentRepository, DocumentRepository>();
+            services.AddScoped<IDocumentTypeApplication, DocumentTypeApplication>();
+            services.AddScoped<DocumentTypeValidation>();
+            services.AddScoped<IDocumentTypeDomain, DocumentDomain>();
+            services.AddScoped<IDocumentTypeRepository, DocumentTypeRepository>();
 
             services.AddScoped<ILocationApplication, LocationApplication>();
             services.AddScoped<LocationValidation>();

@@ -62,6 +62,15 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Rates
                 .HasColumnName("updated_at")
                 .IsRequired(false)
                 .HasComment("Ultima fecha de actualizacion el registro");
+
+
+            builder.HasOne(x => x.Rate)
+                .WithMany(x => x.RateTaxes)
+                .HasForeignKey(x => x.RateId);
+
+            builder.HasOne(x => x.Tax)
+                .WithMany(x => x.RateTaxes)
+                .HasForeignKey(x => x.TaxId);
         }
     }
 }

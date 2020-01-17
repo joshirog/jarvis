@@ -6,7 +6,7 @@ namespace setours.jarvis.domain.entity.Rates
     {
         public int Id { get; set; }
 
-        public int RateId { get; set; }
+        public int RateDateId { get; set; }
 
         public int NumDay { get; set; }
 
@@ -17,5 +17,8 @@ namespace setours.jarvis.domain.entity.Rates
         public string UpdatedBy { get; set; }
 
         public DateTime? UpdatedAt { get; set; }
+
+
+        public RateDateEntity RateDate { get; set; }
     }
 }

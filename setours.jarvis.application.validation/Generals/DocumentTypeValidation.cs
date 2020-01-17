@@ -3,9 +3,9 @@ using setours.jarvis.application.dto.Generals;
 
 namespace setours.jarvis.application.validation.Generals
 {
-    public class DocumentValidation : BaseValidation<DocumentDto>
+    public class DocumentTypeValidation : BaseValidation<DocumentTypeDto>
     {
-        public DocumentValidation()
+        public DocumentTypeValidation()
         {
             RuleFor(d => d.Id).NotNull();
         }

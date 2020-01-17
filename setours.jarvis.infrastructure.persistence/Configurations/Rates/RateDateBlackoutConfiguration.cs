@@ -20,20 +20,20 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Rates
                 .ValueGeneratedOnAdd()
                 .HasComment("Llave primaria de la tabla");
 
-            builder.Property(x => x.RateId)
-                .HasColumnName("ra_rate_id")
+            builder.Property(x => x.RateDateId)
+                .HasColumnName("ra_rate_date_id")
                 .IsRequired()
                 .HasComment("Llave foranea con se_details");
 
             builder.Property(x => x.DateIn)
                .HasColumnName("data_in")
                .IsRequired()
-               .HasComment("Blackout fecha in");
+               .HasComment("Blackout fecha inicio");
 
             builder.Property(x => x.DateOut)
                .HasColumnName("data_out")
                .IsRequired()
-               .HasComment("Blackout fecha out");
+               .HasComment("Blackout fecha final");
 
             builder.Property(x => x.CreatedBy)
                 .HasColumnName("created_by")
@@ -57,6 +57,11 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Rates
                 .HasColumnName("updated_at")
                 .IsRequired(false)
                 .HasComment("ultima fecha de actualizacion el registro");
+
+
+            builder.HasOne(x => x.RateDate)
+                .WithMany(x => x.RateDateBlackouts)
+                .HasForeignKey(x => x.RateDateId);
         }
     }
 }

@@ -30,11 +30,6 @@ namespace setours.jarvis.infrastructure.persistence.Rates
                 .IsRequired()
                 .HasComment("Llave foranea con ge_accommodations");
 
-            builder.Property(x => x.CurrencyId)
-                .HasColumnName("ge_currency_id")
-                .IsRequired()
-                .HasComment("Llave foranea con ge_currency");
-
             builder.Property(x => x.Status)
                 .HasColumnName("status")
                 .IsRequired()
@@ -52,11 +47,6 @@ namespace setours.jarvis.infrastructure.persistence.Rates
                 .HasColumnName("sale_price")
                 .IsRequired()
                 .HasComment("Precio de venta");
-
-            builder.Property(x => x.Estimated)
-                .HasColumnName("estimated")
-                .IsRequired()
-                .HasComment("Margen de estimacion o preyeccion");
 
             builder.Property(x => x.IsEditable)
                 .HasColumnName("is_editable")
@@ -91,13 +81,9 @@ namespace setours.jarvis.infrastructure.persistence.Rates
                 .WithMany(x => x.RateDetails)
                 .HasForeignKey(x => x.RateDateId);
 
-            builder.HasOne(x => x.Occupation)
+            builder.HasOne(x => x.Accommodation)
                 .WithMany(x => x.RateDetails)
                 .HasForeignKey(x => x.AccommodationId);
-
-            builder.HasOne(x => x.Currency)
-                .WithMany(x => x.RateDetails)
-                .HasForeignKey(x => x.CurrencyId);
         }
     }
 }

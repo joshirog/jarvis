@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using setours.jarvis.domain.entity.Rates;
 
 namespace setours.jarvis.domain.entity.Generals
 {
@@ -21,5 +23,8 @@ namespace setours.jarvis.domain.entity.Generals
         public string UpdatedBy { get; set; }
 
         public DateTime? UpdatedAt { get; set; }
+
+
+        public List<RateInclusionEntity> RateInclusions { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using setours.jarvis.domain.entity.Generals;
 using System;
+using System.Collections.Generic;
 
 namespace setours.jarvis.domain.entity.Rates
 {
@@ -36,8 +37,6 @@ namespace setours.jarvis.domain.entity.Rates
 
         public RateDateEntity RateDate { get; set; }
 
-        public AccommodationEntity Occupation { get; set; }
-
-        public CurrencyEntity Currency { get; set; }
+        public AccommodationEntity Accommodation { get; set; }
     }
 }
