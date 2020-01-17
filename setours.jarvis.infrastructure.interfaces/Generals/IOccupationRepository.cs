@@ -2,7 +2,7 @@
 
 namespace setours.jarvis.infrastructure.interfaces.Generals
 {
-    public interface IOccupationRepository : IBaseRepository<OccupationEntity>
+    public interface IOccupationRepository : IBaseRepository<AccommodationEntity>
     {
 
     }

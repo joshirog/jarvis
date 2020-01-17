@@ -2,7 +2,7 @@
 
 namespace setours.jarvis.domain.interfaces.Generals
 {
-    public interface IOccupationDomain : IBaseDomain<OccupationEntity>
+    public interface IOccupationDomain : IBaseDomain<AccommodationEntity>
     {
 
     }

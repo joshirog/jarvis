@@ -91,13 +91,11 @@ namespace setours.jarvis.infrastructure.persistence.Services
 
             builder.Property(x => x.IsOnlineRate)
                 .HasColumnName("is_online_rate")
-                .HasMaxLength(100)
                 .HasDefaultValue(false)
                 .HasComment("Flag para mostrar el servicios a clientes externos");
 
             builder.Property(x => x.IsPreferred)
                 .HasColumnName("is_preferred")
-                .HasMaxLength(100)
                 .HasDefaultValue(false)
                 .HasComment("Flag para mostrar el servicios a clientes externos");
 

@@ -22,6 +22,10 @@ namespace setours.jarvis.domain.entity.Services
 
         public int CapacityMaxChild { get; set; }
 
+        public int AgeMaxChild { get; set; }
+
+        public bool IsExtraCostChild { get; set; }
+
         public string CodeSetra { get; set; }
 
         public string CreatedBy { get; set; }
@@ -36,5 +40,7 @@ namespace setours.jarvis.domain.entity.Services
         public ServiceEntity Service { get; set; }
 
         public List<RateEntity> Rates { get; set; }
+
+        public List<ServiceDetailAdditionalEntity> ServiceDetailAdditionals { get; set; }
     }
 }

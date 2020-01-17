@@ -54,6 +54,15 @@ namespace setours.jarvis.infrastructure.persistence.Services
                 .HasColumnName("capacity_max_child")
                 .HasComment("Capacidad maxima de niños en el servicio");
 
+            builder.Property(x => x.AgeMaxChild)
+                .HasColumnName("age_max_child")
+                .HasComment("Edad maxima para el niño");
+
+            builder.Property(x => x.IsExtraCostChild)
+                .HasColumnName("is_extra_cost_child")
+                .HasDefaultValue(false)
+                .HasComment("Flag para agregar el costo extra para el niño");
+
             builder.Property(x => x.CodeSetra)
                 .HasColumnName("code_setra")
                 .IsRequired(false)

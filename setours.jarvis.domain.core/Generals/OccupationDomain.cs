@@ -4,7 +4,7 @@ using setours.jarvis.infrastructure.interfaces.Generals;
 
 namespace setours.jarvis.domain.core.Generals
 {
-    public class OccupationDomain : BaseDomain<IOccupationRepository, OccupationEntity>, IOccupationDomain
+    public class OccupationDomain : BaseDomain<IOccupationRepository, AccommodationEntity>, IOccupationDomain
     {
         public OccupationDomain(IOccupationRepository repository) : base(repository)
         {

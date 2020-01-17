@@ -3,13 +3,13 @@ using System;
 
 namespace setours.jarvis.domain.entity.Rates
 {
-    public class RateDetailEntity : IEntity
+    public class RateDateDetailEntity : IEntity
     {
         public int Id { get; set; }
 
         public int RateDateId { get; set; }
 
-        public int OccupationId { get; set; }
+        public int AccommodationId { get; set; }
 
         public int CurrencyId { get; set; }
 
@@ -19,6 +19,10 @@ namespace setours.jarvis.domain.entity.Rates
 
         public decimal SalePrice { get; set; }
 
+        public decimal Margin { get; set; }
+
+        public decimal Estimated { get; set; }
+        
         public bool IsEditable { get; set; }
 
         public string CreatedBy { get; set; }
@@ -32,7 +36,7 @@ namespace setours.jarvis.domain.entity.Rates
 
         public RateDateEntity RateDate { get; set; }
 
-        public OccupationEntity Occupation { get; set; }
+        public AccommodationEntity Occupation { get; set; }
 
         public CurrencyEntity Currency { get; set; }
     }

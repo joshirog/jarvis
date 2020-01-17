@@ -9,7 +9,7 @@ namespace setours.jarvis.infrastructure.persistence.Rates
     {
         public void Configure(EntityTypeBuilder<RateDateEntity> builder)
         {
-            builder.ToTable("ra_dates");
+            builder.ToTable("ra_rate_dates");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)

@@ -55,5 +55,7 @@ namespace setours.jarvis.domain.entity.Providers
         public DocumentEntity Document { get; set; }
 
         public List<ServiceEntity> Services { get; set; }
+
+        public List<ProviderContactEntity> ProviderContacts { get; set; }
     }
 }

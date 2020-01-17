@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using setours.jarvis.domain.entity.Generals;
+using setours.jarvis.domain.entity.Clients;
 using System;
 
-namespace setours.jarvis.infrastructure.persistence.Generals
+namespace setours.jarvis.infrastructure.persistence.Configurations.Clients
 {
-    public class OccupationConfiguration : IEntityTypeConfiguration<OccupationEntity>
+    public class ClientTypeConfiguration : IEntityTypeConfiguration<ClientTypeEntity>
     {
-        public void Configure(EntityTypeBuilder<OccupationEntity> builder)
+        public void Configure(EntityTypeBuilder<ClientTypeEntity> builder)
         {
-            builder.ToTable("ge_occupation");
+            builder.ToTable("cl_types");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
@@ -20,31 +20,11 @@ namespace setours.jarvis.infrastructure.persistence.Generals
                 .ValueGeneratedOnAdd()
                 .HasComment("Llave primaria de la tabla");
 
-            builder.Property(x => x.Abbreviation)
-                .HasColumnName("abbreviation")
-                .IsRequired()
-                .HasMaxLength(8)
-                .HasComment("Abreviatura de la ocupacion");
-
             builder.Property(x => x.Name)
                 .HasColumnName("name")
                 .IsRequired()
                 .HasMaxLength(150)
-                .HasComment("Nombre de la ocupacion");
-
-            builder.Property(x => x.Description)
-                .HasColumnName("description")
-                .IsRequired()
-                .HasMaxLength(150)
-                .HasComment("Descripcion de la ocupacion del servicio o tarifa");
-
-            builder.Property(x => x.Status)
-                .HasColumnName("status")
-                .IsRequired()
-                .HasMaxLength(1)
-                .IsFixedLength()
-                .HasDefaultValue("A")
-                .HasComment("Estado A: Activo, I: Inactivo, X: Eliminado");
+                .HasComment("Nombre del tipo de cliente");
 
             builder.Property(x => x.CodeSetra)
                 .HasColumnName("code_setra")

@@ -31,6 +31,6 @@ namespace setours.jarvis.domain.entity.Rates
 
         public RateEntity Rate { get; set; }
 
-        public List<RateDetailEntity> RateDetails { get; set; }
+        public List<RateDateDetailEntity> RateDetails { get; set; }
     }
 }

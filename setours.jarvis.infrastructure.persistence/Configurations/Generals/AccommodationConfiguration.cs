@@ -1,17 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using setours.jarvis.domain.entity.Rates;
+using setours.jarvis.domain.entity.Generals;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace setours.jarvis.infrastructure.persistence.Rates
+namespace setours.jarvis.infrastructure.persistence.Generals
 {
-    public class RateDetailConfiguration : IEntityTypeConfiguration<RateDetailEntity>
+    public class AccommodationConfiguration : IEntityTypeConfiguration<AccommodationEntity>
     {
-        public void Configure(EntityTypeBuilder<RateDetailEntity> builder)
+        public void Configure(EntityTypeBuilder<AccommodationEntity> builder)
         {
-            builder.ToTable("ra_details");
+            builder.ToTable("ge_accommodations");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
@@ -22,20 +20,23 @@ namespace setours.jarvis.infrastructure.persistence.Rates
                 .ValueGeneratedOnAdd()
                 .HasComment("Llave primaria de la tabla");
 
-            builder.Property(x => x.RateDateId)
-                .HasColumnName("ra_date_id")
+            builder.Property(x => x.Abbreviation)
+                .HasColumnName("abbreviation")
                 .IsRequired()
-                .HasComment("Llave foranea con ra_date_id");
+                .HasMaxLength(8)
+                .HasComment("Abreviatura de la ocupacion");
 
-            builder.Property(x => x.OccupationId)
-                .HasColumnName("ge_occupancy_id")
+            builder.Property(x => x.Name)
+                .HasColumnName("name")
                 .IsRequired()
-                .HasComment("Llave foranea con ge_occupancy");
+                .HasMaxLength(150)
+                .HasComment("Nombre de la ocupacion");
 
-            builder.Property(x => x.CurrencyId)
-                .HasColumnName("ge_currency_id")
+            builder.Property(x => x.Description)
+                .HasColumnName("description")
                 .IsRequired()
-                .HasComment("Llave foranea con ge_currency");
+                .HasMaxLength(150)
+                .HasComment("Descripcion de la ocupacion del servicio o tarifa");
 
             builder.Property(x => x.Status)
                 .HasColumnName("status")
@@ -45,20 +46,11 @@ namespace setours.jarvis.infrastructure.persistence.Rates
                 .HasDefaultValue("A")
                 .HasComment("Estado A: Activo, I: Inactivo, X: Eliminado");
 
-            builder.Property(x => x.Cost)
-                .HasColumnName("cost")
-                .IsRequired()
-                .HasComment("Costo");
-
-            builder.Property(x => x.SalePrice)
-                .HasColumnName("sale_price")
-                .IsRequired()
-                .HasComment("Precio de venta");
-
-            builder.Property(x => x.IsEditable)
-                .HasColumnName("is_editable")
-                .IsRequired()
-                .HasComment("Flag para permitir editar los precios fuera de tarifa");
+            builder.Property(x => x.CodeSetra)
+                .HasColumnName("code_setra")
+                .IsRequired(false)
+                .HasMaxLength(20)
+                .HasComment("Llave primaria del sistema version 1");
 
             builder.Property(x => x.CreatedBy)
                 .HasColumnName("created_by")
@@ -82,19 +74,6 @@ namespace setours.jarvis.infrastructure.persistence.Rates
                 .HasColumnName("updated_at")
                 .IsRequired(false)
                 .HasComment("ultima fecha de actualizacion el registro");
-
-
-            builder.HasOne(x => x.RateDate)
-                .WithMany(x => x.RateDetails)
-                .HasForeignKey(x => x.RateDateId);
-
-            builder.HasOne(x => x.Occupation)
-                .WithMany(x => x.RateDetails)
-                .HasForeignKey(x => x.OccupationId);
-
-            builder.HasOne(x => x.Currency)
-                .WithMany(x => x.RateDetails)
-                .HasForeignKey(x => x.CurrencyId);
         }
     }
 }

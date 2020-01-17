@@ -2,7 +2,7 @@
 
 namespace setours.jarvis.domain.interfaces.Rates
 {
-    public interface IRateDetailDomain : IBaseDomain<RateDetailEntity>
+    public interface IRateDetailDomain : IBaseDomain<RateDateDetailEntity>
     {
 
     }
