@@ -33,6 +33,12 @@ namespace setours.jarvis.domain.entity.Providers
 
         public string Website { get; set; }
 
+        public string PartnerzoneUsername { get; set; }
+
+        public string PartnerzonePassword { get; set; }
+
+        public string PartnerzoneLink { get; set; }
+
         public string CodeSetra { get; set; }
 
         public string CreatedBy { get; set; }

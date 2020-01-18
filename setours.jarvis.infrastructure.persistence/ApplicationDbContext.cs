@@ -32,7 +32,8 @@ namespace setours.jarvis.infrastructure.persistence
         public DbSet<CurrencyEntity> Currency { get; set; }
         public DbSet<AdditionalEntity> Additionals { get; set; }
         public DbSet<InclusionEntity> Inclustions { get; set; }
-        public DbSet<MarketEntity> Markets { get; set; }
+        public DbSet<RestrictionTypeEntity> Markets { get; set; }
+        public DbSet<LanguageEntity> languages { get; set; }
 
         public DbSet<TaxEntity> Taxes { get; set; }
         public DbSet<TaxDetailEntity> TaxDetails { get; set; }
@@ -53,6 +54,7 @@ namespace setours.jarvis.infrastructure.persistence
         public DbSet<ServiceDetailEntity> ServiceDetails { get; set; }
         public DbSet<ServiceDetailAdditionalEntity> ServiceDetailAdditionals { get; set; }
         public DbSet<ServiceEntity> Services { get; set; }
+        public DbSet<ServiceDescriptionEntity> ServiceDescriptions { get; set; }
 
         public DbSet<RateStatusEntity> RateStatus { get; set; }
         public DbSet<RateDateEntity> RateDates { get; set; }
@@ -67,14 +69,18 @@ namespace setours.jarvis.infrastructure.persistence
         {
             base.OnModelCreating(builder);
 
-            builder.ApplyConfiguration(new SegmentationConfiguration());
+            builder.ApplyConfiguration(new SegmentationMarketConfiguration());
             builder.ApplyConfiguration(new CurrencyConfiguration());
             builder.ApplyConfiguration(new DocumentTypeContiguration());
             builder.ApplyConfiguration(new AccommodationConfiguration());
             builder.ApplyConfiguration(new LocationConfiguration());
             builder.ApplyConfiguration(new AdditionalConfiguration());
             builder.ApplyConfiguration(new InclusionConfiguration());
-            builder.ApplyConfiguration(new MarketConfiguration());
+            builder.ApplyConfiguration(new RestrictionTypeConfiguration());
+            builder.ApplyConfiguration(new ServiceTypeConfiguration());
+            builder.ApplyConfiguration(new LanguageConfiguration());
+            builder.ApplyConfiguration(new CategoryServiceConfiguration());
+            builder.ApplyConfiguration(new CategorySetoursConfiguration());
 
             builder.ApplyConfiguration(new TaxConfiguration());
             builder.ApplyConfiguration(new TaxDetailConfiguration());
@@ -91,10 +97,10 @@ namespace setours.jarvis.infrastructure.persistence
             builder.ApplyConfiguration(new ContactDataConfiguration());
 
             builder.ApplyConfiguration(new ServiceStatusConfiguration());
-            builder.ApplyConfiguration(new ServiceTypeConfiguration());
             builder.ApplyConfiguration(new ServiceDetailConfiguration());
             builder.ApplyConfiguration(new ServiceConfiguration());
             builder.ApplyConfiguration(new ServiceDetailAdditionalConfiguration());
+            builder.ApplyConfiguration(new ServiceDescriptionConfiguration());
 
             builder.ApplyConfiguration(new RateStatusConfiguration());
             builder.ApplyConfiguration(new RateDateDetailConfiguration());

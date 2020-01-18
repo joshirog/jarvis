@@ -85,6 +85,27 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Providers
                 .IsFixedLength()
                 .HasComment("Sitio web oficial del proveedor");
 
+            builder.Property(x => x.PartnerzoneLink)
+                .HasColumnName("partner_zone_link")
+                .IsRequired(false)
+                .HasMaxLength(100)
+                .IsFixedLength()
+                .HasComment("Sitio web como agente del proveedor");
+
+            builder.Property(x => x.PartnerzoneUsername)
+                .HasColumnName("partner_zone_username")
+                .IsRequired(false)
+                .HasMaxLength(100)
+                .IsFixedLength()
+                .HasComment("Credencial como agente del proveedor");
+
+            builder.Property(x => x.PartnerzonePassword)
+                .HasColumnName("partner_zone_password")
+                .IsRequired(false)
+                .HasMaxLength(100)
+                .IsFixedLength()
+                .HasComment("Credencial como agente del proveedor");
+
             builder.Property(x => x.CodeSetra)
                 .HasColumnName("code_setra")
                 .IsRequired(false)

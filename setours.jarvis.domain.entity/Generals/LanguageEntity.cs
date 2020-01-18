@@ -1,13 +1,16 @@
 ﻿using System;
+
 namespace setours.jarvis.domain.entity.Generals
 {
-    public class SegmentationClientEntity : IEntity
+    public class LanguageEntity : IEntity
     {
         public int Id { get; set; }
 
+        public string Abbreviature { get; set; }
+
         public string Name { get; set; }
 
-        public string Description { get; set; }
+        public string CodeSetra { get; set; }
 
         public string CreatedBy { get; set; }
 

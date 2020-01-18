@@ -1,10 +1,10 @@
-﻿using setours.jarvis.domain.entity.Contacts;
+﻿using setours.jarvis.domain.entity.Services;
 using System;
 using System.Collections.Generic;
 
 namespace setours.jarvis.domain.entity.Generals
 {
-    public class SegmentationMarketEntity : IEntity
+    public class CategorySetoursEntity : IEntity
     {
         public int Id { get; set; }
 
@@ -20,6 +20,7 @@ namespace setours.jarvis.domain.entity.Generals
 
         public DateTime? UpdatedAt { get; set; }
 
-        public List<ContactDetailEntity> ContactDetail { get; set; }
+
+        public List<ServiceEntity> Services { get; set; }
     }
 }

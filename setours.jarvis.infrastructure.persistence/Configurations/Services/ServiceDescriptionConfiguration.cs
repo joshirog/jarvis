@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using setours.jarvis.domain.entity.Generals;
+using setours.jarvis.domain.entity.Services;
 using System;
 
-namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
+namespace setours.jarvis.infrastructure.persistence.Configurations.Services
 {
-    public class MarketConfiguration : IEntityTypeConfiguration<MarketEntity>
+    public class ServiceDescriptionConfiguration : IEntityTypeConfiguration<ServiceDescriptionEntity>
     {
-        public void Configure(EntityTypeBuilder<MarketEntity> builder)
+        public void Configure(EntityTypeBuilder<ServiceDescriptionEntity> builder)
         {
-            builder.ToTable("ge_markets");
+            builder.ToTable("se_service_descriptions");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
@@ -20,31 +20,15 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
                 .ValueGeneratedOnAdd()
                 .HasComment("Llave primaria de la tabla");
 
-            builder.Property(x => x.Code)
-                .HasColumnName("code")
+            builder.Property(x => x.ServiceId)
+                .HasColumnName("se_service_id")
                 .IsRequired()
-                .HasMaxLength(8)
-                .HasComment("Codigo del mercado");
+                .HasComment("Llave foranea con la tabla se_services");
 
-            builder.Property(x => x.Name)
-                .HasColumnName("name")
+            builder.Property(x => x.LanguageId)
+                .HasColumnName("ge_language_id")
                 .IsRequired()
-                .HasMaxLength(150)
-                .HasComment("Nombre del mercado");
-
-            builder.Property(x => x.Status)
-                .HasColumnName("status")
-                .IsRequired()
-                .HasMaxLength(1)
-                .IsFixedLength()
-                .HasDefaultValue("A")
-                .HasComment("Estado A: Activo, I: Inactivo, X: Eliminado");
-
-            builder.Property(x => x.CodeSetra)
-                .HasColumnName("code_setra")
-                .IsRequired(false)
-                .HasMaxLength(20)
-                .HasComment("Llave primaria del sistema version 1");
+                .HasComment("Llave foranea con la tabla ge_languages");
 
             builder.Property(x => x.CreatedBy)
                 .HasColumnName("created_by")
@@ -67,7 +51,7 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
             builder.Property(x => x.UpdatedAt)
                 .HasColumnName("updated_at")
                 .IsRequired(false)
-                .HasComment("ultima fecha de actualizacion el registro");
+                .HasComment("Ultima fecha de actualizacion el registro");
         }
     }
 }

@@ -19,11 +19,13 @@ namespace setours.jarvis.domain.entity.Services
 
         public int CityId { get; set; }
 
+        public int CategoryServiceId { get; set; }
+
+        public int CategorySetoursId { get; set; }
+
         public string Code { get; set; }
 
         public string Name { get; set; }
-
-        public string Description { get; set; }
 
         public string Note { get; set; }
 
@@ -60,6 +62,10 @@ namespace setours.jarvis.domain.entity.Services
         public LocationEntity Country { get; set; }
 
         public LocationEntity City { get; set; }
+
+        public CategoryServiceEntity CategoryService { get; set; }
+
+        public CategorySetoursEntity CategorySetours { get; set; }
 
         public List<ServiceDetailEntity> ServiceDetails { get; set; }
     }

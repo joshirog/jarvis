@@ -43,6 +43,14 @@ namespace setours.jarvis.infrastructure.persistence.Services
                 .HasColumnName("ge_city_id")
                 .HasComment("Llave foranea con ge_locations");
 
+            builder.Property(x => x.CategoryServiceId)
+                .HasColumnName("ge_category_service_id")
+                .HasComment("Llave foranea con ge_category_services");
+
+            builder.Property(x => x.CategorySetoursId)
+                .HasColumnName("ge_category_setours_id")
+                .HasComment("Llave foranea con ge_category_setours");
+
             builder.Property(x => x.Code)
                 .HasColumnName("code")
                 .IsRequired()
@@ -54,12 +62,6 @@ namespace setours.jarvis.infrastructure.persistence.Services
                 .IsRequired()
                 .HasMaxLength(120)
                 .HasComment("Nombre del servicio");
-
-            builder.Property(x => x.Description)
-                .IsRequired()
-                .HasColumnName("description")
-                .HasMaxLength(30)
-                .HasComment("Descripcion detallada del servicio");
 
             builder.Property(x => x.Note)
                 .IsRequired()
@@ -148,6 +150,14 @@ namespace setours.jarvis.infrastructure.persistence.Services
             builder.HasOne(x => x.City)
                 .WithMany(x => x.CityServices)
                 .HasForeignKey(x => x.CityId);
+
+            builder.HasOne(x => x.CategoryService)
+                .WithMany(x => x.Services)
+                .HasForeignKey(x => x.CategoryServiceId);
+
+            builder.HasOne(x => x.CategorySetours)
+                .WithMany(x => x.Services)
+                .HasForeignKey(x => x.CategorySetoursId);
         }
     }
 }

@@ -5,11 +5,11 @@ using System;
 
 namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
 {
-    public class SegmentationConfiguration : IEntityTypeConfiguration<SegmentationMarketEntity>
+    public class SegmentationMarketConfiguration : IEntityTypeConfiguration<SegmentationMarketEntity>
     {
         public void Configure(EntityTypeBuilder<SegmentationMarketEntity> builder)
         {
-            builder.ToTable("ge_segmentations");
+            builder.ToTable("ge_segmentation_markets");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
@@ -24,13 +24,7 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
                 .HasColumnName("name")
                 .IsRequired()
                 .HasMaxLength(150)
-                .HasComment("Nombre de la segmentacion de mercado");
-
-            builder.Property(x => x.Description)
-                .HasColumnName("description")
-                .IsRequired(false)
-                .HasMaxLength(150)
-                .HasComment("Descripcion detallada de la segmentacion de mercado");
+                .HasComment("Nombre de la segmentacion de mercado o cliente");
 
             builder.Property(x => x.CreatedBy)
                 .HasColumnName("created_by")

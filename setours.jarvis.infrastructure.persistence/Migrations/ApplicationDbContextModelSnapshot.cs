@@ -19,58 +19,6 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 .HasAnnotation("ProductVersion", "3.1.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("setours.jarvis.domain.entity.Clients.ClientTypeEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("id")
-                        .HasColumnType("integer")
-                        .HasComment("Llave primaria de la tabla")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
-
-                    b.Property<string>("CodeSetra")
-                        .HasColumnName("code_setra")
-                        .HasColumnType("character varying(20)")
-                        .HasComment("Llave primaria del sistema version 1")
-                        .HasMaxLength(20);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("created_at")
-                        .HasColumnType("timestamp without time zone")
-                        .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 231, DateTimeKind.Local).AddTicks(7173));
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnName("created_by")
-                        .HasColumnType("character varying(50)")
-                        .HasComment("Usuario que genero el registro")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnName("name")
-                        .HasColumnType("character varying(150)")
-                        .HasComment("Nombre del tipo de cliente")
-                        .HasMaxLength(150);
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnName("updated_at")
-                        .HasColumnType("timestamp without time zone")
-                        .HasComment("ultima fecha de actualizacion el registro");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnName("updated_by")
-                        .HasColumnType("character varying(50)")
-                        .HasComment("Ultimo usuario que actualizo el registro")
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("cl_types");
-                });
-
             modelBuilder.Entity("setours.jarvis.domain.entity.Contacts.ContactDataEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -95,7 +43,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 245, DateTimeKind.Local).AddTicks(7475));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 697, DateTimeKind.Local).AddTicks(9304));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -150,7 +98,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 242, DateTimeKind.Local).AddTicks(6895));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 695, DateTimeKind.Local).AddTicks(218));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -164,6 +112,9 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnType("integer")
                         .HasComment("Llave foranea con ge_segmentations")
                         .HasMaxLength(150);
+
+                    b.Property<int?>("SegmentationMarketId")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnName("updated_at")
@@ -180,7 +131,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
                     b.HasIndex("ContactId");
 
-                    b.HasIndex("SegmentationId");
+                    b.HasIndex("SegmentationMarketId");
 
                     b.ToTable("co_contact_details");
                 });
@@ -210,7 +161,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 239, DateTimeKind.Local).AddTicks(9024));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 692, DateTimeKind.Local).AddTicks(3342));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -282,7 +233,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 235, DateTimeKind.Local).AddTicks(9623));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 688, DateTimeKind.Local).AddTicks(8589));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -328,7 +279,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 233, DateTimeKind.Local).AddTicks(8418));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 686, DateTimeKind.Local).AddTicks(7114));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -387,7 +338,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 180, DateTimeKind.Local).AddTicks(14));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 622, DateTimeKind.Local).AddTicks(1211));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -456,7 +407,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 193, DateTimeKind.Local).AddTicks(7133));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 636, DateTimeKind.Local).AddTicks(7054));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -505,6 +456,104 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     b.ToTable("ge_additionals");
                 });
 
+            modelBuilder.Entity("setours.jarvis.domain.entity.Generals.CategoryServiceEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("integer")
+                        .HasComment("Llave primaria de la tabla")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("created_at")
+                        .HasColumnType("timestamp without time zone")
+                        .HasComment("Fecha de generacion el registro")
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 649, DateTimeKind.Local).AddTicks(4916));
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnName("created_by")
+                        .HasColumnType("character varying(50)")
+                        .HasComment("Usuario que genero el registro")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnName("name")
+                        .HasColumnType("character varying(150)")
+                        .HasComment("Nombre de la categoria del hotel o servicio")
+                        .HasMaxLength(150);
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnName("updated_at")
+                        .HasColumnType("timestamp without time zone")
+                        .HasComment("ultima fecha de actualizacion el registro");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnName("updated_by")
+                        .HasColumnType("character varying(50)")
+                        .HasComment("Ultimo usuario que actualizo el registro")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ge_category_services");
+                });
+
+            modelBuilder.Entity("setours.jarvis.domain.entity.Generals.CategorySetoursEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("integer")
+                        .HasComment("Llave primaria de la tabla")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("created_at")
+                        .HasColumnType("timestamp without time zone")
+                        .HasComment("Fecha de generacion el registro")
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 651, DateTimeKind.Local).AddTicks(8048));
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnName("created_by")
+                        .HasColumnType("character varying(50)")
+                        .HasComment("Usuario que genero el registro")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnName("name")
+                        .HasColumnType("character varying(150)")
+                        .HasComment("Nombre de la categoria de setours")
+                        .HasMaxLength(150);
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnName("updated_at")
+                        .HasColumnType("timestamp without time zone")
+                        .HasComment("ultima fecha de actualizacion el registro");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnName("updated_by")
+                        .HasColumnType("character varying(50)")
+                        .HasComment("Ultimo usuario que actualizo el registro")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ge_category_setours");
+                });
+
             modelBuilder.Entity("setours.jarvis.domain.entity.Generals.CurrencyEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -539,7 +588,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 174, DateTimeKind.Local).AddTicks(8519));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 616, DateTimeKind.Local).AddTicks(7751));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -581,7 +630,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     b.ToTable("ge_currency");
                 });
 
-            modelBuilder.Entity("setours.jarvis.domain.entity.Generals.DocumentEntity", b =>
+            modelBuilder.Entity("setours.jarvis.domain.entity.Generals.DocumentTypeEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -608,7 +657,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 177, DateTimeKind.Local).AddTicks(3659));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 619, DateTimeKind.Local).AddTicks(3722));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -647,7 +696,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ge_documents");
+                    b.ToTable("ge_document_types");
                 });
 
             modelBuilder.Entity("setours.jarvis.domain.entity.Generals.InclusionEntity", b =>
@@ -670,7 +719,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 196, DateTimeKind.Local).AddTicks(2313));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 639, DateTimeKind.Local).AddTicks(2953));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -719,6 +768,65 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     b.ToTable("ge_inclusions");
                 });
 
+            modelBuilder.Entity("setours.jarvis.domain.entity.Generals.LanguageEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("integer")
+                        .HasComment("Llave primaria de la tabla")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
+
+                    b.Property<string>("Abbreviature")
+                        .IsRequired()
+                        .HasColumnName("abbreviature")
+                        .HasColumnType("character varying(5)")
+                        .HasComment("Abreviatura del idioma")
+                        .HasMaxLength(5);
+
+                    b.Property<string>("CodeSetra")
+                        .HasColumnName("code_setra")
+                        .HasColumnType("character varying(20)")
+                        .HasComment("Llave primaria del sistema version 1")
+                        .HasMaxLength(20);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("created_at")
+                        .HasColumnType("timestamp without time zone")
+                        .HasComment("Fecha de generacion el registro")
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 647, DateTimeKind.Local).AddTicks(3812));
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnName("created_by")
+                        .HasColumnType("character varying(50)")
+                        .HasComment("Usuario que genero el registro")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnName("name")
+                        .HasColumnType("character varying(150)")
+                        .HasComment("Nombre del idioma")
+                        .HasMaxLength(150);
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnName("updated_at")
+                        .HasColumnType("timestamp without time zone")
+                        .HasComment("ultima fecha de actualizacion el registro");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnName("updated_by")
+                        .HasColumnType("character varying(50)")
+                        .HasComment("Ultimo usuario que actualizo el registro")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ge_languages");
+                });
+
             modelBuilder.Entity("setours.jarvis.domain.entity.Generals.LocationEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -746,7 +854,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 183, DateTimeKind.Local).AddTicks(9979));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 627, DateTimeKind.Local).AddTicks(914));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -754,6 +862,13 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnType("character varying(50)")
                         .HasComment("Usuario que genero el registro")
                         .HasMaxLength(50);
+
+                    b.Property<bool>("IsDestination")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("is_destination")
+                        .HasColumnType("boolean")
+                        .HasComment("Indicador para verificar si es un destino de servicio")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -803,7 +918,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     b.ToTable("ge_locations");
                 });
 
-            modelBuilder.Entity("setours.jarvis.domain.entity.Generals.MarketEntity", b =>
+            modelBuilder.Entity("setours.jarvis.domain.entity.Generals.RestrictionTypeEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -830,7 +945,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 198, DateTimeKind.Local).AddTicks(7839));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 641, DateTimeKind.Local).AddTicks(8636));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -869,10 +984,10 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ge_markets");
+                    b.ToTable("ge_restriction_types");
                 });
 
-            modelBuilder.Entity("setours.jarvis.domain.entity.Generals.SegmentationEntity", b =>
+            modelBuilder.Entity("setours.jarvis.domain.entity.Generals.SegmentationMarketEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -886,7 +1001,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 168, DateTimeKind.Local).AddTicks(118));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 610, DateTimeKind.Local).AddTicks(8478));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -896,16 +1011,13 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasMaxLength(50);
 
                     b.Property<string>("Description")
-                        .HasColumnName("description")
-                        .HasColumnType("character varying(150)")
-                        .HasComment("Descripcion detallada de la segmentacion de mercado")
-                        .HasMaxLength(150);
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnName("name")
                         .HasColumnType("character varying(150)")
-                        .HasComment("Nombre de la segmentacion de mercado")
+                        .HasComment("Nombre de la segmentacion de mercado o cliente")
                         .HasMaxLength(150);
 
                     b.Property<DateTime?>("UpdatedAt")
@@ -921,7 +1033,71 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ge_segmentations");
+                    b.ToTable("ge_segmentation_markets");
+                });
+
+            modelBuilder.Entity("setours.jarvis.domain.entity.Generals.ServiceTypeEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("integer")
+                        .HasComment("Llave primaria de la tabla")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
+
+                    b.Property<string>("CodeSetra")
+                        .HasColumnName("code_setra")
+                        .HasColumnType("character varying(20)")
+                        .HasComment("Llave primaria del sistema version 1")
+                        .HasMaxLength(20);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("created_at")
+                        .HasColumnType("timestamp without time zone")
+                        .HasComment("Fecha de generacion el registro")
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 644, DateTimeKind.Local).AddTicks(7192));
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnName("created_by")
+                        .HasColumnType("character varying(50)")
+                        .HasComment("Usuario que genero el registro")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Description")
+                        .HasColumnName("description")
+                        .HasColumnType("text")
+                        .HasComment("Descripcion detallada del estado del proveedor");
+
+                    b.Property<bool>("IsInternal")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("is_internal")
+                        .HasColumnType("boolean")
+                        .HasComment("Flag para verificar si el tipo de servicio es de uso interno")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnName("name")
+                        .HasColumnType("character varying(150)")
+                        .HasComment("Nombre del estado del proveedor")
+                        .HasMaxLength(150);
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnName("updated_at")
+                        .HasColumnType("timestamp without time zone")
+                        .HasComment("Ultima fecha de actualizacion el registro");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnName("updated_by")
+                        .HasColumnType("character varying(50)")
+                        .HasComment("Ultimo usuario que actualizo el registro")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ge_service_types");
                 });
 
             modelBuilder.Entity("setours.jarvis.domain.entity.Providers.ProviderChainEntity", b =>
@@ -944,7 +1120,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 223, DateTimeKind.Local).AddTicks(2071));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 678, DateTimeKind.Local).AddTicks(4146));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1005,7 +1181,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 228, DateTimeKind.Local).AddTicks(2654));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 683, DateTimeKind.Local).AddTicks(6203));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1074,7 +1250,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 211, DateTimeKind.Local).AddTicks(624));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 665, DateTimeKind.Local).AddTicks(4182));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1094,6 +1270,27 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnType("character varying(120)")
                         .HasComment("Razon social del proveedor")
                         .HasMaxLength(120);
+
+                    b.Property<string>("PartnerzoneLink")
+                        .HasColumnName("partner_zone_link")
+                        .HasColumnType("character(100)")
+                        .IsFixedLength(true)
+                        .HasComment("Sitio web como agente del proveedor")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("PartnerzonePassword")
+                        .HasColumnName("partner_zone_password")
+                        .HasColumnType("character(100)")
+                        .IsFixedLength(true)
+                        .HasComment("Credencial como agente del proveedor")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("PartnerzoneUsername")
+                        .HasColumnName("partner_zone_username")
+                        .HasColumnType("character(100)")
+                        .IsFixedLength(true)
+                        .HasComment("Credencial como agente del proveedor")
+                        .HasMaxLength(100);
 
                     b.Property<string>("Phone")
                         .HasColumnName("phone")
@@ -1181,7 +1378,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 225, DateTimeKind.Local).AddTicks(4867));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 680, DateTimeKind.Local).AddTicks(6548));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1232,7 +1429,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 291, DateTimeKind.Local).AddTicks(5216));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 749, DateTimeKind.Local).AddTicks(670));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1244,15 +1441,15 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     b.Property<DateTime>("DateIn")
                         .HasColumnName("data_in")
                         .HasColumnType("timestamp without time zone")
-                        .HasComment("Blackout fecha in");
+                        .HasComment("Blackout fecha inicio");
 
                     b.Property<DateTime>("DateOut")
                         .HasColumnName("data_out")
                         .HasColumnType("timestamp without time zone")
-                        .HasComment("Blackout fecha out");
+                        .HasComment("Blackout fecha final");
 
-                    b.Property<int>("RateId")
-                        .HasColumnName("ra_rate_id")
+                    b.Property<int>("RateDateId")
+                        .HasColumnName("ra_rate_date_id")
                         .HasColumnType("integer")
                         .HasComment("Llave foranea con se_details");
 
@@ -1269,7 +1466,9 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ra_rate_blackouts");
+                    b.HasIndex("RateDateId");
+
+                    b.ToTable("ra_rate_date_blackouts");
                 });
 
             modelBuilder.Entity("setours.jarvis.domain.entity.Rates.RateDateDayEntity", b =>
@@ -1286,7 +1485,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 289, DateTimeKind.Local).AddTicks(1200));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 743, DateTimeKind.Local).AddTicks(9996));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1300,7 +1499,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnType("integer")
                         .HasComment("Número de día de la semana");
 
-                    b.Property<int>("RateId")
+                    b.Property<int>("RateDateId")
                         .HasColumnName("ra_rate_id")
                         .HasColumnType("integer")
                         .HasComment("Llave foranea con ra_rates");
@@ -1317,6 +1516,8 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasMaxLength(50);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RateDateId");
 
                     b.ToTable("ra_rate_days");
                 });
@@ -1345,7 +1546,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 277, DateTimeKind.Local).AddTicks(6209));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 730, DateTimeKind.Local).AddTicks(7539));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1354,15 +1555,14 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasComment("Usuario que genero el registro")
                         .HasMaxLength(50);
 
+                    b.Property<int?>("CurrencyEntityId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("CurrencyId")
-                        .HasColumnName("ge_currency_id")
-                        .HasColumnType("integer")
-                        .HasComment("Llave foranea con ge_currency");
+                        .HasColumnType("integer");
 
                     b.Property<decimal>("Estimated")
-                        .HasColumnName("estimated")
-                        .HasColumnType("numeric")
-                        .HasComment("Margen de estimacion o preyeccion");
+                        .HasColumnType("numeric");
 
                     b.Property<bool>("IsEditable")
                         .HasColumnName("is_editable")
@@ -1407,7 +1607,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
                     b.HasIndex("AccommodationId");
 
-                    b.HasIndex("CurrencyId");
+                    b.HasIndex("CurrencyEntityId");
 
                     b.HasIndex("RateDateId");
 
@@ -1440,7 +1640,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 282, DateTimeKind.Local).AddTicks(2556));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 734, DateTimeKind.Local).AddTicks(8657));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1519,7 +1719,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 286, DateTimeKind.Local).AddTicks(1607));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 739, DateTimeKind.Local).AddTicks(8543));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1528,12 +1728,22 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasComment("Usuario que genero el registro")
                         .HasMaxLength(50);
 
+                    b.Property<int>("CurrencyId")
+                        .HasColumnName("ge_currency_id")
+                        .HasColumnType("integer")
+                        .HasComment("Llave foranea con ge_currency");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnName("description")
                         .HasColumnType("character varying(30)")
                         .HasComment("Descripcion detallada del servicio")
                         .HasMaxLength(30);
+
+                    b.Property<decimal>("Estimated")
+                        .HasColumnName("estimated")
+                        .HasColumnType("numeric")
+                        .HasComment("Margen de estimacion o preyeccion");
 
                     b.Property<string>("Link")
                         .HasColumnName("link")
@@ -1551,6 +1761,11 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("ra_status_id")
                         .HasColumnType("integer")
                         .HasComment("Llave foranea con ra_status");
+
+                    b.Property<int>("RestrictionTypeId")
+                        .HasColumnName("ge_market_type_id")
+                        .HasColumnType("integer")
+                        .HasComment("Llave foranea con la tabla ge_market_types");
 
                     b.Property<int>("ServiceDetailId")
                         .HasColumnName("se_detail_id")
@@ -1570,7 +1785,11 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CurrencyId");
+
                     b.HasIndex("RateStatusId");
+
+                    b.HasIndex("RestrictionTypeId");
 
                     b.HasIndex("ServiceDetailId");
 
@@ -1591,7 +1810,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 293, DateTimeKind.Local).AddTicks(7236));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 752, DateTimeKind.Local).AddTicks(4368));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1623,6 +1842,10 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("InclusionId");
+
+                    b.HasIndex("RateId");
+
                     b.ToTable("ra_rate_inclusions");
                 });
 
@@ -1640,7 +1863,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 272, DateTimeKind.Local).AddTicks(8578));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 726, DateTimeKind.Local).AddTicks(9368));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1691,7 +1914,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 296, DateTimeKind.Local).AddTicks(4818));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 756, DateTimeKind.Local).AddTicks(6409));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1733,7 +1956,67 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RateId");
+
+                    b.HasIndex("TaxId");
+
                     b.ToTable("ra_rate_taxes");
+                });
+
+            modelBuilder.Entity("setours.jarvis.domain.entity.Services.ServiceDescriptionEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("integer")
+                        .HasComment("Llave primaria de la tabla")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("created_at")
+                        .HasColumnType("timestamp without time zone")
+                        .HasComment("Fecha de generacion el registro")
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 724, DateTimeKind.Local).AddTicks(6233));
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnName("created_by")
+                        .HasColumnType("character varying(50)")
+                        .HasComment("Usuario que genero el registro")
+                        .HasMaxLength(50);
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnName("ge_language_id")
+                        .HasColumnType("integer")
+                        .HasComment("Llave foranea con la tabla ge_languages");
+
+                    b.Property<int>("ServiceId")
+                        .HasColumnName("se_service_id")
+                        .HasColumnType("integer")
+                        .HasComment("Llave foranea con la tabla se_services");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnName("updated_at")
+                        .HasColumnType("timestamp without time zone")
+                        .HasComment("Ultima fecha de actualizacion el registro");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnName("updated_by")
+                        .HasColumnType("character varying(50)")
+                        .HasComment("Ultimo usuario que actualizo el registro")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Value")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("ServiceId");
+
+                    b.ToTable("se_service_descriptions");
                 });
 
             modelBuilder.Entity("setours.jarvis.domain.entity.Services.ServiceDetailAdditionalEntity", b =>
@@ -1755,7 +2038,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 269, DateTimeKind.Local).AddTicks(8839));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 721, DateTimeKind.Local).AddTicks(6113));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1786,7 +2069,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
                     b.HasIndex("ServiceDetailId");
 
-                    b.ToTable("se_detail_additionals");
+                    b.ToTable("se_service_detail_additionals");
                 });
 
             modelBuilder.Entity("setours.jarvis.domain.entity.Services.ServiceDetailEntity", b =>
@@ -1829,7 +2112,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 255, DateTimeKind.Local).AddTicks(5833));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 704, DateTimeKind.Local).AddTicks(7628));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1885,7 +2168,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
                     b.HasIndex("ServiceId");
 
-                    b.ToTable("se_details");
+                    b.ToTable("se_service_details");
                 });
 
             modelBuilder.Entity("setours.jarvis.domain.entity.Services.ServiceEntity", b =>
@@ -1901,6 +2184,16 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("address")
                         .HasColumnType("text")
                         .HasComment("Dirección fiscal del proveedor");
+
+                    b.Property<int>("CategoryServiceId")
+                        .HasColumnName("ge_category_service_id")
+                        .HasColumnType("integer")
+                        .HasComment("Llave foranea con ge_category_services");
+
+                    b.Property<int>("CategorySetoursId")
+                        .HasColumnName("ge_category_setours_id")
+                        .HasColumnType("integer")
+                        .HasComment("Llave foranea con ge_category_setours");
 
                     b.Property<int>("CityId")
                         .HasColumnName("ge_city_id")
@@ -1930,7 +2223,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 262, DateTimeKind.Local).AddTicks(892));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 712, DateTimeKind.Local).AddTicks(135));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -1938,13 +2231,6 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnType("character varying(50)")
                         .HasComment("Usuario que genero el registro")
                         .HasMaxLength(50);
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnName("description")
-                        .HasColumnType("character varying(30)")
-                        .HasComment("Descripcion detallada del servicio")
-                        .HasMaxLength(30);
 
                     b.Property<bool>("IsOnlineRate")
                         .ValueGeneratedOnAdd()
@@ -2020,6 +2306,10 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryServiceId");
+
+                    b.HasIndex("CategorySetoursId");
+
                     b.HasIndex("CityId");
 
                     b.HasIndex("CountryId");
@@ -2047,7 +2337,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 248, DateTimeKind.Local).AddTicks(7505));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 700, DateTimeKind.Local).AddTicks(8464));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -2084,70 +2374,6 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     b.ToTable("se_status");
                 });
 
-            modelBuilder.Entity("setours.jarvis.domain.entity.Services.ServiceTypeEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("id")
-                        .HasColumnType("integer")
-                        .HasComment("Llave primaria de la tabla")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn);
-
-                    b.Property<string>("CodeSetra")
-                        .HasColumnName("code_setra")
-                        .HasColumnType("character varying(20)")
-                        .HasComment("Llave primaria del sistema version 1")
-                        .HasMaxLength(20);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("created_at")
-                        .HasColumnType("timestamp without time zone")
-                        .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 251, DateTimeKind.Local).AddTicks(5248));
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnName("created_by")
-                        .HasColumnType("character varying(50)")
-                        .HasComment("Usuario que genero el registro")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Description")
-                        .HasColumnName("description")
-                        .HasColumnType("text")
-                        .HasComment("Descripcion detallada del estado del proveedor");
-
-                    b.Property<bool>("IsInternal")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("is_internal")
-                        .HasColumnType("boolean")
-                        .HasComment("Flag para verificar si el tipo de servicio es de uso interno")
-                        .HasDefaultValue(false);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnName("name")
-                        .HasColumnType("character varying(150)")
-                        .HasComment("Nombre del estado del proveedor")
-                        .HasMaxLength(150);
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnName("updated_at")
-                        .HasColumnType("timestamp without time zone")
-                        .HasComment("Ultima fecha de actualizacion el registro");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnName("updated_by")
-                        .HasColumnType("character varying(50)")
-                        .HasComment("Ultimo usuario que actualizo el registro")
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("se_types");
-                });
-
             modelBuilder.Entity("setours.jarvis.domain.entity.Taxes.TaxDetailEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -2167,7 +2393,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 204, DateTimeKind.Local).AddTicks(6186));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 658, DateTimeKind.Local).AddTicks(3969));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -2227,7 +2453,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .HasColumnName("created_at")
                         .HasColumnType("timestamp without time zone")
                         .HasComment("Fecha de generacion el registro")
-                        .HasDefaultValue(new DateTime(2020, 1, 16, 16, 53, 38, 201, DateTimeKind.Local).AddTicks(1026));
+                        .HasDefaultValue(new DateTime(2020, 1, 17, 18, 1, 40, 654, DateTimeKind.Local).AddTicks(6045));
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -2287,11 +2513,9 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("setours.jarvis.domain.entity.Generals.SegmentationEntity", "Segmentation")
+                    b.HasOne("setours.jarvis.domain.entity.Generals.SegmentationMarketEntity", "SegmentationMarket")
                         .WithMany("ContactDetail")
-                        .HasForeignKey("SegmentationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SegmentationMarketId");
                 });
 
             modelBuilder.Entity("setours.jarvis.domain.entity.Contacts.ContactEntity", b =>
@@ -2339,7 +2563,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("setours.jarvis.domain.entity.Generals.DocumentEntity", "Document")
+                    b.HasOne("setours.jarvis.domain.entity.Generals.DocumentTypeEntity", "DocumentType")
                         .WithMany("Providers")
                         .HasForeignKey("DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -2356,19 +2580,35 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("setours.jarvis.domain.entity.Rates.RateDateBlackoutEntity", b =>
+                {
+                    b.HasOne("setours.jarvis.domain.entity.Rates.RateDateEntity", "RateDate")
+                        .WithMany("RateDateBlackouts")
+                        .HasForeignKey("RateDateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("setours.jarvis.domain.entity.Rates.RateDateDayEntity", b =>
+                {
+                    b.HasOne("setours.jarvis.domain.entity.Rates.RateDateEntity", "RateDate")
+                        .WithMany("RateDateDays")
+                        .HasForeignKey("RateDateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("setours.jarvis.domain.entity.Rates.RateDateDetailEntity", b =>
                 {
-                    b.HasOne("setours.jarvis.domain.entity.Generals.AccommodationEntity", "Occupation")
+                    b.HasOne("setours.jarvis.domain.entity.Generals.AccommodationEntity", "Accommodation")
                         .WithMany("RateDetails")
                         .HasForeignKey("AccommodationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("setours.jarvis.domain.entity.Generals.CurrencyEntity", "Currency")
+                    b.HasOne("setours.jarvis.domain.entity.Generals.CurrencyEntity", null)
                         .WithMany("RateDetails")
-                        .HasForeignKey("CurrencyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CurrencyEntityId");
 
                     b.HasOne("setours.jarvis.domain.entity.Rates.RateDateEntity", "RateDate")
                         .WithMany("RateDetails")
@@ -2388,15 +2628,72 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
             modelBuilder.Entity("setours.jarvis.domain.entity.Rates.RateEntity", b =>
                 {
+                    b.HasOne("setours.jarvis.domain.entity.Generals.CurrencyEntity", "Currency")
+                        .WithMany("Rates")
+                        .HasForeignKey("CurrencyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("setours.jarvis.domain.entity.Rates.RateStatusEntity", "RateStatus")
                         .WithMany("Rates")
                         .HasForeignKey("RateStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("setours.jarvis.domain.entity.Generals.RestrictionTypeEntity", "RestrictionType")
+                        .WithMany("Rates")
+                        .HasForeignKey("RestrictionTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("setours.jarvis.domain.entity.Services.ServiceDetailEntity", "ServiceDetail")
                         .WithMany("Rates")
                         .HasForeignKey("ServiceDetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("setours.jarvis.domain.entity.Rates.RateInclusionEntity", b =>
+                {
+                    b.HasOne("setours.jarvis.domain.entity.Generals.InclusionEntity", "Inclusion")
+                        .WithMany("RateInclusions")
+                        .HasForeignKey("InclusionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("setours.jarvis.domain.entity.Rates.RateEntity", "Rate")
+                        .WithMany("RateInclusions")
+                        .HasForeignKey("RateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("setours.jarvis.domain.entity.Rates.RateTaxEntity", b =>
+                {
+                    b.HasOne("setours.jarvis.domain.entity.Rates.RateEntity", "Rate")
+                        .WithMany("RateTaxes")
+                        .HasForeignKey("RateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("setours.jarvis.domain.entity.Taxes.TaxEntity", "Tax")
+                        .WithMany("RateTaxes")
+                        .HasForeignKey("TaxId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("setours.jarvis.domain.entity.Services.ServiceDescriptionEntity", b =>
+                {
+                    b.HasOne("setours.jarvis.domain.entity.Generals.LanguageEntity", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("setours.jarvis.domain.entity.Services.ServiceEntity", "Service")
+                        .WithMany()
+                        .HasForeignKey("ServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -2427,6 +2724,18 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
 
             modelBuilder.Entity("setours.jarvis.domain.entity.Services.ServiceEntity", b =>
                 {
+                    b.HasOne("setours.jarvis.domain.entity.Generals.CategoryServiceEntity", "CategoryService")
+                        .WithMany("Services")
+                        .HasForeignKey("CategoryServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("setours.jarvis.domain.entity.Generals.CategorySetoursEntity", "CategorySetours")
+                        .WithMany("Services")
+                        .HasForeignKey("CategorySetoursId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("setours.jarvis.domain.entity.Generals.LocationEntity", "City")
                         .WithMany("CityServices")
                         .HasForeignKey("CityId")
@@ -2449,7 +2758,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("setours.jarvis.domain.entity.Services.ServiceTypeEntity", "ServiceType")
+                    b.HasOne("setours.jarvis.domain.entity.Generals.ServiceTypeEntity", "ServiceType")
                         .WithMany("Services")
                         .HasForeignKey("ServiceTypeId")
                         .OnDelete(DeleteBehavior.Cascade)

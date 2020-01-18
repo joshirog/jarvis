@@ -9,24 +9,6 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "cl_types",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre del tipo de cliente"),
-                    code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
-                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 231, DateTimeKind.Local).AddTicks(7173), comment: "Fecha de generacion el registro"),
-                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
-                    updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_cl_types", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "co_medias",
                 columns: table => new
                 {
@@ -34,7 +16,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre de la moneda"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 235, DateTimeKind.Local).AddTicks(9623), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 688, DateTimeKind.Local).AddTicks(8589), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -51,7 +33,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre de la moneda"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 233, DateTimeKind.Local).AddTicks(8418), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 686, DateTimeKind.Local).AddTicks(7114), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -72,7 +54,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     description = table.Column<string>(maxLength: 150, nullable: false, comment: "Descripcion de la ocupacion del servicio o tarifa"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 180, DateTimeKind.Local).AddTicks(14), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 622, DateTimeKind.Local).AddTicks(1211), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -92,13 +74,49 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     description = table.Column<string>(maxLength: 150, nullable: false, comment: "Descripcion detallada del concepto adicional"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 193, DateTimeKind.Local).AddTicks(7133), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 636, DateTimeKind.Local).AddTicks(7054), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ge_additionals", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ge_category_services",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre de la categoria del hotel o servicio"),
+                    Description = table.Column<string>(nullable: true),
+                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 649, DateTimeKind.Local).AddTicks(4916), comment: "Fecha de generacion el registro"),
+                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
+                    updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ge_category_services", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ge_category_setours",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre de la categoria de setours"),
+                    Description = table.Column<string>(nullable: true),
+                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 651, DateTimeKind.Local).AddTicks(8048), comment: "Fecha de generacion el registro"),
+                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
+                    updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ge_category_setours", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -113,7 +131,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     status = table.Column<string>(fixedLength: true, maxLength: 1, nullable: false, defaultValue: "A", comment: "Estado A: Activo, I: Inactivo, X: Eliminado"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 174, DateTimeKind.Local).AddTicks(8519), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 616, DateTimeKind.Local).AddTicks(7751), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -123,7 +141,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ge_documents",
+                name: "ge_document_types",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
@@ -133,13 +151,13 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     status = table.Column<string>(fixedLength: true, maxLength: 1, nullable: false, defaultValue: "A", comment: "Estado A: Activo, I: Inactivo, X: Eliminado"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 177, DateTimeKind.Local).AddTicks(3659), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 619, DateTimeKind.Local).AddTicks(3722), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ge_documents", x => x.id);
+                    table.PrimaryKey("PK_ge_document_types", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -153,7 +171,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     description = table.Column<string>(maxLength: 150, nullable: false, comment: "Descripcion de la inclusion"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 196, DateTimeKind.Local).AddTicks(2313), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 639, DateTimeKind.Local).AddTicks(2953), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -163,19 +181,39 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ge_languages",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    abbreviature = table.Column<string>(maxLength: 5, nullable: false, comment: "Abreviatura del idioma"),
+                    name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre del idioma"),
+                    code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
+                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 647, DateTimeKind.Local).AddTicks(3812), comment: "Fecha de generacion el registro"),
+                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
+                    updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ge_languages", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ge_locations",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     ge_location_id = table.Column<int>(nullable: true, comment: "Llave foranea con ge_locations, recursividad - opcional"),
-                    type = table.Column<string>(fixedLength: true, maxLength: 1, nullable: false, comment: "Tipo de ubigeo P: Pais, C: Ciudad"),
                     code = table.Column<string>(maxLength: 5, nullable: false, comment: "Codigo de la ubicacion"),
-                    name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre de la ubicacion"),
+                    type = table.Column<string>(fixedLength: true, maxLength: 1, nullable: false, comment: "Tipo de ubigeo P: Pais, C: Ciudad"),
                     status = table.Column<string>(fixedLength: true, maxLength: 1, nullable: false, defaultValue: "A", comment: "Estado A: Activo, I: Inactivo, X: Eliminado"),
+                    name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre de la ubicacion"),
+                    is_destination = table.Column<bool>(nullable: false, defaultValue: false, comment: "Indicador para verificar si es un destino de servicio"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 183, DateTimeKind.Local).AddTicks(9979), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 627, DateTimeKind.Local).AddTicks(914), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -191,7 +229,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ge_markets",
+                name: "ge_restriction_types",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
@@ -201,31 +239,51 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     status = table.Column<string>(fixedLength: true, maxLength: 1, nullable: false, defaultValue: "A", comment: "Estado A: Activo, I: Inactivo, X: Eliminado"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 198, DateTimeKind.Local).AddTicks(7839), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 641, DateTimeKind.Local).AddTicks(8636), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ge_markets", x => x.id);
+                    table.PrimaryKey("PK_ge_restriction_types", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ge_segmentations",
+                name: "ge_segmentation_markets",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre de la segmentacion de mercado"),
-                    description = table.Column<string>(maxLength: 150, nullable: true, comment: "Descripcion detallada de la segmentacion de mercado"),
+                    name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre de la segmentacion de mercado o cliente"),
+                    Description = table.Column<string>(nullable: true),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 168, DateTimeKind.Local).AddTicks(118), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 610, DateTimeKind.Local).AddTicks(8478), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ge_segmentations", x => x.id);
+                    table.PrimaryKey("PK_ge_segmentation_markets", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ge_service_types",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre del estado del proveedor"),
+                    description = table.Column<string>(nullable: true, comment: "Descripcion detallada del estado del proveedor"),
+                    is_internal = table.Column<bool>(nullable: false, defaultValue: false, comment: "Flag para verificar si el tipo de servicio es de uso interno"),
+                    code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
+                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 644, DateTimeKind.Local).AddTicks(7192), comment: "Fecha de generacion el registro"),
+                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
+                    updated_at = table.Column<DateTime>(nullable: true, comment: "Ultima fecha de actualizacion el registro")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ge_service_types", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -238,7 +296,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     status = table.Column<string>(fixedLength: true, maxLength: 1, nullable: false, defaultValue: "A", comment: "Estado del proveedor A: Activo, I: Inactivo, X: Eliminado"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 223, DateTimeKind.Local).AddTicks(2071), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 678, DateTimeKind.Local).AddTicks(4146), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -256,88 +314,13 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre del estado del proveedor"),
                     description = table.Column<string>(nullable: true, comment: "Descripcion detallada del estado del proveedor"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 225, DateTimeKind.Local).AddTicks(4867), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 680, DateTimeKind.Local).AddTicks(6548), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "Ultima fecha de actualizacion el registro")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_pr_status", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ra_rate_blackouts",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    ra_rate_id = table.Column<int>(nullable: false, comment: "Llave foranea con se_details"),
-                    data_in = table.Column<DateTime>(nullable: false, comment: "Blackout fecha in"),
-                    data_out = table.Column<DateTime>(nullable: false, comment: "Blackout fecha out"),
-                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 291, DateTimeKind.Local).AddTicks(5216), comment: "Fecha de generacion el registro"),
-                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
-                    updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ra_rate_blackouts", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ra_rate_days",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    ra_rate_id = table.Column<int>(nullable: false, comment: "Llave foranea con ra_rates"),
-                    num_day = table.Column<int>(nullable: false, comment: "Número de día de la semana"),
-                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 289, DateTimeKind.Local).AddTicks(1200), comment: "Fecha de generacion el registro"),
-                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
-                    updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ra_rate_days", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ra_rate_inclusions",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    ra_rate_id = table.Column<int>(nullable: false, comment: "Llave foranea con ra_rates"),
-                    ge_inclusion_id = table.Column<int>(nullable: false, comment: "Llave foranea con ge_inclusions"),
-                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 293, DateTimeKind.Local).AddTicks(7236), comment: "Fecha de generacion el registro"),
-                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
-                    updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ra_rate_inclusions", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ra_rate_taxes",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    ra_rate_id = table.Column<int>(nullable: false, comment: "Llave foranea con la tabla ra_rates"),
-                    ta_tax_id = table.Column<int>(nullable: false, comment: "Llave foranea con la tabla ta_taxes"),
-                    value = table.Column<decimal>(nullable: false, comment: "Valor del impuesto"),
-                    is_included = table.Column<bool>(nullable: false, comment: "Indicador para verificar si el impuesto esta incluido"),
-                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 296, DateTimeKind.Local).AddTicks(4818), comment: "Fecha de generacion el registro"),
-                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
-                    updated_at = table.Column<DateTime>(nullable: true, comment: "Ultima fecha de actualizacion el registro")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ra_rate_taxes", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -349,7 +332,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre del estado del proveedor"),
                     description = table.Column<string>(nullable: true, comment: "Descripcion detallada del estado del proveedor"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 272, DateTimeKind.Local).AddTicks(8578), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 726, DateTimeKind.Local).AddTicks(9368), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "Ultima fecha de actualizacion el registro")
                 },
@@ -367,33 +350,13 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre del estado del proveedor"),
                     description = table.Column<string>(nullable: true, comment: "Descripcion detallada del estado del proveedor"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 248, DateTimeKind.Local).AddTicks(7505), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 700, DateTimeKind.Local).AddTicks(8464), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "Ultima fecha de actualizacion el registro")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_se_status", x => x.id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "se_types",
-                columns: table => new
-                {
-                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre del estado del proveedor"),
-                    description = table.Column<string>(nullable: true, comment: "Descripcion detallada del estado del proveedor"),
-                    is_internal = table.Column<bool>(nullable: false, defaultValue: false, comment: "Flag para verificar si el tipo de servicio es de uso interno"),
-                    code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
-                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 251, DateTimeKind.Local).AddTicks(5248), comment: "Fecha de generacion el registro"),
-                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
-                    updated_at = table.Column<DateTime>(nullable: true, comment: "Ultima fecha de actualizacion el registro")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_se_types", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -406,7 +369,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     name = table.Column<string>(maxLength: 150, nullable: false, comment: "Nombre del tipo de impuesto"),
                     description = table.Column<string>(nullable: true, comment: "Description del tipo de impuesto"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 201, DateTimeKind.Local).AddTicks(1026), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 654, DateTimeKind.Local).AddTicks(6045), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -428,7 +391,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     is_notifiable = table.Column<bool>(nullable: false, defaultValue: false, comment: "Habilidado enviar notificaciones o correos al contacto"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 239, DateTimeKind.Local).AddTicks(9024), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 692, DateTimeKind.Local).AddTicks(3342), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -461,9 +424,12 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     zip_code = table.Column<string>(maxLength: 30, nullable: true, comment: "Código postal del proveedor"),
                     phone = table.Column<string>(maxLength: 25, nullable: true, comment: "Número de telefono fiscal del proveedor"),
                     website = table.Column<string>(fixedLength: true, maxLength: 100, nullable: true, comment: "Sitio web oficial del proveedor"),
+                    partner_zone_username = table.Column<string>(fixedLength: true, maxLength: 100, nullable: true, comment: "Credencial como agente del proveedor"),
+                    partner_zone_password = table.Column<string>(fixedLength: true, maxLength: 100, nullable: true, comment: "Credencial como agente del proveedor"),
+                    partner_zone_link = table.Column<string>(fixedLength: true, maxLength: 100, nullable: true, comment: "Sitio web como agente del proveedor"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 211, DateTimeKind.Local).AddTicks(624), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 665, DateTimeKind.Local).AddTicks(4182), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -483,9 +449,9 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_pr_providers_ge_documents_ge_document_id",
+                        name: "FK_pr_providers_ge_document_types_ge_document_id",
                         column: x => x.ge_document_id,
-                        principalTable: "ge_documents",
+                        principalTable: "ge_document_types",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -512,7 +478,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     ge_country_id = table.Column<int>(nullable: false, comment: "Llave foranea con la tabla ge_locations"),
                     value = table.Column<decimal>(nullable: false, comment: "Valor del impuesto"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 204, DateTimeKind.Local).AddTicks(6186), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 658, DateTimeKind.Local).AddTicks(3969), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -543,7 +509,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     co_media_id = table.Column<int>(nullable: false, comment: "Llave foranea con la tabla co_medias"),
                     value = table.Column<string>(nullable: false, comment: "valor del datos ingresado"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 245, DateTimeKind.Local).AddTicks(7475), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 697, DateTimeKind.Local).AddTicks(9304), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -573,9 +539,10 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     co_contact_id = table.Column<int>(maxLength: 150, nullable: false, comment: "Llave foranea con co_contacts"),
                     name = table.Column<int>(maxLength: 150, nullable: false, comment: "Llave foranea con ge_segmentations"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 242, DateTimeKind.Local).AddTicks(6895), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 695, DateTimeKind.Local).AddTicks(218), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
-                    updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
+                    updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro"),
+                    SegmentationMarketId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -587,11 +554,11 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_co_contact_details_ge_segmentations_name",
-                        column: x => x.name,
-                        principalTable: "ge_segmentations",
+                        name: "FK_co_contact_details_ge_segmentation_markets_SegmentationMark~",
+                        column: x => x.SegmentationMarketId,
+                        principalTable: "ge_segmentation_markets",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -603,7 +570,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     pr_provider_id = table.Column<int>(nullable: false, comment: "Llave foranea con tabla pr_providers"),
                     co_contact_id = table.Column<int>(nullable: false, comment: "Llave foranea con tabla co_contacts"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 228, DateTimeKind.Local).AddTicks(2654), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 683, DateTimeKind.Local).AddTicks(6203), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -635,9 +602,10 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     se_status_id = table.Column<int>(nullable: false, comment: "Llave foranea con se_status"),
                     ge_country_id = table.Column<int>(nullable: false, comment: "Llave foranea con ge_locations"),
                     ge_city_id = table.Column<int>(nullable: false, comment: "Llave foranea con ge_locations"),
+                    ge_category_service_id = table.Column<int>(nullable: false, comment: "Llave foranea con ge_category_services"),
+                    ge_category_setours_id = table.Column<int>(nullable: false, comment: "Llave foranea con ge_category_setours"),
                     code = table.Column<string>(maxLength: 120, nullable: false, comment: "Codigo auto generado por el sistema"),
                     name = table.Column<string>(maxLength: 120, nullable: false, comment: "Nombre del servicio"),
-                    description = table.Column<string>(maxLength: 30, nullable: false, comment: "Descripcion detallada del servicio"),
                     note = table.Column<string>(nullable: false, comment: "Notas adicionales del servicio"),
                     address = table.Column<string>(nullable: true, comment: "Dirección fiscal del proveedor"),
                     zip_code = table.Column<string>(maxLength: 30, nullable: true, comment: "Código postal del proveedor"),
@@ -647,13 +615,25 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     is_preferred = table.Column<bool>(nullable: false, defaultValue: false, comment: "Flag para mostrar el servicios a clientes externos"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 262, DateTimeKind.Local).AddTicks(892), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 712, DateTimeKind.Local).AddTicks(135), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_se_services", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_se_services_ge_category_services_ge_category_service_id",
+                        column: x => x.ge_category_service_id,
+                        principalTable: "ge_category_services",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_se_services_ge_category_setours_ge_category_setours_id",
+                        column: x => x.ge_category_setours_id,
+                        principalTable: "ge_category_setours",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_se_services_ge_locations_ge_city_id",
                         column: x => x.ge_city_id,
@@ -679,15 +659,46 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_se_services_se_types_se_type_id",
+                        name: "FK_se_services_ge_service_types_se_type_id",
                         column: x => x.se_type_id,
-                        principalTable: "se_types",
+                        principalTable: "ge_service_types",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "se_details",
+                name: "se_service_descriptions",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    se_service_id = table.Column<int>(nullable: false, comment: "Llave foranea con la tabla se_services"),
+                    ge_language_id = table.Column<int>(nullable: false, comment: "Llave foranea con la tabla ge_languages"),
+                    Value = table.Column<string>(nullable: true),
+                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 724, DateTimeKind.Local).AddTicks(6233), comment: "Fecha de generacion el registro"),
+                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
+                    updated_at = table.Column<DateTime>(nullable: true, comment: "Ultima fecha de actualizacion el registro")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_se_service_descriptions", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_se_service_descriptions_ge_languages_ge_language_id",
+                        column: x => x.ge_language_id,
+                        principalTable: "ge_languages",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_se_service_descriptions_se_services_se_service_id",
+                        column: x => x.se_service_id,
+                        principalTable: "se_services",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "se_service_details",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
@@ -703,15 +714,15 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     is_extra_cost_child = table.Column<bool>(nullable: false, defaultValue: false, comment: "Flag para agregar el costo extra para el niño"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 255, DateTimeKind.Local).AddTicks(5833), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 704, DateTimeKind.Local).AddTicks(7628), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_se_details", x => x.id);
+                    table.PrimaryKey("PK_se_service_details", x => x.id);
                     table.ForeignKey(
-                        name: "FK_se_details_se_services_se_service_id",
+                        name: "FK_se_service_details_se_services_se_service_id",
                         column: x => x.se_service_id,
                         principalTable: "se_services",
                         principalColumn: "id",
@@ -725,14 +736,17 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     se_detail_id = table.Column<int>(nullable: false, comment: "Llave foranea con se_details"),
+                    ge_market_type_id = table.Column<int>(nullable: false, comment: "Llave foranea con la tabla ge_market_types"),
                     ra_status_id = table.Column<int>(nullable: false, comment: "Llave foranea con ra_status"),
                     code = table.Column<string>(maxLength: 120, nullable: false, comment: "Codigo auto generado por el sistema"),
                     name = table.Column<string>(maxLength: 120, nullable: false, comment: "Nombre del servicio"),
+                    ge_currency_id = table.Column<int>(nullable: false, comment: "Llave foranea con ge_currency"),
                     description = table.Column<string>(maxLength: 30, nullable: false, comment: "Descripcion detallada del servicio"),
+                    estimated = table.Column<decimal>(nullable: false, comment: "Margen de estimacion o preyeccion"),
                     link = table.Column<string>(nullable: true, comment: "Link de enlace al documento de tarifa del proveedor"),
                     code_setra = table.Column<string>(maxLength: 20, nullable: true, comment: "Llave primaria del sistema version 1"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 286, DateTimeKind.Local).AddTicks(1607), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 739, DateTimeKind.Local).AddTicks(8543), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -740,21 +754,33 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 {
                     table.PrimaryKey("PK_ra_rates", x => x.id);
                     table.ForeignKey(
+                        name: "FK_ra_rates_ge_currency_ge_currency_id",
+                        column: x => x.ge_currency_id,
+                        principalTable: "ge_currency",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_ra_rates_ra_status_ra_status_id",
                         column: x => x.ra_status_id,
                         principalTable: "ra_status",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ra_rates_se_details_se_detail_id",
+                        name: "FK_ra_rates_ge_restriction_types_ge_market_type_id",
+                        column: x => x.ge_market_type_id,
+                        principalTable: "ge_restriction_types",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ra_rates_se_service_details_se_detail_id",
                         column: x => x.se_detail_id,
-                        principalTable: "se_details",
+                        principalTable: "se_service_details",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "se_detail_additionals",
+                name: "se_service_detail_additionals",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
@@ -762,23 +788,23 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     se_detail_id = table.Column<int>(nullable: false, comment: "Llave foranea con tabla se_details"),
                     ge_additional_id = table.Column<int>(nullable: false, comment: "Llave foranea con tabla ge_additionals"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 269, DateTimeKind.Local).AddTicks(8839), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 721, DateTimeKind.Local).AddTicks(6113), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_se_detail_additionals", x => x.id);
+                    table.PrimaryKey("PK_se_service_detail_additionals", x => x.id);
                     table.ForeignKey(
-                        name: "FK_se_detail_additionals_ge_additionals_ge_additional_id",
+                        name: "FK_se_service_detail_additionals_ge_additionals_ge_additional_~",
                         column: x => x.ge_additional_id,
                         principalTable: "ge_additionals",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_se_detail_additionals_se_details_se_detail_id",
+                        name: "FK_se_service_detail_additionals_se_service_details_se_detail_~",
                         column: x => x.se_detail_id,
-                        principalTable: "se_details",
+                        principalTable: "se_service_details",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -796,7 +822,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                     booking_date_start = table.Column<DateTime>(nullable: false, comment: "Fecha de inicio para la compra"),
                     booking_date_end = table.Column<DateTime>(nullable: false, comment: "Fecha final para la compra"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 282, DateTimeKind.Local).AddTicks(2556), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 734, DateTimeKind.Local).AddTicks(8657), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
                     updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
                 },
@@ -812,6 +838,117 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ra_rate_inclusions",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    ra_rate_id = table.Column<int>(nullable: false, comment: "Llave foranea con ra_rates"),
+                    ge_inclusion_id = table.Column<int>(nullable: false, comment: "Llave foranea con ge_inclusions"),
+                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 752, DateTimeKind.Local).AddTicks(4368), comment: "Fecha de generacion el registro"),
+                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
+                    updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ra_rate_inclusions", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_ra_rate_inclusions_ge_inclusions_ge_inclusion_id",
+                        column: x => x.ge_inclusion_id,
+                        principalTable: "ge_inclusions",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ra_rate_inclusions_ra_rates_ra_rate_id",
+                        column: x => x.ra_rate_id,
+                        principalTable: "ra_rates",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ra_rate_taxes",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    ra_rate_id = table.Column<int>(nullable: false, comment: "Llave foranea con la tabla ra_rates"),
+                    ta_tax_id = table.Column<int>(nullable: false, comment: "Llave foranea con la tabla ta_taxes"),
+                    value = table.Column<decimal>(nullable: false, comment: "Valor del impuesto"),
+                    is_included = table.Column<bool>(nullable: false, comment: "Indicador para verificar si el impuesto esta incluido"),
+                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 756, DateTimeKind.Local).AddTicks(6409), comment: "Fecha de generacion el registro"),
+                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
+                    updated_at = table.Column<DateTime>(nullable: true, comment: "Ultima fecha de actualizacion el registro")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ra_rate_taxes", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_ra_rate_taxes_ra_rates_ra_rate_id",
+                        column: x => x.ra_rate_id,
+                        principalTable: "ra_rates",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ra_rate_taxes_ta_taxes_ta_tax_id",
+                        column: x => x.ta_tax_id,
+                        principalTable: "ta_taxes",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ra_rate_date_blackouts",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    ra_rate_date_id = table.Column<int>(nullable: false, comment: "Llave foranea con se_details"),
+                    data_in = table.Column<DateTime>(nullable: false, comment: "Blackout fecha inicio"),
+                    data_out = table.Column<DateTime>(nullable: false, comment: "Blackout fecha final"),
+                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 749, DateTimeKind.Local).AddTicks(670), comment: "Fecha de generacion el registro"),
+                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
+                    updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ra_rate_date_blackouts", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_ra_rate_date_blackouts_ra_rate_dates_ra_rate_date_id",
+                        column: x => x.ra_rate_date_id,
+                        principalTable: "ra_rate_dates",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ra_rate_days",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false, comment: "Llave primaria de la tabla")
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    ra_rate_id = table.Column<int>(nullable: false, comment: "Llave foranea con ra_rates"),
+                    num_day = table.Column<int>(nullable: false, comment: "Número de día de la semana"),
+                    created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 743, DateTimeKind.Local).AddTicks(9996), comment: "Fecha de generacion el registro"),
+                    updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
+                    updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ra_rate_days", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_ra_rate_days_ra_rate_dates_ra_rate_id",
+                        column: x => x.ra_rate_id,
+                        principalTable: "ra_rate_dates",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ra_rate_details",
                 columns: table => new
                 {
@@ -819,17 +956,18 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     ra_date_id = table.Column<int>(nullable: false, comment: "Llave foranea con ra_date_id"),
                     ge_accommodation_id = table.Column<int>(nullable: false, comment: "Llave foranea con ge_accommodations"),
-                    ge_currency_id = table.Column<int>(nullable: false, comment: "Llave foranea con ge_currency"),
+                    CurrencyId = table.Column<int>(nullable: false),
                     status = table.Column<string>(fixedLength: true, maxLength: 1, nullable: false, defaultValue: "A", comment: "Estado A: Activo, I: Inactivo, X: Eliminado"),
                     cost = table.Column<decimal>(nullable: false, comment: "Costo"),
                     sale_price = table.Column<decimal>(nullable: false, comment: "Precio de venta"),
                     Margin = table.Column<decimal>(nullable: false),
-                    estimated = table.Column<decimal>(nullable: false, comment: "Margen de estimacion o preyeccion"),
+                    Estimated = table.Column<decimal>(nullable: false),
                     is_editable = table.Column<bool>(nullable: false, comment: "Flag para permitir editar los precios fuera de tarifa"),
                     created_by = table.Column<string>(maxLength: 50, nullable: false, comment: "Usuario que genero el registro"),
-                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 16, 16, 53, 38, 277, DateTimeKind.Local).AddTicks(6209), comment: "Fecha de generacion el registro"),
+                    created_at = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 17, 18, 1, 40, 730, DateTimeKind.Local).AddTicks(7539), comment: "Fecha de generacion el registro"),
                     updated_by = table.Column<string>(maxLength: 50, nullable: true, comment: "Ultimo usuario que actualizo el registro"),
-                    updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro")
+                    updated_at = table.Column<DateTime>(nullable: true, comment: "ultima fecha de actualizacion el registro"),
+                    CurrencyEntityId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -841,11 +979,11 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ra_rate_details_ge_currency_ge_currency_id",
-                        column: x => x.ge_currency_id,
+                        name: "FK_ra_rate_details_ge_currency_CurrencyEntityId",
+                        column: x => x.CurrencyEntityId,
                         principalTable: "ge_currency",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ra_rate_details_ra_rate_dates_ra_date_id",
                         column: x => x.ra_date_id,
@@ -870,9 +1008,9 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 column: "co_contact_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_co_contact_details_name",
+                name: "IX_co_contact_details_SegmentationMarketId",
                 table: "co_contact_details",
-                column: "name");
+                column: "SegmentationMarketId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_co_contacts_co_type_id",
@@ -926,8 +1064,18 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_ra_rate_date_blackouts_ra_rate_date_id",
+                table: "ra_rate_date_blackouts",
+                column: "ra_rate_date_id");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ra_rate_dates_ra_rate_id",
                 table: "ra_rate_dates",
+                column: "ra_rate_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ra_rate_days_ra_rate_id",
+                table: "ra_rate_days",
                 column: "ra_rate_id");
 
             migrationBuilder.CreateIndex(
@@ -936,9 +1084,9 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 column: "ge_accommodation_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ra_rate_details_ge_currency_id",
+                name: "IX_ra_rate_details_CurrencyEntityId",
                 table: "ra_rate_details",
-                column: "ge_currency_id");
+                column: "CurrencyEntityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ra_rate_details_ra_date_id",
@@ -946,9 +1094,39 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 column: "ra_date_id");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ra_rate_inclusions_ge_inclusion_id",
+                table: "ra_rate_inclusions",
+                column: "ge_inclusion_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ra_rate_inclusions_ra_rate_id",
+                table: "ra_rate_inclusions",
+                column: "ra_rate_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ra_rate_taxes_ra_rate_id",
+                table: "ra_rate_taxes",
+                column: "ra_rate_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ra_rate_taxes_ta_tax_id",
+                table: "ra_rate_taxes",
+                column: "ta_tax_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ra_rates_ge_currency_id",
+                table: "ra_rates",
+                column: "ge_currency_id");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ra_rates_ra_status_id",
                 table: "ra_rates",
                 column: "ra_status_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ra_rates_ge_market_type_id",
+                table: "ra_rates",
+                column: "ge_market_type_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ra_rates_se_detail_id",
@@ -956,19 +1134,39 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 column: "se_detail_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_se_detail_additionals_ge_additional_id",
-                table: "se_detail_additionals",
+                name: "IX_se_service_descriptions_ge_language_id",
+                table: "se_service_descriptions",
+                column: "ge_language_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_se_service_descriptions_se_service_id",
+                table: "se_service_descriptions",
+                column: "se_service_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_se_service_detail_additionals_ge_additional_id",
+                table: "se_service_detail_additionals",
                 column: "ge_additional_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_se_detail_additionals_se_detail_id",
-                table: "se_detail_additionals",
+                name: "IX_se_service_detail_additionals_se_detail_id",
+                table: "se_service_detail_additionals",
                 column: "se_detail_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_se_details_se_service_id",
-                table: "se_details",
+                name: "IX_se_service_details_se_service_id",
+                table: "se_service_details",
                 column: "se_service_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_se_services_ge_category_service_id",
+                table: "se_services",
+                column: "ge_category_service_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_se_services_ge_category_setours_id",
+                table: "se_services",
+                column: "ge_category_setours_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_se_services_ge_city_id",
@@ -1009,25 +1207,16 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "cl_types");
-
-            migrationBuilder.DropTable(
                 name: "co_contact_data");
 
             migrationBuilder.DropTable(
                 name: "co_contact_details");
 
             migrationBuilder.DropTable(
-                name: "ge_inclusions");
-
-            migrationBuilder.DropTable(
-                name: "ge_markets");
-
-            migrationBuilder.DropTable(
                 name: "pr_provider_contacts");
 
             migrationBuilder.DropTable(
-                name: "ra_rate_blackouts");
+                name: "ra_rate_date_blackouts");
 
             migrationBuilder.DropTable(
                 name: "ra_rate_days");
@@ -1042,7 +1231,10 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 name: "ra_rate_taxes");
 
             migrationBuilder.DropTable(
-                name: "se_detail_additionals");
+                name: "se_service_descriptions");
+
+            migrationBuilder.DropTable(
+                name: "se_service_detail_additionals");
 
             migrationBuilder.DropTable(
                 name: "ta_tax_details");
@@ -1051,7 +1243,7 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 name: "co_medias");
 
             migrationBuilder.DropTable(
-                name: "ge_segmentations");
+                name: "ge_segmentation_markets");
 
             migrationBuilder.DropTable(
                 name: "co_contacts");
@@ -1060,10 +1252,13 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 name: "ge_accommodations");
 
             migrationBuilder.DropTable(
-                name: "ge_currency");
+                name: "ra_rate_dates");
 
             migrationBuilder.DropTable(
-                name: "ra_rate_dates");
+                name: "ge_inclusions");
+
+            migrationBuilder.DropTable(
+                name: "ge_languages");
 
             migrationBuilder.DropTable(
                 name: "ge_additionals");
@@ -1078,13 +1273,25 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 name: "ra_rates");
 
             migrationBuilder.DropTable(
+                name: "ge_currency");
+
+            migrationBuilder.DropTable(
                 name: "ra_status");
 
             migrationBuilder.DropTable(
-                name: "se_details");
+                name: "ge_restriction_types");
+
+            migrationBuilder.DropTable(
+                name: "se_service_details");
 
             migrationBuilder.DropTable(
                 name: "se_services");
+
+            migrationBuilder.DropTable(
+                name: "ge_category_services");
+
+            migrationBuilder.DropTable(
+                name: "ge_category_setours");
 
             migrationBuilder.DropTable(
                 name: "pr_providers");
@@ -1093,13 +1300,13 @@ namespace setours.jarvis.infrastructure.persistence.Migrations
                 name: "se_status");
 
             migrationBuilder.DropTable(
-                name: "se_types");
+                name: "ge_service_types");
 
             migrationBuilder.DropTable(
                 name: "ge_locations");
 
             migrationBuilder.DropTable(
-                name: "ge_documents");
+                name: "ge_document_types");
 
             migrationBuilder.DropTable(
                 name: "pr_chains");

@@ -1,18 +1,16 @@
-﻿using System;
+﻿using setours.jarvis.domain.entity.Services;
+using System;
+using System.Collections.Generic;
 
 namespace setours.jarvis.domain.entity.Generals
 {
-    public class MarketEntity : IEntity
+    public class CategoryServiceEntity : IEntity
     {
         public int Id { get; set; }
 
-        public string Code { get; set; }
-
         public string Name { get; set; }
 
-        public string Status { get; set; }
-
-        public string CodeSetra { get; set; }
+        public string Description { get; set; }
 
         public string CreatedBy { get; set; }
 
@@ -21,5 +19,7 @@ namespace setours.jarvis.domain.entity.Generals
         public string UpdatedBy { get; set; }
 
         public DateTime? UpdatedAt { get; set; }
+
+        public List<ServiceEntity> Services { get; set; }
     }
 }

@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using setours.jarvis.domain.entity.Rates;
+using setours.jarvis.domain.entity.Generals;
 using System;
 
-namespace setours.jarvis.infrastructure.persistence.Configurations.Rates
+namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
 {
-    public class RateDateBlackoutConfiguration : IEntityTypeConfiguration<RateDateBlackoutEntity>
+    public class CategoryServiceConfiguration : IEntityTypeConfiguration<CategoryServiceEntity>
     {
-        public void Configure(EntityTypeBuilder<RateDateBlackoutEntity> builder)
+        public void Configure(EntityTypeBuilder<CategoryServiceEntity> builder)
         {
-            builder.ToTable("ra_rate_date_blackouts");
+            builder.ToTable("ge_category_services");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
@@ -20,20 +20,11 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Rates
                 .ValueGeneratedOnAdd()
                 .HasComment("Llave primaria de la tabla");
 
-            builder.Property(x => x.RateDateId)
-                .HasColumnName("ra_rate_date_id")
+            builder.Property(x => x.Name)
+                .HasColumnName("name")
                 .IsRequired()
-                .HasComment("Llave foranea con se_details");
-
-            builder.Property(x => x.DateIn)
-               .HasColumnName("data_in")
-               .IsRequired()
-               .HasComment("Blackout fecha inicio");
-
-            builder.Property(x => x.DateOut)
-               .HasColumnName("data_out")
-               .IsRequired()
-               .HasComment("Blackout fecha final");
+                .HasMaxLength(150)
+                .HasComment("Nombre de la categoria del hotel o servicio");
 
             builder.Property(x => x.CreatedBy)
                 .HasColumnName("created_by")
@@ -57,11 +48,6 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Rates
                 .HasColumnName("updated_at")
                 .IsRequired(false)
                 .HasComment("ultima fecha de actualizacion el registro");
-
-
-            builder.HasOne(x => x.RateDate)
-                .WithMany(x => x.RateDateBlackouts)
-                .HasForeignKey(x => x.RateDateId);
         }
     }
 }
