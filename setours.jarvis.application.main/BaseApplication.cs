@@ -8,6 +8,7 @@ using setours.jarvis.application.validation;
 using setours.jarvis.domain.entity;
 using setours.jarvis.domain.interfaces;
 using setours.jarvis.transversal.common.Bases.Querys;
+using setours.jarvis.transversal.common.Bases.Requests;
 using setours.jarvis.transversal.common.Bases.Responses;
 using setours.jarvis.transversal.common.Constants.Messages;
 
@@ -74,13 +75,13 @@ namespace setours.jarvis.application.main
             return response;
         }
 
-        public async Task<BaseApiResponse<IEnumerable<TDataTransferObject>>> GetSearch(BaseSearchQuery search)
+        public async Task<BaseApiResponse<IEnumerable<TDataTransferObject>>> GetSearchAsync(BaseSearchQuery search)
         {
             var response = new BaseApiResponse<IEnumerable<TDataTransferObject>>();
 
             try
             {
-                var result = await _domain.GetSearch(search);
+                var result = await _domain.GetSearchAsync(search);
 
                 response.IsSuccess = ApplicationMessage.IS_SUCCESS;
                 response.Data = _mapper.Map<IEnumerable<TDataTransferObject>>(result);
@@ -95,13 +96,13 @@ namespace setours.jarvis.application.main
             return response;
         }
 
-        public async Task<BaseApiResponse<TDataTransferObject>> InsertAsync(TDataTransferObject dto)
+        public async Task<BaseApiResponse<TDataTransferObject>> InsertAsync(BaseApiRequest<TDataTransferObject> request)
         {
             var response = new BaseApiResponse<TDataTransferObject>();
 
             try
             {
-                var validation = _validation.Validate(dto);
+                var validation = _validation.Validate(request.Data);
 
                 if (!validation.IsValid)
                 {
@@ -110,7 +111,7 @@ namespace setours.jarvis.application.main
                     return response;
                 }
 
-                var entity = _mapper.Map<TEntity>(dto);
+                var entity = _mapper.Map<TEntity>(request.Data);
 
                 var result = await _domain.InsertAsync(entity);
 
@@ -127,13 +128,13 @@ namespace setours.jarvis.application.main
             return response;
         }
 
-        public async Task<BaseApiResponse<IEnumerable<TDataTransferObject>>> InsertBulkAsync(IEnumerable<TDataTransferObject> dtos)
+        public async Task<BaseApiResponse<IEnumerable<TDataTransferObject>>> InsertBulkAsync(BaseApiRequest<IEnumerable<TDataTransferObject>> request)
         {
             var response = new BaseApiResponse<IEnumerable<TDataTransferObject>>();
 
             try
             {
-                var entities = _mapper.Map<List<TEntity>>(dtos);
+                var entities = _mapper.Map<List<TEntity>>(request.Data);
 
                 var result = await _domain.InsertBulkAsync(entities);
 
@@ -150,13 +151,13 @@ namespace setours.jarvis.application.main
             return response;
         }
 
-        public async Task<BaseApiResponse<TDataTransferObject>> UpdateAsync(TDataTransferObject dto)
+        public async Task<BaseApiResponse<TDataTransferObject>> UpdateAsync(BaseApiRequest<TDataTransferObject> request)
         {
             var response = new BaseApiResponse<TDataTransferObject>();
 
             try
             {
-                var validation = _validation.Validate(dto);
+                var validation = _validation.Validate(request.Data);
 
                 if (!validation.IsValid)
                 {
@@ -165,7 +166,7 @@ namespace setours.jarvis.application.main
                     return response;
                 }
 
-                var entity = _mapper.Map<TEntity>(dto);
+                var entity = _mapper.Map<TEntity>(request.Data);
 
                 var result = await _domain.UpdateAsync(entity);
 
@@ -182,13 +183,13 @@ namespace setours.jarvis.application.main
             return response;
         }
 
-        public async Task<BaseApiResponse<IEnumerable<TDataTransferObject>>> UpdateBulkAsync(IEnumerable<TDataTransferObject> dtos)
+        public async Task<BaseApiResponse<IEnumerable<TDataTransferObject>>> UpdateBulkAsync(BaseApiRequest<IEnumerable<TDataTransferObject>> request)
         {
             var response = new BaseApiResponse<IEnumerable<TDataTransferObject>>();
 
             try
             {
-                var entities = _mapper.Map<List<TEntity>>(dtos);
+                var entities = _mapper.Map<List<TEntity>>(request.Data);
 
                 var result = await _domain.UpdateBulkAsync(entities);
 
@@ -205,13 +206,13 @@ namespace setours.jarvis.application.main
             return response;
         }
 
-        public async Task<BaseApiResponse<TDataTransferObject>> DeleteAsync(TDataTransferObject dto)
+        public async Task<BaseApiResponse<TDataTransferObject>> DeleteAsync(BaseApiRequest<TDataTransferObject> request)
         {
             var response = new BaseApiResponse<TDataTransferObject>();
 
             try
             {
-                var validation = _validation.Validate(dto);
+                var validation = _validation.Validate(request.Data);
 
                 if (!validation.IsValid)
                 {
@@ -220,7 +221,7 @@ namespace setours.jarvis.application.main
                     return response;
                 }
 
-                var entity = _mapper.Map<TEntity>(dto);
+                var entity = _mapper.Map<TEntity>(request.Data);
 
                 var result = await _domain.DeleteAsync(entity);
 
@@ -237,13 +238,13 @@ namespace setours.jarvis.application.main
             return response;
         }
 
-        public async Task<BaseApiResponse<IEnumerable<TDataTransferObject>>> DeleteBulkAsync(IEnumerable<TDataTransferObject> dtos)
+        public async Task<BaseApiResponse<IEnumerable<TDataTransferObject>>> DeleteBulkAsync(BaseApiRequest<IEnumerable<TDataTransferObject>> request)
         {
             var response = new BaseApiResponse<IEnumerable<TDataTransferObject>>();
 
             try
             {
-                var entities = _mapper.Map<List<TEntity>>(dtos);
+                var entities = _mapper.Map<List<TEntity>>(request.Data);
 
                 var result = await _domain.DeleteBulkAsync(entities);
 

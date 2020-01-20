@@ -43,12 +43,6 @@ namespace setours.jarvis.application.dto.Providers
         [JsonProperty(PropertyName = "website")]
         public string Website { get; set; }
 
-        [JsonProperty(PropertyName = "created_by")]
-        public string CreatedBy { get; set; }
-
-        [JsonProperty(PropertyName = "updated_by")]
-        public string UpdatedBy { get; set; }
-
 
         [JsonProperty(PropertyName = "pr_chain")]
         public ProviderChainDto ProviderChain { get; set; }

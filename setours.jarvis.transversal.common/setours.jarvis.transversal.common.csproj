@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <Folder Include="Helpers\" />
+    <Folder Include="Bases\Requests\" />
+    <Folder Include="Constants\Uri\" />
   </ItemGroup>
 
   <ItemGroup>

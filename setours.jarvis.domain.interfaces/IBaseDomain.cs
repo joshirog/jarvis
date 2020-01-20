@@ -11,7 +11,7 @@ namespace setours.jarvis.domain.interfaces
 
         Task<IEnumerable<TEntity>> GetAllAsync();
 
-        Task<IEnumerable<TEntity>> GetSearch(BaseSearchQuery search);
+        Task<IEnumerable<TEntity>> GetSearchAsync(BaseSearchQuery search);
 
         Task<TEntity> InsertAsync(TEntity entity);
 

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using setours.jarvis.application.dto;
 using setours.jarvis.transversal.common.Bases.Querys;
+using setours.jarvis.transversal.common.Bases.Requests;
 using setours.jarvis.transversal.common.Bases.Responses;
 
 namespace setours.jarvis.application.interfaces
@@ -12,18 +13,18 @@ namespace setours.jarvis.application.interfaces
 
         Task<BaseApiResponse<IEnumerable<TDataTranferObject>>> GetAllAsync();
 
-        Task<BaseApiResponse<IEnumerable<TDataTranferObject>>> GetSearch(BaseSearchQuery search);
+        Task<BaseApiResponse<IEnumerable<TDataTranferObject>>> GetSearchAsync(BaseSearchQuery search);
 
-        Task<BaseApiResponse<TDataTranferObject>> InsertAsync(TDataTranferObject entity);
+        Task<BaseApiResponse<TDataTranferObject>> InsertAsync(BaseApiRequest<TDataTranferObject> entity);
 
-        Task<BaseApiResponse<IEnumerable<TDataTranferObject>>> InsertBulkAsync(IEnumerable<TDataTranferObject> entities);
+        Task<BaseApiResponse<IEnumerable<TDataTranferObject>>> InsertBulkAsync(BaseApiRequest<IEnumerable<TDataTranferObject>> entities);
 
-        Task<BaseApiResponse<TDataTranferObject>> UpdateAsync(TDataTranferObject entity);
+        Task<BaseApiResponse<TDataTranferObject>> UpdateAsync(BaseApiRequest<TDataTranferObject> entity);
 
-        Task<BaseApiResponse<IEnumerable<TDataTranferObject>>> UpdateBulkAsync(IEnumerable<TDataTranferObject> entities);
+        Task<BaseApiResponse<IEnumerable<TDataTranferObject>>> UpdateBulkAsync(BaseApiRequest<IEnumerable<TDataTranferObject>> entities);
 
-        Task<BaseApiResponse<TDataTranferObject>> DeleteAsync(TDataTranferObject entity);
+        Task<BaseApiResponse<TDataTranferObject>> DeleteAsync(BaseApiRequest<TDataTranferObject> entity);
 
-        Task<BaseApiResponse<IEnumerable<TDataTranferObject>>> DeleteBulkAsync(IEnumerable<TDataTranferObject> entities);
+        Task<BaseApiResponse<IEnumerable<TDataTranferObject>>> DeleteBulkAsync(BaseApiRequest<IEnumerable<TDataTranferObject>> entities);
     }
 }

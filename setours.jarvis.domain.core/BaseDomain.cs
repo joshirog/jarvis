@@ -28,9 +28,9 @@ namespace setours.jarvis.domain.core
             return await _repository.GetAllAsync();
         }
 
-        public Task<IEnumerable<TEntity>> GetSearch(BaseSearchQuery search)
+        public Task<IEnumerable<TEntity>> GetSearchAsync(BaseSearchQuery search)
         {
-            return _repository.GetSearch(search);
+            return _repository.GetSearchAsync(search);
         }
 
         public Task<TEntity> InsertAsync(TEntity entity)

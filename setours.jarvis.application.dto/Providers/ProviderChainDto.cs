@@ -12,11 +12,5 @@ namespace setours.jarvis.application.dto.Providers
 
         [JsonProperty(PropertyName = "status")]
         public string Status { get; set; }
-
-        [JsonProperty(PropertyName = "created_by")]
-        public string CreatedBy { get; set; }
-
-        [JsonProperty(PropertyName = "updated_by")]
-        public string UpdatedBy { get; set; }
     }
 }

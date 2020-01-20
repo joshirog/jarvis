@@ -2,6 +2,8 @@
 using setours.jarvis.application.dto;
 using setours.jarvis.application.interfaces;
 using setours.jarvis.transversal.common.Bases.Querys;
+using setours.jarvis.transversal.common.Bases.Requests;
+using setours.jarvis.transversal.common.Constants.Uri;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -30,46 +32,46 @@ namespace setours.jarvis.services.api.Controllers
             return Ok(await _application.GetByIdAsync(id));
         }
 
-        [HttpGet("Search")]
-        public async Task<IActionResult> GetSearch([FromQuery] BaseSearchQuery search)
+        [HttpGet(ControllerUri.URI_SEARCH)]
+        public async Task<IActionResult> GetSearchAsync([FromQuery] BaseSearchQuery search)
         {
-            return Ok(await _application.GetSearch(search));
+            return Ok(await _application.GetSearchAsync(search));
         }
 
         [HttpPost()]
-        public async Task<IActionResult> InsertAsync([FromBody] TDataTransferObject dto)
+        public async Task<IActionResult> InsertAsync([FromBody] BaseApiRequest<TDataTransferObject> request)
         {
-            return Ok(await _application.InsertAsync(dto));
+            return Ok(await _application.InsertAsync(request));
         }
 
-        [HttpPost("bulk")]
-        public async Task<IActionResult> InsertBulkAsync([FromBody] IEnumerable<TDataTransferObject> dtos)
+        [HttpPost(ControllerUri.URI_BULK)]
+        public async Task<IActionResult> InsertBulkAsync([FromBody] BaseApiRequest<IEnumerable<TDataTransferObject>> request)
         {
-            return Ok(await _application.InsertBulkAsync(dtos));
+            return Ok(await _application.InsertBulkAsync(request));
         }
 
         [HttpPut()]
-        public async Task<IActionResult> UpdateAsync([FromBody] TDataTransferObject dto)
+        public async Task<IActionResult> UpdateAsync([FromBody] BaseApiRequest<TDataTransferObject> request)
         {
-            return Ok(await _application.UpdateAsync(dto));
+            return Ok(await _application.UpdateAsync(request));
         }
 
-        [HttpPut("bulk")]
-        public async Task<IActionResult> UpdateBulkAsync([FromBody] IEnumerable<TDataTransferObject> dtos)
+        [HttpPut(ControllerUri.URI_BULK)]
+        public async Task<IActionResult> UpdateBulkAsync([FromBody] BaseApiRequest<IEnumerable<TDataTransferObject>> request)
         {
-            return Ok(await _application.UpdateBulkAsync(dtos));
+            return Ok(await _application.UpdateBulkAsync(request));
         }
 
         [HttpDelete()]
-        public async Task<IActionResult> DeleteAsync([FromBody] TDataTransferObject dto)
+        public async Task<IActionResult> DeleteAsync([FromBody] BaseApiRequest<TDataTransferObject> request)
         {
-            return Ok(await _application.DeleteAsync(dto));
+            return Ok(await _application.DeleteAsync(request));
         }
 
-        [HttpDelete("bulk")]
-        public async Task<IActionResult> DeleteBulkAsync([FromBody] IEnumerable<TDataTransferObject> dtos)
+        [HttpDelete(ControllerUri.URI_BULK)]
+        public async Task<IActionResult> DeleteBulkAsync([FromBody] BaseApiRequest<IEnumerable<TDataTransferObject>> request)
         {
-            return Ok(await _application.DeleteBulkAsync(dtos));
+            return Ok(await _application.DeleteBulkAsync(request));
         }
     }
 }

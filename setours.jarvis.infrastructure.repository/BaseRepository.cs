@@ -27,23 +27,16 @@ namespace setours.jarvis.infrastructure.repository
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await _dbset
-                .AsNoTracking()
-                .ToListAsync();
+            return await _dbset.AsNoTracking().ToListAsync();
         }
 
-        public async Task<IEnumerable<TEntity>> GetSearch(BaseSearchQuery search)
+        public async Task<IEnumerable<TEntity>> GetSearchAsync(BaseSearchQuery search)
         {
-            search.Includes = new List<BaseIncludeQuery>()
-            {
-                new BaseIncludeQuery { Table = "ProviderChain" }
-            };
-
             var query = _dbset
                 .IncludeJoins(search.Includes)
-                /*.Filter(search.Filters)
+                .Filter(search.Filters)
                 .Sort(search.Sort)
-                .Paginate(search.Page, search.Size)*/;
+                .Paginate(search.Page, search.Size);
 
             _ = query.ToSql();
 
