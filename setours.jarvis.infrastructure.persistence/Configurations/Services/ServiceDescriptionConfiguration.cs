@@ -30,6 +30,11 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Services
                 .IsRequired()
                 .HasComment("Llave foranea con la tabla ge_languages");
 
+            builder.Property(x => x.Value)
+                .HasColumnName("value")
+                .IsRequired()
+                .HasComment("Description detallada del servicio por idioma");
+
             builder.Property(x => x.CreatedBy)
                 .HasColumnName("created_by")
                 .IsRequired()

@@ -38,6 +38,16 @@ namespace setours.jarvis.infrastructure.persistence.Rates
                 .HasDefaultValue("A")
                 .HasComment("Estado A: Activo, I: Inactivo, X: Eliminado");
 
+            builder.Property(x => x.Margin)
+                .HasColumnName("margin")
+                .IsRequired()
+                .HasComment("Magen");
+
+            builder.Property(x => x.Estimated)
+                .HasColumnName("estimated")
+                .IsRequired()
+                .HasComment("Margen de proteccion");
+
             builder.Property(x => x.Cost)
                 .HasColumnName("cost")
                 .IsRequired()

@@ -13,11 +13,11 @@ namespace setours.jarvis.domain.entity.Rates
 
         public int RateStatusId { get; set; }
 
+        public int CurrencyId { get; set; }
+
         public string Code { get; set; }
 
         public string Name { get; set; }
-
-        public int CurrencyId { get; set; }
 
         public string Description { get; set; }
 

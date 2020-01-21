@@ -25,11 +25,6 @@ namespace setours.jarvis.infrastructure.persistence.Rates
                 .IsRequired()
                 .HasComment("Llave foranea con se_details");
 
-            builder.Property(x => x.RestrictionTypeId)
-                .HasColumnName("ge_market_type_id")
-                .IsRequired()
-                .HasComment("Llave foranea con la tabla ge_market_types");
-
             builder.Property(x => x.RateStatusId)
                 .HasColumnName("ra_status_id")
                 .IsRequired()
@@ -109,10 +104,6 @@ namespace setours.jarvis.infrastructure.persistence.Rates
             builder.HasOne(x => x.Currency)
                .WithMany(x => x.Rates)
                .HasForeignKey(x => x.CurrencyId);
-
-            builder.HasOne(x => x.RestrictionType)
-              .WithMany(x => x.Rates)
-              .HasForeignKey(x => x.RestrictionTypeId);
         }
     }
 }
