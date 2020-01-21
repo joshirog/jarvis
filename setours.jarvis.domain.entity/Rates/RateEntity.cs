@@ -11,8 +11,6 @@ namespace setours.jarvis.domain.entity.Rates
 
         public int ServiceDetailId { get; set; }
 
-        public int RestrictionTypeId { get; set; }
-
         public int RateStatusId { get; set; }
 
         public string Code { get; set; }
@@ -50,12 +48,12 @@ namespace setours.jarvis.domain.entity.Rates
 
         public List<RateTaxEntity> RateTaxes { get; set; }
 
-        public RestrictionTypeEntity RestrictionType { get; set; }
-
         public List<RateDayEntity> RateDays { get; set; }
 
         public List<RateDetailEntity> RateDetails { get; set; }
 
         public List<RateBlackoutEntity> RateBlackouts { get; set; }
+
+        public List<RateRestrictionEntity> RateRestrictions { get; set; }
     }
 }

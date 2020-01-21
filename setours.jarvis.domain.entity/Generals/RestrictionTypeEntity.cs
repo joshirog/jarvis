@@ -25,6 +25,6 @@ namespace setours.jarvis.domain.entity.Generals
         public DateTime? UpdatedAt { get; set; }
 
 
-        public List<RateEntity> Rates { get; set; }
+        public List<RateRestrictionEntity> RateRestrictions { get; set; }
     }
 }
