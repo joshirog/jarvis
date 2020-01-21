@@ -5,9 +5,9 @@ using System;
 
 namespace setours.jarvis.infrastructure.persistence.Rates
 {
-    public class RateDateDetailConfiguration : IEntityTypeConfiguration<RateDateDetailEntity>
+    public class RateDetailConfiguration : IEntityTypeConfiguration<RateDetailEntity>
     {
-        public void Configure(EntityTypeBuilder<RateDateDetailEntity> builder)
+        public void Configure(EntityTypeBuilder<RateDetailEntity> builder)
         {
             builder.ToTable("ra_rate_details");
 
@@ -20,10 +20,10 @@ namespace setours.jarvis.infrastructure.persistence.Rates
                 .ValueGeneratedOnAdd()
                 .HasComment("Llave primaria de la tabla");
 
-            builder.Property(x => x.RateDateId)
-                .HasColumnName("ra_date_id")
+            builder.Property(x => x.RateId)
+                .HasColumnName("ra_rate_id")
                 .IsRequired()
-                .HasComment("Llave foranea con ra_date_id");
+                .HasComment("Llave foranea con ra_rates");
 
             builder.Property(x => x.AccommodationId)
                 .HasColumnName("ge_accommodation_id")
@@ -77,9 +77,9 @@ namespace setours.jarvis.infrastructure.persistence.Rates
                 .HasComment("ultima fecha de actualizacion el registro");
 
 
-            builder.HasOne(x => x.RateDate)
+            builder.HasOne(x => x.Rate)
                 .WithMany(x => x.RateDetails)
-                .HasForeignKey(x => x.RateDateId);
+                .HasForeignKey(x => x.RateId);
 
             builder.HasOne(x => x.Accommodation)
                 .WithMany(x => x.RateDetails)

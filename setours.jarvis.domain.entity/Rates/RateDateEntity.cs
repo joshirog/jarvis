@@ -29,11 +29,5 @@ namespace setours.jarvis.domain.entity.Rates
 
 
         public RateEntity Rate { get; set; }
-
-        public List<RateDateDayEntity> RateDateDays { get; set; }
-
-        public List<RateDateDetailEntity> RateDetails { get; set; }
-
-        public List<RateDateBlackoutEntity> RateDateBlackouts { get; set; }
     }
 }

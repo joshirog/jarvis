@@ -51,5 +51,11 @@ namespace setours.jarvis.domain.entity.Rates
         public List<RateTaxEntity> RateTaxes { get; set; }
 
         public RestrictionTypeEntity RestrictionType { get; set; }
+
+        public List<RateDayEntity> RateDays { get; set; }
+
+        public List<RateDetailEntity> RateDetails { get; set; }
+
+        public List<RateBlackoutEntity> RateBlackouts { get; set; }
     }
 }

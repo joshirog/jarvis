@@ -2,7 +2,7 @@
 
 namespace setours.jarvis.infrastructure.interfaces.Rates
 {
-    public interface IRateDetailRepository : IBaseRepository<RateDateDetailEntity>
+    public interface IRateDetailRepository : IBaseRepository<RateDetailEntity>
     {
         
     }

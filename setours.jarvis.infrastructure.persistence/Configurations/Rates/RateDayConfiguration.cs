@@ -5,11 +5,11 @@ using System;
 
 namespace setours.jarvis.infrastructure.persistence.Configurations.Rates
 {
-    public class RateDateBlackoutConfiguration : IEntityTypeConfiguration<RateDateBlackoutEntity>
+    public class RateDayConfiguration : IEntityTypeConfiguration<RateDayEntity>
     {
-        public void Configure(EntityTypeBuilder<RateDateBlackoutEntity> builder)
+        public void Configure(EntityTypeBuilder<RateDayEntity> builder)
         {
-            builder.ToTable("ra_rate_date_blackouts");
+            builder.ToTable("ra_rate_days");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
@@ -20,20 +20,15 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Rates
                 .ValueGeneratedOnAdd()
                 .HasComment("Llave primaria de la tabla");
 
-            builder.Property(x => x.RateDateId)
-                .HasColumnName("ra_rate_date_id")
+            builder.Property(x => x.RateId)
+                .HasColumnName("ra_rate_id")
                 .IsRequired()
-                .HasComment("Llave foranea con se_details");
+                .HasComment("Llave foranea con ra_rates");
 
-            builder.Property(x => x.DateIn)
-               .HasColumnName("data_in")
-               .IsRequired()
-               .HasComment("Blackout fecha inicio");
-
-            builder.Property(x => x.DateOut)
-               .HasColumnName("data_out")
-               .IsRequired()
-               .HasComment("Blackout fecha final");
+            builder.Property(x => x.NumDay)
+                .HasColumnName("num_day")
+                .IsRequired()
+                .HasComment("Número de día de la semana");
 
             builder.Property(x => x.CreatedBy)
                 .HasColumnName("created_by")
@@ -59,9 +54,9 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Rates
                 .HasComment("ultima fecha de actualizacion el registro");
 
 
-            builder.HasOne(x => x.RateDate)
-                .WithMany(x => x.RateDateBlackouts)
-                .HasForeignKey(x => x.RateDateId);
+            builder.HasOne(x => x.Rate)
+                .WithMany(x => x.RateDays)
+                .HasForeignKey(x => x.RateId);
         }
     }
 }

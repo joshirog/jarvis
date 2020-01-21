@@ -10,6 +10,8 @@ namespace setours.jarvis.domain.entity.Contacts
 
         public int ContactTypeId { get; set; }
 
+        public string Prefix { get; set; }
+
         public string Title { get; set; }
 
         public string Name { get; set; }

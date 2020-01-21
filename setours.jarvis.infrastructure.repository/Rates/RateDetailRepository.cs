@@ -4,7 +4,7 @@ using setours.jarvis.infrastructure.persistence;
 
 namespace setours.jarvis.infrastructure.repository.Rates
 {
-    public class RateDetailRepository : BaseRepository<RateDateDetailEntity>, IRateDetailRepository
+    public class RateDetailRepository : BaseRepository<RateDetailEntity>, IRateDetailRepository
     {
         public RateDetailRepository(ApplicationDbContext context) : base(context)
         {

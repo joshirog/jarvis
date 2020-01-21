@@ -9,7 +9,7 @@ namespace setours.jarvis.domain.entity.Contacts
 
         public int ContactId { get; set; }
 
-        public int SegmentationId { get; set; }
+        public int SegmentationMarketId { get; set; }
 
         public string CreatedBy { get; set; }
 

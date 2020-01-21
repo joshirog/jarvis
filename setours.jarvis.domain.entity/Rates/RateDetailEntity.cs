@@ -1,18 +1,15 @@
 ﻿using setours.jarvis.domain.entity.Generals;
 using System;
-using System.Collections.Generic;
 
 namespace setours.jarvis.domain.entity.Rates
 {
-    public class RateDateDetailEntity : IEntity
+    public class RateDetailEntity : IEntity
     {
         public int Id { get; set; }
 
-        public int RateDateId { get; set; }
+        public int RateId { get; set; }
 
         public int AccommodationId { get; set; }
-
-        public int CurrencyId { get; set; }
 
         public string Status { get; set; }
 
@@ -35,7 +32,7 @@ namespace setours.jarvis.domain.entity.Rates
         public DateTime? UpdatedAt { get; set; }
 
 
-        public RateDateEntity RateDate { get; set; }
+        public RateEntity Rate { get; set; }
 
         public AccommodationEntity Accommodation { get; set; }
     }

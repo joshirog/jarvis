@@ -25,6 +25,12 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Contacts
                 .IsRequired()
                 .HasComment("Llave foranea con la tabla co_types");
 
+            builder.Property(x => x.Prefix)
+                .HasColumnName("prefix")
+                .IsRequired(false)
+                .HasMaxLength(10)
+                .HasComment("Prefijo dl contacto Mr - Mrs.");
+
             builder.Property(x => x.Title)
                 .HasColumnName("title")
                 .IsRequired()

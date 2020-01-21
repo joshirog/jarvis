@@ -4,7 +4,7 @@ using setours.jarvis.infrastructure.interfaces.Rates;
 
 namespace setours.jarvis.domain.core.Rates
 {
-    public class RateDetailDomain : BaseDomain<IRateDetailRepository, RateDateDetailEntity>, IRateDetailDomain
+    public class RateDetailDomain : BaseDomain<IRateDetailRepository, RateDetailEntity>, IRateDetailDomain
     {
         public RateDetailDomain(IRateDetailRepository repository) : base(repository)
         {

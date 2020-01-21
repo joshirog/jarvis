@@ -26,7 +26,7 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Contacts
                 .HasMaxLength(150)
                 .HasComment("Llave foranea con co_contacts");
 
-            builder.Property(x => x.SegmentationId)
+            builder.Property(x => x.SegmentationMarketId)
                 .HasColumnName("name")
                 .IsRequired()
                 .HasMaxLength(150)

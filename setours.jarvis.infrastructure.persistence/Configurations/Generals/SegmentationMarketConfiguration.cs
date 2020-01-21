@@ -26,6 +26,12 @@ namespace setours.jarvis.infrastructure.persistence.Configurations.Generals
                 .HasMaxLength(150)
                 .HasComment("Nombre de la segmentacion de mercado o cliente");
 
+            builder.Property(x => x.Description)
+               .HasColumnName("description")
+               .IsRequired()
+               .HasMaxLength(150)
+               .HasComment("Descripcion detallada de la segmentacion de mercado");
+
             builder.Property(x => x.CreatedBy)
                 .HasColumnName("created_by")
                 .IsRequired()

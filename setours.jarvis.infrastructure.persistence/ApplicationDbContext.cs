@@ -58,9 +58,9 @@ namespace setours.jarvis.infrastructure.persistence
 
         public DbSet<RateStatusEntity> RateStatus { get; set; }
         public DbSet<RateDateEntity> RateDates { get; set; }
-        public DbSet<RateDateDetailEntity> RateDateDetails { get; set; }
-        public DbSet<RateDateDayEntity> RateDateDays { get; set; }
-        public DbSet<RateDateBlackoutEntity> RateDateBlackouts { get; set; }
+        public DbSet<RateDetailEntity> RateDateDetails { get; set; }
+        public DbSet<RateDayEntity> RateDateDays { get; set; }
+        public DbSet<RateBlackoutEntity> RateDateBlackouts { get; set; }
         public DbSet<RateEntity> Rates { get; set; }
         public DbSet<RateInclusionEntity> RateInclusions { get; set; }
         public DbSet<RateTaxEntity> RateTaxes { get; set; }
@@ -103,11 +103,11 @@ namespace setours.jarvis.infrastructure.persistence
             builder.ApplyConfiguration(new ServiceDescriptionConfiguration());
 
             builder.ApplyConfiguration(new RateStatusConfiguration());
-            builder.ApplyConfiguration(new RateDateDetailConfiguration());
+            builder.ApplyConfiguration(new RateDetailConfiguration());
             builder.ApplyConfiguration(new RateDateConfiguration());
             builder.ApplyConfiguration(new RateConfiguration());
-            builder.ApplyConfiguration(new RateDateDayConfiguration());
-            builder.ApplyConfiguration(new RateDateBlackoutConfiguration());
+            builder.ApplyConfiguration(new RateDayConfiguration());
+            builder.ApplyConfiguration(new RateBlackoutConfiguration());
             builder.ApplyConfiguration(new RateInclusionConfiguration());
             builder.ApplyConfiguration(new RateTaxConfiguration());
         }

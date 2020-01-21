@@ -2,13 +2,15 @@
 
 namespace setours.jarvis.domain.entity.Rates
 {
-    public class RateDateDayEntity : IEntity
+    public class RateBlackoutEntity : IEntity
     {
         public int Id { get; set; }
 
-        public int RateDateId { get; set; }
+        public int RateId { get; set; }
 
-        public int NumDay { get; set; }
+        public DateTime DateIn { get; set; }
+
+        public DateTime DateOut { get; set; }
 
         public string CreatedBy { get; set; }
 
@@ -19,6 +21,7 @@ namespace setours.jarvis.domain.entity.Rates
         public DateTime? UpdatedAt { get; set; }
 
 
-        public RateDateEntity RateDate { get; set; }
+
+        public RateEntity Rate { get; set; }
     }
 }
