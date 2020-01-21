@@ -39,6 +39,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "setours.jarvis.application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "setours.jarvis.services.api", "setours.jarvis.services.api\setours.jarvis.services.api.csproj", "{B2448731-B765-4859-BF58-79BF88826449}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Testing", "6. Testing", "{DE5421DF-E99C-4BE9-A615-241639AB92C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "setours.jarvis.testing.xunit", "setours.jarvis.testing.xunit\setours.jarvis.testing.xunit.csproj", "{FD86183C-A8A5-43D1-9327-542E4A26B4CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +101,10 @@ Global
 		{B2448731-B765-4859-BF58-79BF88826449}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2448731-B765-4859-BF58-79BF88826449}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2448731-B765-4859-BF58-79BF88826449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD86183C-A8A5-43D1-9327-542E4A26B4CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD86183C-A8A5-43D1-9327-542E4A26B4CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD86183C-A8A5-43D1-9327-542E4A26B4CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD86183C-A8A5-43D1-9327-542E4A26B4CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +123,7 @@ Global
 		{0208A0FB-B598-4C33-922B-CC04CABA5EB2} = {BA2CF13A-3AD5-4066-B3CE-142CDF002690}
 		{27F8CD3C-E144-4AD9-AD2B-9E25419F94A0} = {E78D7C43-E27B-4161-8648-AFEC784661CB}
 		{B2448731-B765-4859-BF58-79BF88826449} = {DDA26B38-5F88-441E-96AD-6F3637F8F5AD}
+		{FD86183C-A8A5-43D1-9327-542E4A26B4CA} = {DE5421DF-E99C-4BE9-A615-241639AB92C6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BF43F2B5-A00D-4625-8265-0CC13E2F562A}
